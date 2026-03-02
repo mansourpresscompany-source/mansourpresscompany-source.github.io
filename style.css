@@ -1,3 +1,6 @@
+/* ---------- Fonts (safe defaults) ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap');
+
 :root{
 --ink: rgba(255,255,255,0.92);
 --ink-soft: rgba(255,255,255,0.78);
