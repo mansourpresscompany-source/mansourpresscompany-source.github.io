@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Discover — Mansour Press</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Discover • Mansour Press</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky-fog"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="skyFx" aria-hidden="true"></canvas>
 
-<header class="container">
-<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
+<header class="topbar">
+<a class="brand" href="index.html"><span class="sparkle">✦</span><span class="title">Mansour Press</span></a>
 <nav class="nav" aria-label="Primary">
-<a class="cloud-link" href="index.html">Home</a>
 <a class="cloud-link" href="books.html">Books</a>
 <a class="cloud-link" href="discover.html">Discover</a>
 <a class="cloud-link" href="author.html">Author</a>
@@ -21,31 +21,30 @@
 </nav>
 </header>
 
-<main class="page container">
+<main class="page">
+<div class="page-inner">
 <h1 class="page-title">Discover the Story</h1>
 
-<section class="card-cloud">
-<p>
-Mansour Press is built on love for the Word and love for writing—stories tender enough for bedtime,
-and strong enough to plant truth in a child’s heart.
+<section class="card cloud">
+<p class="p">
+Mansour Press is built on love for the Word and love for writing—stories tender enough for bedtime, and strong enough to plant truth in a child’s heart.
 </p>
 
-<ul>
+<ul class="list">
 <li>Gentle Christian themes (warm, not heavy)</li>
-<li>Majestic creation wonder (heavenly, storybook feel)</li>
+<li>Majestic creation wonder (heavenly, astral feel)</li>
 <li>The Little Lamb as a comforting guide</li>
 </ul>
 
-<p>
+<p class="p" style="margin-top:14px; font-style: italic;">
 “Light, love, and truth—woven into stories children want to hear again.”
 </p>
+<p class="p" style="margin-top:6px; color: rgba(20,35,60,0.65);">— Mansour Press</p>
 </section>
+</div>
 </main>
 
-<footer class="container">
-© 2026 Mansour Press — Made with wonder.
-</footer>
-
+<footer class="footer">© 2026 Mansour Press — Made with wonder.</footer>
 <script src="script.js"></script>
 </body>
 </html>
