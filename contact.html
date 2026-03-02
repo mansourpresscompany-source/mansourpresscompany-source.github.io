@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact — Mansour Press</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact • Mansour Press</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky-fog"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="skyFx" aria-hidden="true"></canvas>
 
-<header class="container">
-<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
-
+<header class="topbar">
+<a class="brand" href="index.html"><span class="sparkle">✦</span><span class="title">Mansour Press</span></a>
 <nav class="nav" aria-label="Primary">
-<a class="cloud-link" href="index.html">Home</a>
 <a class="cloud-link" href="books.html">Books</a>
 <a class="cloud-link" href="discover.html">Discover</a>
 <a class="cloud-link" href="author.html">Author</a>
@@ -22,37 +22,40 @@
 </nav>
 </header>
 
-<main class="page container">
+<main class="page">
+<div class="page-inner">
 <h1 class="page-title">Contact</h1>
 
-<section class="card-cloud">
-<h2>Reach Out</h2>
-<p>Questions, collaborations, bookstores, or events—reach out here.</p>
+<section class="card cloud">
+<h2 class="h2">Reach out</h2>
+<p class="p">Questions, collaborations, bookstores, or events—reach out here.</p>
 
-<p>
-<strong>Mansour Press</strong><br/>
-Winter Garden, FL, USA<br/>
-<a href="tel:+14078078212">+1 (407) 807-8212</a><br/>
-Hours: Mon–Thu 9:00am–5:00pm • Fri–Sun Closed
-</p>
+<div style="margin-top:14px; display:grid; gap:8px;">
+<p class="p"><strong>Location:</strong> Winter Garden, FL, USA</p>
+<p class="p"><strong>Phone:</strong> <a href="tel:+14078078212">+1 (407) 807-8212</a></p>
+<p class="p"><strong>Hours:</strong> Mon–Thu 9:00am–5:00pm • Fri–Sun Closed</p>
+</div>
+</section>
 
-<form>
-<input type="text" name="name" placeholder="Your name" />
-<input type="email" name="email" placeholder="Your email" />
-<textarea name="message" placeholder="Write your message..."></textarea>
-<button type="button">Send</button>
+<section class="card cloud">
+<h2 class="h2">Send a message</h2>
+
+<!-- Static site note: this does NOT send anywhere until you connect a form service. -->
+<form class="form" onsubmit="event.preventDefault(); alert('Form is not connected yet. Add a form service (like Formspree) when ready.');">
+<input type="text" name="name" placeholder="Your name" required />
+<input type="email" name="email" placeholder="Your email" required />
+<textarea name="message" placeholder="Write your message…" required></textarea>
+<button class="btn" type="submit">Send</button>
 </form>
 
-<p style="margin-top:12px; font-size: 14px; opacity:0.85;">
-Note: This form is a placeholder until you connect it to a form service.
+<p class="p" style="margin-top:10px; font-size:15px; color: rgba(20,35,60,0.65);">
+When you’re ready, I can wire this form to Formspree with one small edit.
 </p>
 </section>
+</div>
 </main>
 
-<footer class="container">
-© 2026 Mansour Press — Made with wonder.
-</footer>
-
+<footer class="footer">© 2026 Mansour Press — Made with wonder.</footer>
 <script src="script.js"></script>
 </body>
 </html>
