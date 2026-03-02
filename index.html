@@ -1,151 +1,175 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mansour Press</title>
+/* Base */
+body{
+  margin:0;
+  font-family:'Nunito', sans-serif;
+  color:white;
+  overflow-x:hidden;
+  background:#050814;
+}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+}
 
-<link rel="stylesheet" href="style.css" />
-</head>
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+}
 
-<body>
+/* SKY */
+.sky{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+  background:linear-gradient(to bottom,#050814,#0a1330);
+}
 
-<!-- SKY BACKGROUND -->
-<div class="sky">
+.sky div{position:absolute; inset:-20%;}
 
-  <div class="stars stars-1"></div>
-  <div class="stars stars-2"></div>
-  <div class="stars stars-3"></div>
+/* Stars */
+.stars{
+  background-image:
+    radial-gradient(2px 2px at 20% 30%,white,transparent),
+    radial-gradient(1px 1px at 60% 70%,white,transparent),
+    radial-gradient(2px 2px at 80% 20%,white,transparent);
+  background-size:300px 300px;
+  animation:drift 90s linear infinite;
+  opacity:.5;
+}
 
-  <div class="nebula nebula-a"></div>
-  <div class="nebula nebula-b"></div>
-  <div class="nebula nebula-c"></div>
+.stars-2{animation-duration:120s;opacity:.3;}
+.stars-3{animation-duration:150s;opacity:.2;}
 
-  <div class="twinkles"></div>
+@keyframes drift{
+  from{transform:translate(0,0);}
+  to{transform:translate(200px,100px);}
+}
 
-  <!-- Big shooting stars -->
-  <div class="shooting-star shooting-1"></div>
-  <div class="shooting-star shooting-2"></div>
+/* Nebula */
+.nebula{
+  mix-blend-mode:normal;
+  filter:blur(20px);
+  opacity:.8;
+  animation:nebulaMove 60s ease-in-out infinite alternate;
+}
 
-</div>
+.nebula-a{
+  background:radial-gradient(circle at 30% 40%,rgba(120,170,255,.4),transparent 60%);
+}
+.nebula-b{
+  background:radial-gradient(circle at 70% 60%,rgba(200,120,255,.3),transparent 60%);
+}
+.nebula-c{
+  background:radial-gradient(circle at 50% 20%,rgba(120,255,220,.25),transparent 60%);
+}
 
-<header class="header">
-  <div class="container header-inner">
-    <img src="logo.jpg" class="logo" alt="Mansour Press logo">
-    <nav>
-      <a href="#books">Books</a>
-      <a href="#discover">Discover</a>
-      <a href="#author">Author</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+@keyframes nebulaMove{
+  from{transform:translate(-50px,-20px);}
+  to{transform:translate(50px,20px);}
+}
 
-<main>
+/* Twinkle */
+.twinkles{
+  background:
+  radial-gradient(2px 2px at 40% 50%,white,transparent),
+  radial-gradient(2px 2px at 70% 30%,white,transparent);
+  animation:twinkle 6s infinite alternate;
+}
 
-<section class="hero">
-  <div class="container">
-    <div class="cloud-box">
-      <h1>Under Heaven’s Sky, Little Hearts Learn They Are Loved.</h1>
-      <p>
-        Mansour Press creates watercolor Christian children’s books filled with wonder,
-        light, and truth — stories that gently guide young hearts toward faith.
-      </p>
-    </div>
-  </div>
-</section>
+@keyframes twinkle{
+  from{opacity:.3;}
+  to{opacity:.8;}
+}
 
-<section id="books" class="section">
-  <div class="container">
-    <h2 class="section-title">The First Collection</h2>
+/* Shooting Star */
+.shooting-star{
+  width:200px;
+  height:4px;
+  background:linear-gradient(to right,transparent, yellow, white);
+  top:20%;
+  left:-20%;
+  transform:rotate(-20deg);
+  opacity:0;
+  animation:shoot 25s infinite;
+}
 
-    <div class="book-grid">
+.shooting-2{top:40%;animation-delay:12s;}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+@keyframes shoot{
+  0%{opacity:0;}
+  85%{opacity:0;}
+  88%{opacity:1;transform:translate(120vw,60vh) rotate(-20deg);}
+  90%{opacity:0;}
+  100%{opacity:0;}
+}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+/* Header */
+.header{
+  padding:20px 0;
+}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+.logo{
+  height:70px;
+}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
+}
 
-      <div class="cloud-box book">
-        <h3>Book Title</h3>
-        <p>Coming Soon</p>
-      </div>
+/* Sections */
+.section{
+  padding:80px 0;
+}
 
-    </div>
-  </div>
-</section>
+/* Cloud Box */
+.cloud-box{
+  background:rgba(255,255,255,.07);
+  padding:30px;
+  border-radius:50% 50% 45% 45% / 60% 60% 40% 40%;
+  border:2px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 30px rgba(255,255,255,.1);
+  text-align:center;
+}
 
-<section id="discover" class="section">
-  <div class="container">
-    <div class="cloud-box">
-      <h2>Discover the Story</h2>
-      <p>
-        Each book is crafted to feel like opening a treasured storybook —
-        soft watercolor illustrations, gentle faith-centered themes,
-        and stories rooted in God’s creation.
-      </p>
-    </div>
-  </div>
-</section>
+/* Books */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
 
-<section id="author" class="section">
-  <div class="container author-section">
-    <img src="author.jpg" class="author-photo" alt="Author photo">
+.book h3{
+  font-size:1.4rem;
+}
 
-    <div class="cloud-box">
-      <h2>About the Author</h2>
-      <p>
-        S.C. Mansour is the author and illustrator of Mansour Press.
-        Her work blends imagination, faith, and artistry —
-        creating stories that feel warm, safe, and filled with light.
-      </p>
-    </div>
-  </div>
-</section>
+/* Author */
+.author-section{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
+}
 
-<section id="contact" class="section">
-  <div class="container">
-    <div class="cloud-box">
-      <h2>Contact</h2>
-      <p>Winter Garden, Florida</p>
-      <p><a href="tel:+14078078212">(407) 807-8212</a></p>
-    </div>
-  </div>
-</section>
+.author-photo{
+  width:280px;
+  border-radius:20px;
+}
 
-</main>
-
-<footer>
-  © <span id="year"></span> Mansour Press
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+/* Footer */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
+}
