@@ -1,27 +1,388 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Mansour Press</title>
-<link rel="stylesheet" href="style.css">
-</head>
+:root{
+--bg1:#060816;
+--bg2:#0b1230;
+--ink:#eef0ff;
+--muted:rgba(238,240,255,.78);
+--glass:rgba(255,255,255,.06);
+--stroke:rgba(255,255,255,.14);
+}
 
-<body>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+color:var(--ink);
+background:
+radial-gradient(1200px 600px at 20% 10%, rgba(170,120,255,.18), transparent 60%),
+radial-gradient(900px 500px at 80% 20%, rgba(80,180,255,.14), transparent 55%),
+radial-gradient(1200px 700px at 50% 120%, rgba(255,210,120,.10), transparent 60%),
+linear-gradient(180deg,var(--bg1),var(--bg2));
+}
 
-<section class="hero">
-<h1>Mansour Press</h1>
-<p>Gentle, faith-rooted stories for little hearts.</p>
-<div class="lamb"></div>
-</section>
+a{color:inherit}
+.container{width:min(1100px,92vw); margin:0 auto}
+.narrow{width:min(820px,92vw); margin:0 auto}
 
-<section class="about">
-<h2>Discover the Story</h2>
-<p>
-Mansour Press creates watercolor Christian children's books
-centered around a gentle Little Lamb who reminds children
-they are safe, loved, and known by God.
-</p>
-</section>
+/* HEADER */
+.header{
+position:sticky; top:0; z-index:50;
+backdrop-filter: blur(10px);
+background: linear-gradient(180deg, rgba(6,8,22,.72), rgba(6,8,22,.35));
+border-bottom:1px solid rgba(255,255,255,.10);
+}
+.nav-inner{
+display:flex; align-items:center; justify-content:space-between;
+gap:14px; padding:10px 0;
+}
+.logo{height:34px; width:auto; display:block}
+nav{display:flex; gap:16px; flex-wrap:wrap}
+nav a{
+text-decoration:none;
+padding:8px 10px;
+border-radius:999px;
+border:1px solid transparent;
+color:var(--muted);
+}
+nav a:hover{border-color:rgba(255,255,255,.18); color:var(--ink); background:rgba(255,255,255,.05)}
 
-</body>
-</html>
+/* HERO */
+.hero{
+position:relative;
+min-height:92vh;
+display:grid;
+place-items:center;
+padding:60px 0 40px;
+overflow:hidden;
+}
+.hero-content{
+position:relative;
+width:min(920px,92vw);
+text-align:center;
+padding:26px 18px 30px;
+border-radius:24px;
+background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+border:1px solid rgba(255,255,255,.14);
+box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+.kicker{
+margin:0 0 10px;
+letter-spacing:.08em;
+text-transform:uppercase;
+font-size:12px;
+color:rgba(238,240,255,.75);
+}
+h1{
+font-family:"Cormorant Garamond",serif;
+font-weight:700;
+font-size:clamp(34px,4.6vw,62px);
+line-height:1.04;
+margin:0 0 14px;
+}
+.lead{
+margin:0 auto 18px;
+max-width:70ch;
+color:rgba(238,240,255,.82);
+font-size:clamp(14px,1.5vw,18px);
+line-height:1.6;
+}
+
+/* BUTTONS */
+.buttons{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:10px}
+.btn-primary,.btn-ghost,button.btn-primary{
+display:inline-block;
+border-radius:999px;
+padding:11px 16px;
+text-decoration:none;
+font-weight:600;
+border:1px solid rgba(255,255,255,.18);
+}
+.btn-primary,button.btn-primary{
+background: linear-gradient(135deg, rgba(170,120,255,.55), rgba(90,180,255,.45));
+box-shadow: 0 12px 26px rgba(90,180,255,.14);
+}
+.btn-primary:hover,button.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{
+background: rgba(255,255,255,.06);
+color:rgba(238,240,255,.9);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.10)}
+
+/* COSMOS BACKDROP */
+.cosmos{
+position:absolute; inset:-40px;
+background:
+radial-gradient(2px 2px at 12% 22%, rgba(255,255,255,.95), transparent 60%),
+radial-gradient(1.6px 1.6px at 66% 18%, rgba(255,255,255,.75), transparent 60%),
+radial-gradient(1.4px 1.4px at 78% 44%, rgba(255,255,255,.65), transparent 60%),
+radial-gradient(1.2px 1.2px at 32% 62%, rgba(255,255,255,.70), transparent 60%),
+radial-gradient(1.1px 1.1px at 52% 78%, rgba(255,255,255,.60), transparent 60%),
+radial-gradient(900px 420px at 20% 30%, rgba(170,120,255,.18), transparent 60%),
+radial-gradient(800px 420px at 82% 36%, rgba(80,180,255,.16), transparent 62%),
+radial-gradient(900px 520px at 50% 92%, rgba(255,210,120,.10), transparent 60%);
+filter:saturate(1.05);
+opacity:.95;
+z-index:0;
+}
+.cosmos::before,
+.cosmos::after{
+content:"";
+position:absolute; inset:0;
+background-image:
+radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.65), transparent 60%),
+radial-gradient(1px 1px at 28% 34%, rgba(255,255,255,.55), transparent 60%),
+radial-gradient(1px 1px at 46% 22%, rgba(255,255,255,.45), transparent 60%),
+radial-gradient(1px 1px at 62% 62%, rgba(255,255,255,.55), transparent 60%),
+radial-gradient(1px 1px at 84% 28%, rgba(255,255,255,.55), transparent 60%),
+radial-gradient(1px 1px at 76% 78%, rgba(255,255,255,.40), transparent 60%),
+radial-gradient(1px 1px at 18% 74%, rgba(255,255,255,.40), transparent 60%);
+opacity:.85;
+animation: drift 18s linear infinite;
+}
+.cosmos::after{
+opacity:.55;
+filter: blur(.3px);
+animation-duration: 28s;
+}
+@keyframes drift{
+from{transform:translateY(0)}
+to{transform:translateY(40px)}
+}
+
+/* FLOATING ISLAND SCENE */
+.floating-island{
+position:absolute;
+left:50%;
+bottom:-20px;
+transform:translateX(-50%);
+width:min(820px,92vw);
+height:320px;
+z-index:1;
+pointer-events:none;
+}
+
+/* island body */
+.floating-island::before{
+content:"";
+position:absolute;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+width:520px;
+height:140px;
+border-radius:999px;
+background:
+radial-gradient(180px 80px at 50% 10%, rgba(255,255,255,.14), transparent 60%),
+linear-gradient(180deg, rgba(70,120,90,.45), rgba(25,42,40,.85));
+border:1px solid rgba(255,255,255,.16);
+box-shadow:
+0 30px 80px rgba(0,0,0,.55),
+0 0 60px rgba(170,120,255,.10);
+}
+
+/* island underside glow */
+.floating-island::after{
+content:"";
+position:absolute;
+left:50%;
+bottom:0;
+transform:translateX(-50%);
+width:640px;
+height:120px;
+border-radius:999px;
+background: radial-gradient(closest-side, rgba(90,180,255,.22), transparent 70%);
+filter: blur(10px);
+opacity:.8;
+}
+
+/* church */
+.church{
+position:absolute;
+left:50%;
+bottom:115px;
+transform:translateX(-50%);
+width:120px;
+height:90px;
+border-radius:14px;
+background: rgba(255,255,255,.10);
+border:1px solid rgba(255,255,255,.18);
+box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+.church::before{
+content:"";
+position:absolute;
+top:-34px; left:50%;
+transform:translateX(-50%);
+width:70px; height:44px;
+clip-path: polygon(50% 0, 100% 100%, 0 100%);
+background: rgba(255,255,255,.10);
+border:1px solid rgba(255,255,255,.18);
+}
+.church::after{
+content:"";
+position:absolute;
+top:-62px; left:50%;
+transform:translateX(-50%);
+width:10px; height:40px;
+background: rgba(255,255,255,.22);
+border-radius:10px;
+box-shadow: 0 0 18px rgba(255,255,255,.35);
+}
+
+/* lamb */
+.lamb{
+position:absolute;
+left:35%;
+bottom:105px;
+width:70px; height:54px;
+border-radius:26px;
+background: rgba(255,255,255,.18);
+border:1px solid rgba(255,255,255,.22);
+box-shadow: 0 10px 26px rgba(0,0,0,.35);
+}
+.lamb::before{
+content:"";
+position:absolute;
+right:-10px; top:12px;
+width:26px; height:26px;
+border-radius:50%;
+background: rgba(255,255,255,.18);
+border:1px solid rgba(255,255,255,.22);
+}
+.lamb::after{
+content:"";
+position:absolute;
+left:16px; top:-10px;
+width:18px; height:14px;
+border-radius:10px 10px 6px 6px;
+background: rgba(255,255,255,.16);
+box-shadow: 22px 0 0 rgba(255,255,255,.16);
+}
+
+/* book (Word / writing) */
+.book{
+position:absolute;
+left:65%;
+bottom:108px;
+width:76px; height:48px;
+border-radius:10px;
+background: rgba(255,255,255,.10);
+border:1px solid rgba(255,255,255,.18);
+box-shadow: 0 0 30px rgba(255,210,120,.20);
+}
+.book::before{
+content:"";
+position:absolute; inset:10px 10px 10px 12px;
+border-radius:6px;
+background: rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.12);
+}
+.book::after{
+content:"";
+position:absolute;
+left:50%; top:50%;
+transform:translate(-50%,-50%);
+width:110px; height:80px;
+background: radial-gradient(closest-side, rgba(255,210,120,.28), transparent 70%);
+filter: blur(8px);
+}
+
+/* dove (Holy Spirit symbol — light) */
+.dove{
+position:absolute;
+left:50%;
+bottom:210px;
+transform:translateX(-50%);
+width:20px; height:20px;
+border-radius:50%;
+background: rgba(255,255,255,.28);
+box-shadow:
+0 0 20px rgba(255,255,255,.35),
+0 0 60px rgba(90,180,255,.20);
+opacity:.95;
+animation: floaty 4.5s ease-in-out infinite;
+}
+@keyframes floaty{
+0%,100%{transform:translateX(-50%) translateY(0)}
+50%{transform:translateX(-50%) translateY(-10px)}
+}
+
+/* SECTIONS */
+.section{padding:70px 0}
+.section h2{
+font-family:"Cormorant Garamond",serif;
+font-size:38px;
+margin:0 0 14px;
+}
+.section p, .section li{color:rgba(238,240,255,.84); line-height:1.7}
+.soft{
+background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+border-top:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:14px;
+margin-top:18px;
+}
+.card{
+padding:16px;
+border-radius:18px;
+background: rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+}
+.card h3{margin:0 0 8px; font-family:"Cormorant Garamond",serif; font-size:24px}
+blockquote{
+margin:18px 0 0;
+padding:16px 18px;
+border-radius:18px;
+background: rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+color:rgba(238,240,255,.9);
+}
+
+/* AUTHOR */
+.author{
+display:grid;
+grid-template-columns: 260px 1fr;
+gap:18px;
+align-items:center;
+}
+.author img{
+width:100%;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.16);
+box-shadow: 0 18px 60px rgba(0,0,0,.35);
+}
+
+/* FORM */
+form{display:grid; gap:10px; margin-top:14px}
+input,textarea{
+width:100%;
+padding:12px 14px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(0,0,0,.22);
+color:var(--ink);
+outline:none;
+}
+textarea{min-height:120px; resize:vertical}
+button{cursor:pointer}
+
+/* FOOTER */
+footer{
+padding:26px 0 34px;
+text-align:center;
+color:rgba(238,240,255,.70);
+}
+
+/* RESPONSIVE */
+@media (max-width: 860px){
+.cards{grid-template-columns:1fr}
+.author{grid-template-columns:1fr}
+.floating-island{height:280px}
+.floating-island::before{width:440px}
+}
