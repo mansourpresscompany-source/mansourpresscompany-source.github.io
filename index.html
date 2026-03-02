@@ -1,42 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mansour Press</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+<!-- animated background layers -->
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="skyFx" aria-hidden="true"></canvas>
 
-<div class="nebula"></div>
-<div class="shooting-star"></div>
+<header class="topbar">
+<a class="brand" href="index.html" aria-label="Mansour Press Home">
+<span class="sparkle">✦</span>
+<span class="title">Mansour Press</span>
+</a>
 
-<header>
-<h1 class="logo-title"><span>✦</span>Mansour Press</h1>
-
-<nav>
-<a href="books.html">Books</a>
-<a href="discover.html">Discover</a>
-<a href="author.html">Author</a>
-<a href="contact.html">Contact</a>
-<a href="mansour-press.html">Mansour Press</a>
+<nav class="nav" aria-label="Primary">
+<a class="cloud-link" href="books.html">Books</a>
+<a class="cloud-link" href="discover.html">Discover</a>
+<a class="cloud-link" href="author.html">Author</a>
+<a class="cloud-link" href="contact.html">Contact</a>
+<a class="cloud-link" href="mansour-press.html">Mansour Press</a>
 </nav>
 </header>
 
-<section class="hero">
-<h2>Under Heaven’s sky,<br>little hearts learn they are loved.</h2>
+<main class="landing">
+<section class="hero-card" aria-label="Hero">
+<div class="kicker">MAJESTIC WONDER · GENTLE TRUTH · STORYBOOK FAITH</div>
 
-<p>
-Mansour Press creates Christian children’s stories that feel warm,
-safe, and full of awe—where God’s creation points back to the One
-who made it, and the Word is a light for the path.
+<h1 class="hero-title">Under Heaven’s sky,<br/>little hearts learn they are loved.</h1>
+
+<p class="hero-copy">
+Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.
 </p>
 </section>
+</main>
 
-<footer>
-© 2026 Mansour Press — Made with wonder.
-</footer>
+<footer class="footer">© 2026 Mansour Press — Made with wonder.</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
