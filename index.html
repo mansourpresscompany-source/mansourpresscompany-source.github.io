@@ -1,343 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mansour Press</title>
-
-<meta name="description" content="Mansour Press — Christian children’s stories inspired by God’s creation." />
-
-<!-- Fonts: elegant storybook headings + friendly body -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<!-- Animated background layers -->
-<div class="bg" aria-hidden="true">
-<div class="nebula"></div>
-<div class="stars stars-1"></div>
-<div class="stars stars-2"></div>
-<div class="stars stars-3"></div>
+
+<div class="stars"></div>
 <div class="twinkle"></div>
-</div>
+<div class="nebula"></div>
+<div class="meteor"></div>
 
-<!-- Optional: subtle vignette to keep text readable -->
-<div class="vignette" aria-hidden="true"></div>
-
-<!-- Header -->
-<header class="site-header">
-<div class="header-inner">
-<a class="brand" href="#top" aria-label="Mansour Press home">
-<span class="brand-mark" aria-hidden="true">✦</span>
-<span class="brand-text">Mansour Press</span>
-</a>
-
-<nav class="nav" aria-label="Primary navigation">
+<header>
+<nav class="cloud-nav">
 <a href="#books">Books</a>
-<a href="#story">Discover</a>
+<a href="#discover">Discover</a>
 <a href="#author">Author</a>
 <a href="#contact">Contact</a>
 </nav>
-
-<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" type="button">
-<span></span><span></span><span></span>
-</button>
-</div>
-
-<div class="mobile-nav" hidden>
-<a href="#books">Books</a>
-<a href="#story">Discover</a>
-<a href="#author">Author</a>
-<a href="#contact">Contact</a>
-</div>
 </header>
 
-<main id="top">
-<!-- HERO -->
-<section class="hero section">
-<div class="container hero-inner">
-<div class="cloud-card hero-card">
-<p class="kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
+<section class="hero">
 <h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
+<p>Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.</p>
+</section>
 
-<p class="lead">
-Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.
-</p>
-
-<div class="cta-row">
-<a class="btn primary" href="#books">Explore Books</a>
-<a class="btn ghost" href="#contact">Contact</a>
-</div>
-
-<div class="quick-info">
-<a class="pill" href="tel:+14078078212" aria-label="Call Mansour Press at 407-807-8212">📞 407-807-8212</a>
-<span class="pill">📍 Winter Garden, FL</span>
-<span class="pill">🕘 Mon–Thu 9–5</span>
-</div>
-</div>
+<section id="books" class="cloud-box">
+<h2>Books</h2>
+<div class="book-grid">
+<div class="book">Book One<br><span>Coming Soon</span></div>
+<div class="book">Book Two<br><span>Coming Soon</span></div>
+<div class="book">Book Three<br><span>Coming Soon</span></div>
+<div class="book">Book Four<br><span>Coming Soon</span></div>
+<div class="book">Book Five<br><span>Coming Soon</span></div>
+<div class="book">Book Six<br><span>Coming Soon</span></div>
 </div>
 </section>
 
-<!-- BOOKS -->
-<section id="books" class="section">
-<div class="container">
-<h2 class="section-title">Books</h2>
-<p class="section-sub">
-A first set of <strong>six</strong> sturdy, hard-page books is on the way.
-</p>
-
-<div class="cards">
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book One (title reveal soon)</p>
-</article>
-
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book Two (title reveal soon)</p>
-</article>
-
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book Three (title reveal soon)</p>
-</article>
-
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book Four (title reveal soon)</p>
-</article>
-
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book Five (title reveal soon)</p>
-</article>
-
-<article class="cloud-card book-card">
-<h3>Coming Soon</h3>
-<p class="muted">Book Six (title reveal soon)</p>
-</article>
-</div>
-
-<div class="cloud-card note-card">
-<p class="note">
-These books are designed to be read aloud, treasured, and passed on—simple language, warm illustration, and faith-rooted themes that fit beautifully in both homes and classrooms.
-</p>
-</div>
-</div>
-</section>
-
-<!-- DISCOVER -->
-<section id="story" class="section">
-<div class="container two-col">
-<div class="cloud-card">
-<h2 class="section-title">Discover the Story</h2>
-<p>
-Mansour Press is built on love for the Word and love for writing—stories tender enough for bedtime, and strong enough to plant truth in a child’s heart.
-</p>
-
-<ul class="bullets">
+<section id="discover" class="cloud-box">
+<h2>Discover the Story</h2>
+<ul>
 <li>Gentle Christian themes (warm, not heavy)</li>
-<li>Majestic creation wonder (heavenly, awe-filled)</li>
+<li>Majestic creation wonder (heavenly, astral feel)</li>
 <li>The Little Lamb as a comforting guide</li>
 </ul>
-
-<div class="quote cloud-card inner-quote">
-<p class="quote-text">“Light, love, and truth—woven into stories children want to hear again.”</p>
-<p class="quote-by">— Mansour Press</p>
-</div>
-</div>
-
-<div class="cloud-card soft-panel">
-<h3 class="panel-title">Welcome</h3>
-<p>
-Welcome to Mansour Press—home of timeless children’s stories written to be read aloud, treasured, and passed on. Under the author name S.C. Mansour, we’re building a gentle six-book series for toddlers and preschoolers with simple language, warm illustration, and faith-rooted themes.
-</p>
-</div>
-</div>
+<p><em>“Light, love, and truth—woven into stories children want to hear again.”</em></p>
 </section>
 
-<!-- AUTHOR -->
-<section id="author" class="section">
-<div class="container author-wrap">
-<div class="cloud-card author-card">
-<div class="author-photo-wrap">
-<!-- Keep your existing file name: author.jpg -->
-<img class="author-photo" src="author.jpg" alt="Author photo" />
-</div>
+<section id="author" class="cloud-box">
+<h2>About the Author</h2>
+<img src="yourphoto.jpg" class="author-photo">
+<p>S.C. Mansour holds a Bachelor’s degree in English Literature and brings both her love of language and her deep Christian faith into every story she writes.</p>
 
-<div class="author-text">
-<h2 class="section-title">About the Author</h2>
-<p>
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language and deep Christian faith into every story she writes.
-</p>
-</div>
-</div>
-</div>
+<p>As a devoted wife and mother of four beautiful children, she understands the sacred, everyday moments that shape a child’s heart—bedtime prayers, whispered reassurances, and the simple rhythms of family life.</p>
+
+<p>Her passion is to create gentle, faith-rooted books that help little ones know they are loved by God and safe in His care.</p>
+
+<p>Through Mansour Press, she offers timeless stories families can read together and treasure for years to come.</p>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-<div class="container two-col">
-<div class="cloud-card">
-<h2 class="section-title">Contact</h2>
-<p class="section-sub">
-Questions, collaborations, bookstores, or events—reach out here.
-</p>
-
-<!-- NOTE: This is a visual form only unless you connect it to a service -->
-<form class="form" id="contactForm" onsubmit="return false;">
-<label>
-<span>Name</span>
-<input name="name" required placeholder="Your name" />
-</label>
-
-<label>
-<span>Email</span>
-<input type="email" name="email" required placeholder="you@email.com" />
-</label>
-
-<label>
-<span>Message</span>
-<textarea name="message" rows="6" required placeholder="Write your message..."></textarea>
-</label>
-
-<button class="btn primary" type="submit">Send</button>
-
-<p class="fine">
-Tip: connect this form to an inbox service later so messages deliver automatically.
-</p>
+<section id="contact" class="cloud-box">
+<h2>Contact</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Write your message..."></textarea>
+<button type="submit">Send</button>
 </form>
-</div>
-
-<div class="cloud-card contact-card">
-<h3>Mansour Press</h3>
-<p class="muted">Winter Garden, FL, USA</p>
-
-<p class="contact-line">
-<a class="link" href="tel:+14078078212">+1 (407) 807-8212</a>
-</p>
-
-<div class="divider"></div>
-
-<h4>Hours</h4>
-<p class="hours">Mon–Thu: 9:00am – 5:00pm<br/>Fri–Sun: Closed</p>
-</div>
-</div>
 </section>
-</main>
 
-<!-- Footer with BIG readable logo (moved to bottom) -->
-<footer class="footer">
-<div class="container footer-inner">
-<!-- Keep your existing file name: logo.png -->
-<img class="footer-logo" src="logo.png" alt="Mansour Press logo" />
-<p class="footer-small">© <span id="year"></span> Mansour Press — Made with wonder.</p>
-</div>
+<footer>
+<img src="logo.png" class="footer-logo">
+<p>© 2026 Mansour Press — Made with wonder.</p>
 </footer>
 
-<!-- Cursor trail layer -->
-<div id="trailLayer" aria-hidden="true"></div>
-
-<script>
-// ---------- Year ----------
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// ---------- Smooth scroll ----------
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-a.addEventListener('click', (e) => {
-const id = a.getAttribute('href');
-const el = document.querySelector(id);
-if (!el) return;
-e.preventDefault();
-el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-// close mobile menu
-mobileClose();
-});
-});
-
-// ---------- Mobile nav ----------
-const toggle = document.querySelector('.nav-toggle');
-const mobileNav = document.querySelector('.mobile-nav');
-
-function mobileClose(){
-if (!mobileNav) return;
-mobileNav.hidden = true;
-toggle?.setAttribute('aria-expanded', 'false');
-document.body.classList.remove('menu-open');
-}
-
-toggle?.addEventListener('click', () => {
-const open = toggle.getAttribute('aria-expanded') === 'true';
-toggle.setAttribute('aria-expanded', String(!open));
-mobileNav.hidden = open;
-document.body.classList.toggle('menu-open', !open);
-});
-
-// ---------- Shooting stars (bright + across the whole page) ----------
-// spawns a noticeable, glowing shooting star about every 30s (+ slight randomness)
-function spawnShootingStar() {
-const star = document.createElement('div');
-star.className = 'shooting-star';
-
-// Start slightly off-screen left/top-ish, travel to off-screen right/bottom-ish
-const startY = Math.random() * (window.innerHeight * 0.55); // top half-ish
-const startX = -200;
-const endX = window.innerWidth + 400;
-const endY = startY + (window.innerHeight * (0.35 + Math.random() * 0.25));
-
-star.style.top = startY + 'px';
-star.style.left = startX + 'px';
-star.style.setProperty('--end-x', endX + 'px');
-star.style.setProperty('--end-y', endY + 'px');
-
-document.body.appendChild(star);
-
-// remove after animation
-star.addEventListener('animationend', () => star.remove());
-}
-
-// first star comes sooner, then ~every 30 seconds
-setTimeout(() => {
-spawnShootingStar();
-setInterval(() => {
-// small chance to do two close together for magic
-spawnShootingStar();
-if (Math.random() < 0.25) setTimeout(spawnShootingStar, 1500);
-}, 30000);
-}, 4000);
-
-// ---------- Star cursor trail ----------
-// Lightweight sparkle particles that follow the mouse.
-const trailLayer = document.getElementById('trailLayer');
-let lastTrailTime = 0;
-
-function sparkle(x, y) {
-const p = document.createElement('span');
-p.className = 'trail-spark';
-p.style.left = x + 'px';
-p.style.top = y + 'px';
-p.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
-p.style.setProperty('--dy', (Math.random() * 30 - 15) + 'px');
-p.style.setProperty('--r', (Math.random() * 160) + 'deg');
-trailLayer.appendChild(p);
-p.addEventListener('animationend', () => p.remove());
-}
-
-// Disable on touch devices
-const isTouch = window.matchMedia('(pointer: coarse)').matches;
-
-if (!isTouch) {
-window.addEventListener('mousemove', (e) => {
-const now = performance.now();
-if (now - lastTrailTime < 20) return; // throttle
-lastTrailTime = now;
-sparkle(e.clientX, e.clientY);
-}, { passive: true });
-}
-</script>
 </body>
 </html>
