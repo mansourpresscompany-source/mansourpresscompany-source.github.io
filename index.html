@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mansour Press</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 
+<link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<header class="header">
-<div class="container nav-inner">
-<img src="logo.png" class="logo" alt="Mansour Press Logo">
+<header class="site-header">
+<div class="container header-inner">
+<img src="logo.jpg" class="logo" alt="Mansour Press Logo">
 <nav>
 <a href="#books">Books</a>
 <a href="#story">Discover</a>
@@ -23,44 +25,36 @@
 </div>
 </header>
 
+<main>
+
 <section class="hero">
-
-<div class="cosmos"></div>
-
-<div class="hero-content">
-<p class="kicker">Majestic wonder • Gentle truth • Storybook faith</p>
+<div class="glass-card">
+<p class="kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
 <h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
 <p class="lead">
-Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.
+Mansour Press creates Christian children's stories that feel warm, safe, and full of awe—
+where God’s creation points back to the One who made it.
 </p>
-<div class="buttons">
+<div class="cta">
 <a href="#books" class="btn-primary">Explore Books</a>
 <a href="#contact" class="btn-ghost">Contact</a>
 </div>
 </div>
-
-<div class="floating-island">
-<div class="church"></div>
-<div class="lamb"></div>
-<div class="book"></div>
-<div class="dove"></div>
-</div>
-
 </section>
 
 <section id="books" class="section">
 <div class="container">
 <h2>Books</h2>
-<div class="cards">
-<div class="card">
+<div class="card-grid">
+<div class="book-card">
 <h3>Little Lamb Book One</h3>
 <p>A tender story of guidance and trust.</p>
 </div>
-<div class="card">
+<div class="book-card">
 <h3>Little Lamb Book Two</h3>
 <p>Light for the path and courage for the heart.</p>
 </div>
-<div class="card">
+<div class="book-card">
 <h3>Coming Soon</h3>
 <p>Join the list for launch news.</p>
 </div>
@@ -68,47 +62,56 @@ Mansour Press creates Christian children’s stories that feel warm, safe, and f
 </div>
 </section>
 
-<section id="story" class="section soft">
+<section id="story" class="section dark">
 <div class="container narrow">
 <h2>Discover the Story</h2>
 <p>
-Mansour Press is built on love for the Word and love for writing—stories tender enough for bedtime, and strong enough to plant truth in a child’s heart.
+Mansour Press is built on love for the Word and love for writing—
+stories tender enough for bedtime, and strong enough to plant truth in a child’s heart.
 </p>
+
 <ul>
 <li>Gentle Christian themes (warm, not heavy)</li>
 <li>Majestic creation wonder (heavenly, astral feel)</li>
 <li>The Little Lamb as a comforting guide</li>
 </ul>
-<blockquote>
+
+<div class="quote">
 “Light, love, and truth—woven into stories children want to hear again.”
-</blockquote>
+</div>
 </div>
 </section>
 
 <section id="author" class="section">
-<div class="container author">
-<img src="author.jpg" alt="Author photo">
+<div class="container two-col">
+<div>
+<img src="author.jpg" class="author-img" alt="Author photo">
+</div>
 <div>
 <h2>About the Author</h2>
 <p>
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language and deep Christian faith into every story she writes.
+S.C. Mansour holds a Bachelor's degree in English Literature
+and brings her love of language and deep Christian faith into every story she writes.
 </p>
 </div>
 </div>
 </section>
 
-<section id="contact" class="section soft">
+<section id="contact" class="section dark">
 <div class="container narrow">
 <h2>Contact</h2>
 <p>Questions, collaborations, bookstores, or events—reach out here.</p>
+
 <form>
 <input type="text" placeholder="Your name" required>
 <input type="email" placeholder="Your email" required>
-<textarea placeholder="Write your message..." required></textarea>
-<button type="submit" class="btn-primary">Send</button>
+<textarea rows="5" placeholder="Write your message..." required></textarea>
+<button type="submit">Send</button>
 </form>
 </div>
 </section>
+
+</main>
 
 <footer>
 © 2026 Mansour Press — Made with wonder.
