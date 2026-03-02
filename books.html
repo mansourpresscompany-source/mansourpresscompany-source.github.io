@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Books — Mansour Press</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Books • Mansour Press</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky-fog"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="skyFx" aria-hidden="true"></canvas>
 
-<header class="container">
-<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
+<header class="topbar">
+<a class="brand" href="index.html"><span class="sparkle">✦</span><span class="title">Mansour Press</span></a>
 <nav class="nav" aria-label="Primary">
-<a class="cloud-link" href="index.html">Home</a>
 <a class="cloud-link" href="books.html">Books</a>
 <a class="cloud-link" href="discover.html">Discover</a>
 <a class="cloud-link" href="author.html">Author</a>
@@ -21,37 +21,60 @@
 </nav>
 </header>
 
-<main class="page container">
+<main class="page">
+<div class="page-inner">
 <h1 class="page-title">Books</h1>
 
-<section class="card-cloud">
-<h2>Six-Book Board Book Series</h2>
-<p>
-A gentle, faith-rooted set for toddlers and preschoolers—simple language, warm illustration,
-and storybook wonder that families can read aloud and treasure.
+<section class="card cloud">
+<h2 class="h2">A six-book hard-page set (coming soon)</h2>
+<p class="p">
+Titles will be revealed as each book is ready. This page is built so you can drop in covers, titles, and blurbs later without changing the design.
 </p>
+</section>
 
-<div class="book-grid" aria-label="Book tiles">
-<div class="book-tile">
-<h3>Coming Soon</h3>
-<p>Book details will appear here as each title is announced.</p>
+<section class="card cloud">
+<div class="grid">
+<div class="book-card">
+<div class="book-title">Book One</div>
+<p class="book-sub">Coming Soon</p>
 </div>
-<div class="book-tile">
-<h3>Coming Soon</h3>
-<p>Cover art and descriptions will be added as the series launches.</p>
+<div class="book-card">
+<div class="book-title">Book Two</div>
+<p class="book-sub">Coming Soon</p>
 </div>
-<div class="book-tile">
-<h3>Coming Soon</h3>
-<p>More titles will be revealed as the first set of six releases.</p>
+<div class="book-card">
+<div class="book-title">Book Three</div>
+<p class="book-sub">Coming Soon</p>
+</div>
+<div class="book-card">
+<div class="book-title">Book Four</div>
+<p class="book-sub">Coming Soon</p>
+</div>
+<div class="book-card">
+<div class="book-title">Book Five</div>
+<p class="book-sub">Coming Soon</p>
+</div>
+<div class="book-card">
+<div class="book-title">Book Six</div>
+<p class="book-sub">Coming Soon</p>
 </div>
 </div>
 </section>
+
+<section class="card cloud">
+<h2 class="h2">Launch updates</h2>
+<p class="p">To join the launch list, email:</p>
+<p class="p" style="margin-top:8px;">
+<a class="cloud-link" href="mailto:mansourpress@example.com" style="display:inline-flex;">Join the list</a>
+</p>
+<p class="p" style="margin-top:10px; font-size:15px; color: rgba(20,35,60,0.65);">
+(Replace mansourpress@example.com with your real email.)
+</p>
+</section>
+</div>
 </main>
 
-<footer class="container">
-© 2026 Mansour Press — Made with wonder.
-</footer>
-
+<footer class="footer">© 2026 Mansour Press — Made with wonder.</footer>
 <script src="script.js"></script>
 </body>
 </html>
