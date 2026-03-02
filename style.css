@@ -1,155 +1,42 @@
-/* RESET */
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mansour Press</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
-body {
-font-family: "Cormorant Garamond", serif;
-color: #fff;
-overflow-x: hidden;
-background: radial-gradient(ellipse at top, #1d2b64 0%, #0f2027 60%, #090a1a 100%);
-}
+<body>
 
-/* ===== STAR LAYERS ===== */
+<div class="nebula"></div>
+<div class="shooting-star"></div>
 
-body::before {
-content: "";
-position: fixed;
-inset: 0;
-background:
-radial-gradient(2px 2px at 20% 30%, white, transparent),
-radial-gradient(2px 2px at 70% 60%, white, transparent),
-radial-gradient(2px 2px at 40% 80%, white, transparent),
-radial-gradient(1px 1px at 10% 50%, white, transparent),
-radial-gradient(1px 1px at 80% 20%, white, transparent);
-animation: twinkle 6s infinite alternate;
-opacity: 0.7;
-pointer-events: none;
-}
+<header>
+<h1 class="logo-title"><span>✦</span>Mansour Press</h1>
 
-@keyframes twinkle {
-from { opacity: 0.4; }
-to { opacity: 1; }
-}
+<nav>
+<a href="books.html">Books</a>
+<a href="discover.html">Discover</a>
+<a href="author.html">Author</a>
+<a href="contact.html">Contact</a>
+<a href="mansour-press.html">Mansour Press</a>
+</nav>
+</header>
 
-/* ===== NEBULA GLOW ===== */
+<section class="hero">
+<h2>Under Heaven’s sky,<br>little hearts learn they are loved.</h2>
 
-.nebula {
-position: fixed;
-inset: 0;
-background:
-radial-gradient(circle at 75% 30%, rgba(90,150,255,0.4), transparent 40%),
-radial-gradient(circle at 30% 70%, rgba(170,120,255,0.4), transparent 50%);
-filter: blur(60px);
-pointer-events: none;
-z-index: -1;
-}
+<p>
+Mansour Press creates Christian children’s stories that feel warm,
+safe, and full of awe—where God’s creation points back to the One
+who made it, and the Word is a light for the path.
+</p>
+</section>
 
-/* ===== SHOOTING STAR ===== */
+<footer>
+© 2026 Mansour Press — Made with wonder.
+</footer>
 
-.shooting-star {
-position: fixed;
-top: 15%;
-left: -200px;
-width: 150px;
-height: 3px;
-background: linear-gradient(90deg, #fff, rgba(255,255,255,0));
-box-shadow: 0 0 12px #fff;
-transform: rotate(-25deg);
-animation: shoot 35s linear infinite;
-pointer-events: none;
-}
-
-@keyframes shoot {
-0% {
-left: -200px;
-opacity: 0;
-}
-2% {
-opacity: 1;
-}
-10% {
-left: 120%;
-opacity: 0;
-}
-100% {
-left: 120%;
-opacity: 0;
-}
-}
-
-/* ===== HEADER ===== */
-
-header {
-text-align: center;
-padding: 50px 20px 20px;
-}
-
-.logo-title {
-font-size: 3rem;
-font-weight: 600;
-letter-spacing: 1px;
-}
-
-.logo-title span {
-color: gold;
-margin-right: 10px;
-}
-
-/* ===== CLOUD NAV BUTTONS ===== */
-
-nav {
-margin-top: 20px;
-}
-
-nav a {
-display: inline-block;
-margin: 10px;
-padding: 12px 30px;
-text-decoration: none;
-color: #1a1a2e;
-background: #ffffffdd;
-border-radius: 40px;
-font-size: 1.1rem;
-font-weight: 500;
-transition: all 0.3s ease;
-}
-
-nav a:hover {
-background: #fff;
-transform: translateY(-3px);
-}
-
-/* ===== HERO CLOUD PANEL ===== */
-
-.hero {
-margin: 60px auto;
-max-width: 900px;
-padding: 60px;
-text-align: center;
-background: #ffffffee;
-color: #2d2d55;
-border-radius: 60px;
-box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-.hero h2 {
-font-size: 2.8rem;
-margin-bottom: 20px;
-}
-
-.hero p {
-font-size: 1.2rem;
-line-height: 1.7;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-text-align: center;
-padding: 40px;
-font-size: 0.9rem;
-opacity: 0.8;
-}
+</body>
+</html>
