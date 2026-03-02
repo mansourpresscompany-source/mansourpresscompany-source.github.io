@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="landing-mode">
 <!-- Animated Background -->
 <div class="sky" aria-hidden="true">
 <div class="nebula nebula-a"></div>
@@ -23,67 +23,60 @@
 <div class="twinkle"></div>
 </div>
 
-<!-- Top Navigation -->
-<header class="topbar">
-<div class="wrap topbar-inner">
-<a class="brand-mini" href="index.html" aria-label="Mansour Press Home">
-<span class="brand-dot" aria-hidden="true"></span>
-<span class="brand-mini-text">Mansour Press</span>
-</a>
-
-<nav class="nav-clouds" aria-label="Site navigation">
-<a class="nav-cloud" href="books.html">Books</a>
-<a class="nav-cloud" href="discover.html">Discover</a>
-<a class="nav-cloud" href="author.html">Author</a>
-<a class="nav-cloud" href="contact.html">Contact</a>
-<a class="nav-cloud" href="mansour-press.html">Mansour Press</a>
-</nav>
+<!-- HERO LANDING (storybook-style) -->
+<main class="hero">
+<header class="hero-top">
+<div class="hero-brand">
+<span class="hero-spark" aria-hidden="true">✦</span>
+<span class="hero-brand-text">Mansour Press</span>
 </div>
+
+<nav class="hero-nav" aria-label="Site navigation">
+<a class="hero-cloud" href="books.html">Books</a>
+<a class="hero-cloud" href="discover.html">Discover</a>
+<a class="hero-cloud" href="author.html">Author</a>
+<a class="hero-cloud" href="contact.html">Contact</a>
+<a class="hero-cloud" href="mansour-press.html">Mansour Press</a>
+</nav>
 </header>
 
-<main class="wrap page">
-<!-- Landing (simple like your screenshot) -->
-<section class="landing">
-<h1 class="landing-title">Discover the Story</h1>
+<section class="hero-center">
+<div class="hero-cloud-mass" aria-hidden="true"></div>
 
-<div class="landing-portrait">
-<img src="author.jpg" alt="Author portrait" />
-</div>
+<p class="hero-kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
 
-<h2 class="landing-subtitle">About the Author</h2>
+<h1 class="hero-title">
+Under Heaven’s sky,<br />
+little hearts learn they are loved.
+</h1>
 
-<div class="cloud-card cloud-card--tight">
-<p class="centered">
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language
-and deep Christian faith into every story she writes.
+<div class="hero-cloud-card">
+<p>
+Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where
+God’s creation points back to the One who made it, and the Word is a light for the path.
 </p>
 </div>
 
-<div class="spacer-lg"></div>
-
-<h2 class="landing-subtitle">Welcome</h2>
-
-<div class="cloud-card">
-<p class="centered">
-Welcome to Mansour Press—home of timeless children’s stories written to be read aloud,
-treasured, and passed on. Under the author name S.C. Mansour, we’re building a gentle six-book
-series for toddlers and preschoolers with simple language, warm illustration, and faith-rooted
-themes that work beautifully in both homes and classrooms.
-</p>
-</div>
-
-<div class="landing-cta">
+<div class="hero-actions">
 <a class="btn-cloud" href="books.html">Explore Books</a>
 <a class="btn-cloud ghost" href="contact.html">Contact</a>
 </div>
+</section>
 
-<div class="footer-logo-area">
-<img class="footer-logo" src="logo.jpg" alt="Mansour Press Logo" />
-</div>
+<!-- Optional bottom “cloud links” like your image -->
+<section class="hero-bottom-links" aria-label="Quick links">
+<a class="hero-bottom-cloud" href="books.html">Books</a>
+<a class="hero-bottom-cloud" href="discover.html">Discover</a>
+<a class="hero-bottom-cloud" href="author.html">Author</a>
+</section>
+
+<!-- Big readable logo at the bottom -->
+<section class="hero-logo">
+<img src="logo.jpg" alt="Mansour Press Logo" />
 </section>
 </main>
 
-<footer class="footer">
+<footer class="footer hero-footer">
 <div class="wrap footer-inner">
 <span>© <span id="year"></span> Mansour Press — Made with wonder.</span>
 </div>
