@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Mansour Press</title>
 <meta name="description" content="Mansour Press — Christian children’s stories inspired by God’s creation." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Fonts (optional) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+
+<!-- IMPORTANT: your CSS file -->
 <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<!-- Astral Heaven Backdrop -->
+<!-- Astral / Heaven Backdrop elements (CSS will animate these) -->
 <div class="cosmos" aria-hidden="true">
 <div class="nebula n1"></div>
 <div class="nebula n2"></div>
@@ -25,7 +29,8 @@
 <header class="site-header" id="top">
 <div class="container header-inner">
 <a class="brand" href="#top" aria-label="Mansour Press">
-<img class="brand-logo" src="logo.png" alt="Mansour Press logo" />
+<!-- FIXED: repo has logo.jpg (not logo.png) -->
+<img class="brand-logo" src="logo.jpg" alt="Mansour Press logo" />
 </a>
 
 <nav class="nav" aria-label="Primary navigation">
@@ -35,10 +40,10 @@
 <a href="#contact">Contact</a>
 </nav>
 
-<button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" type="button"></button>
 </div>
 
-<div class="mobile-nav" hidden>
+<div class="mobile-nav hidden" id="mobileNav">
 <a href="#books">Books</a>
 <a href="#story">Discover</a>
 <a href="#author">Author</a>
@@ -66,17 +71,18 @@ points back to the One who made it, and the Word is a light for the path.
 <div class="quick-info">
 <a class="pill" href="tel:+14078078212">📞 407-807-8212</a>
 <span class="pill">📍 Winter Garden, FL</span>
-<span class="pill">🕘 Mon–Thu 9–5</span>
+<span class="pill">🕒 Mon–Thu 9–5</span>
 </div>
 </div>
 
-<!-- Floating Island Scene -->
+<!-- Floating island scene (CSS draws it) -->
 <div class="scene" aria-hidden="true">
 <div class="constellation-cross" title="Cross constellation"></div>
 
 <div class="floating-island">
 <div class="island-top"></div>
 <div class="island-body"></div>
+</div>
 
 <div class="chapel" title="Church"></div>
 
@@ -93,7 +99,6 @@ points back to the One who made it, and the Word is a light for the path.
 
 <!-- Dove light (Holy Spirit symbolism) -->
 <div class="dove-light" title="Dove of light"></div>
-</div>
 </div>
 </div>
 </section>
@@ -156,14 +161,15 @@ and strong enough to plant truth in a child’s heart.
 <section id="author" class="section">
 <div class="container author">
 <div class="author-photo-wrap">
+<!-- FIXED: your repo file is author.jpg -->
 <img class="author-photo" src="author.jpg" alt="Author photo" />
 </div>
 
 <div>
 <h2>About the Author</h2>
 <p>
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language
-and deep Christian faith into every story she writes.
+S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language and deep Christian
+faith into every story she writes.
 </p>
 </div>
 </div>
@@ -176,11 +182,12 @@ and deep Christian faith into every story she writes.
 <h2>Contact</h2>
 <p class="sub">Questions, collaborations, bookstores, or events—reach out here.</p>
 
-<form class="form" id="contactForm">
+<form class="form" id="contactForm" onsubmit="return false;">
 <label><span>Name</span><input name="name" required placeholder="Your name" /></label>
 <label><span>Email</span><input type="email" name="email" required placeholder="you@email.com" /></label>
-<label><span>Message</span><textarea name="message" rows="6" required placeholder="Write your message…"></textarea></label>
-<button class="btn primary" type="submit">Send</button>
+<label><span>Message</span><textarea name="message" rows="6" required placeholder="Write your message..."></textarea></label>
+
+<button class="btn primary" type="button" id="fakeSend">Send</button>
 <p class="fine" id="formNote">Next step: connect this to a free form inbox so it actually delivers.</p>
 </form>
 </div>
@@ -189,9 +196,12 @@ and deep Christian faith into every story she writes.
 <h3>Mansour Press</h3>
 <p>Winter Garden, FL, USA</p>
 <p><a class="link" href="tel:+14078078212">+1 (407) 807-8212</a></p>
+
 <div class="mini-divider"></div>
+
 <h4>Hours</h4>
-<p class="hours">Mon–Thu: 9:00am – 5:00pm<br>Fri–Sun: Closed</p>
+<p class="hours">Mon–Thu: 9:00am – 5:00pm</p>
+<p class="hours">Fri–Sun: Closed</p>
 </div>
 </div>
 </section>
@@ -204,6 +214,25 @@ and deep Christian faith into every story she writes.
 </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- Tiny inline JS (no script.js needed) -->
+<script>
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mobile menu toggle
+const btn = document.querySelector('.nav-toggle');
+const mobile = document.getElementById('mobileNav');
+btn.addEventListener('click', () => {
+const isOpen = btn.getAttribute('aria-expanded') === 'true';
+btn.setAttribute('aria-expanded', String(!isOpen));
+mobile.classList.toggle('hidden');
+});
+
+// Fake send note (until we wire up a real form endpoint)
+document.getElementById('fakeSend').addEventListener('click', () => {
+document.getElementById('formNote').textContent =
+"Saved locally for now — next we’ll connect this to a free form inbox (Formspree) so it emails you.";
+});
+</script>
 </body>
 </html>
