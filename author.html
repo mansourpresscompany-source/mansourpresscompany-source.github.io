@@ -1,71 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Author — Mansour Press</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky" aria-hidden="true">
-<div class="nebula nebula-a"></div>
-<div class="nebula nebula-b"></div>
-<div class="nebula nebula-c"></div>
-<div class="starfield starfield-1"></div>
-<div class="starfield starfield-2"></div>
-<div class="starfield starfield-3"></div>
-<div class="twinkle"></div>
-</div>
+<div class="sky-fog"></div>
 
-<header class="topbar">
-<div class="wrap topbar-inner">
-<a class="brand-mini" href="index.html" aria-label="Mansour Press Home">
-<span class="brand-dot" aria-hidden="true"></span>
-<span class="brand-mini-text">Mansour Press</span>
-</a>
-
-<nav class="nav-clouds" aria-label="Site navigation">
-<a class="nav-cloud" href="books.html">Books</a>
-<a class="nav-cloud" href="discover.html">Discover</a>
-<a class="nav-cloud active" href="author.html">Author</a>
-<a class="nav-cloud" href="contact.html">Contact</a>
-<a class="nav-cloud" href="mansour-press.html">Mansour Press</a>
+<header class="container">
+<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
+<nav class="nav" aria-label="Primary">
+<a class="cloud-link" href="index.html">Home</a>
+<a class="cloud-link" href="books.html">Books</a>
+<a class="cloud-link" href="discover.html">Discover</a>
+<a class="cloud-link" href="author.html">Author</a>
+<a class="cloud-link" href="contact.html">Contact</a>
+<a class="cloud-link" href="mansour-press.html">Mansour Press</a>
 </nav>
-</div>
 </header>
 
-<main class="wrap page">
-<section class="panel">
-<h1 class="page-title">About the Author</h1>
+<main class="page container">
+<h1 class="page-title">Author</h1>
 
-<div class="author-layout">
-<div class="author-photo">
-<img src="author.jpg" alt="Author portrait" />
-</div>
+<section class="card-cloud">
+<div class="author-wrap">
+<img class="author-photo" src="author.jpg" alt="Author portrait" />
 
-<div class="author-copy">
-<div class="cloud-card">
+<div>
+<h2>About the Author</h2>
 <p>
 S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language
 and deep Christian faith into every story she writes.
 </p>
+<p>
+Through Mansour Press, she hopes to offer timeless stories that families can read together
+and treasure for years to come.
+</p>
 </div>
-</div>
-</div>
-
-<div class="footer-logo-area">
-<img class="footer-logo" src="logo.jpg" alt="Mansour Press Logo" />
 </div>
 </section>
 </main>
 
-<footer class="footer">
-<div class="wrap footer-inner">
-<span>© <span id="year"></span> Mansour Press — Made with wonder.</span>
-</div>
+<footer class="container">
+© 2026 Mansour Press — Made with wonder.
 </footer>
 
 <script src="script.js"></script>
