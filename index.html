@@ -1,274 +1,151 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mansour Press</title>
-  <meta name="description" content="Mansour Press — gentle, faith-rooted stories for little hearts." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Storybook / elegant + readable -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mansour Press</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Animated sky -->
-  <div class="sky" aria-hidden="true">
-    <div class="stars stars-1"></div>
-    <div class="stars stars-2"></div>
-    <div class="stars stars-3"></div>
 
-    <div class="nebula nebula-a"></div>
-    <div class="nebula nebula-b"></div>
-    <div class="nebula nebula-c"></div>
+<!-- SKY BACKGROUND -->
+<div class="sky">
 
-    <div class="twinkles"></div>
-    <div class="vignette"></div>
-  </div>
+  <div class="stars stars-1"></div>
+  <div class="stars stars-2"></div>
+  <div class="stars stars-3"></div>
 
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Mansour Press home">
-        <!-- Use your file name: logo.jpg -->
-        <img class="brand-logo" src="logo.jpg" alt="Mansour Press logo" />
-      </a>
+  <div class="nebula nebula-a"></div>
+  <div class="nebula nebula-b"></div>
+  <div class="nebula nebula-c"></div>
 
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#books">Books</a>
-        <a href="#story">Discover</a>
-        <a href="#author">Author</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <div class="twinkles"></div>
 
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+  <!-- Big shooting stars -->
+  <div class="shooting-star shooting-1"></div>
+  <div class="shooting-star shooting-2"></div>
 
-    <div id="mobileNav" class="mobile-nav" hidden>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <img src="logo.jpg" class="logo" alt="Mansour Press logo">
+    <nav>
       <a href="#books">Books</a>
-      <a href="#story">Discover</a>
+      <a href="#discover">Discover</a>
       <a href="#author">Author</a>
       <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="cloud-box">
+      <h1>Under Heaven’s Sky, Little Hearts Learn They Are Loved.</h1>
+      <p>
+        Mansour Press creates watercolor Christian children’s books filled with wonder,
+        light, and truth — stories that gently guide young hearts toward faith.
+      </p>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-card">
-          <p class="kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
-          <h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
+<section id="books" class="section">
+  <div class="container">
+    <h2 class="section-title">The First Collection</h2>
 
-          <p class="lead">
-            Mansour Press creates watercolor Christian children’s stories that feel warm, safe, and full of awe—
-            where God’s creation points back to the One who made it, and the Word is a light for the path.
-          </p>
+    <div class="book-grid">
 
-          <div class="cta-row">
-            <a class="btn primary" href="#books">Explore Books</a>
-            <a class="btn ghost" href="#contact">Contact</a>
-          </div>
-
-          <div class="quick-info">
-            <a class="pill" href="tel:+14078078212" aria-label="Call Mansour Press">📞 (407) 807-8212</a>
-            <span class="pill">📍 Winter Garden, FL</span>
-            <span class="pill">🕘 Mon–Thu 9–5</span>
-          </div>
-        </div>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
       </div>
-    </section>
 
-    <!-- BOOKS -->
-    <section id="books" class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Books</h2>
-          <p class="sub">
-            Your first release is a set of <strong>six</strong> sturdy, hard-page storybooks.
-            This section is ready—just add titles + covers when you’re ready.
-          </p>
-        </div>
-
-        <!-- EMPTY BUT EDITABLE PLACEHOLDERS -->
-        <div class="cards books-grid" aria-label="Books grid">
-          <article class="card book-card">
-            <div class="cover empty" aria-label="Cover placeholder"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-
-          <article class="card book-card">
-            <div class="cover empty"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-
-          <article class="card book-card">
-            <div class="cover empty"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-
-          <article class="card book-card">
-            <div class="cover empty"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-
-          <article class="card book-card">
-            <div class="cover empty"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-
-          <article class="card book-card">
-            <div class="cover empty"></div>
-            <h3 contenteditable="true" spellcheck="true">Book Title (coming soon)</h3>
-            <p contenteditable="true" spellcheck="true">One-sentence hook goes here.</p>
-          </article>
-        </div>
-
-        <div class="note-card">
-          <p class="note-title">Want updates?</p>
-          <p class="note-text">Use the contact form below to join the launch list.</p>
-          <a class="btn small" href="#contact">Join the list</a>
-        </div>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
       </div>
-    </section>
 
-    <!-- DISCOVER -->
-    <section id="story" class="section panel">
-      <div class="container two-col">
-        <div>
-          <h2>Discover the Story</h2>
-          <p>
-            Mansour Press is built on love for the Word and love for writing—stories that are tender enough for bedtime,
-            and strong enough to plant truth in a child’s heart.
-          </p>
-
-          <ul class="bullets">
-            <li>Gentle Christian themes (warm, not heavy)</li>
-            <li>Majestic creation wonder (heavenly, awe-filled)</li>
-            <li>The Little Lamb as a comforting guide</li>
-          </ul>
-        </div>
-
-        <div class="quote-card">
-          <p class="quote">“Light, love, and truth—woven into stories children want to hear again.”</p>
-          <p class="quote-by">— Mansour Press</p>
-        </div>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
       </div>
-    </section>
 
-    <!-- AUTHOR -->
-    <section id="author" class="section">
-      <div class="container author-wrap">
-        <div class="author-photo-wrap">
-          <!-- Use your file name: author.jpg -->
-          <img class="author-photo" src="author.jpg" alt="Author photo" />
-        </div>
-
-        <div class="author-copy">
-          <h2>About the Author</h2>
-          <p>
-            S.C. Mansour is the author and illustrator behind Mansour Press—creating watercolor, faith-rooted stories
-            for little hearts. Her writing style is gentle and storybook-warm, designed to help children feel safe,
-            loved, and grounded in God’s goodness.
-          </p>
-        </div>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section panel">
-      <div class="container two-col">
-        <div>
-          <h2>Contact</h2>
-          <p class="sub">Questions, collaborations, bookstores, or events—reach out here.</p>
-
-          <!-- This is a visual form. To make it actually send, you’ll connect Formspree / Netlify Forms later. -->
-          <form class="form" id="contactForm" onsubmit="return false;">
-            <label>
-              <span>Name</span>
-              <input name="name" placeholder="Your name" autocomplete="name" />
-            </label>
-
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" placeholder="you@email.com" autocomplete="email" />
-            </label>
-
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="6" placeholder="Write your message..."></textarea>
-            </label>
-
-            <button class="btn primary" type="button" id="fakeSend">Send</button>
-            <p class="fine" id="formNote">
-              Next step: connect this to a free form inbox (Formspree / Netlify Forms) so it actually delivers.
-            </p>
-          </form>
-        </div>
-
-        <div class="contact-card">
-          <h3>Mansour Press</h3>
-          <p>Winter Garden, FL, USA</p>
-          <p><a class="link" href="tel:+14078078212">+1 (407) 807-8212</a></p>
-          <div class="mini-divider"></div>
-          <h4>Hours</h4>
-          <p class="hours">Mon–Thu: 9:00am – 5:00pm<br>Fri–Sun: Closed</p>
-        </div>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
       </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Mansour Press</span>
-      <span class="muted">Made with wonder.</span>
+      <div class="cloud-box book">
+        <h3>Book Title</h3>
+        <p>Coming Soon</p>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<section id="discover" class="section">
+  <div class="container">
+    <div class="cloud-box">
+      <h2>Discover the Story</h2>
+      <p>
+        Each book is crafted to feel like opening a treasured storybook —
+        soft watercolor illustrations, gentle faith-centered themes,
+        and stories rooted in God’s creation.
+      </p>
+    </div>
+  </div>
+</section>
 
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const mobileNav = document.getElementById('mobileNav');
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      mobileNav.hidden = open;
-    });
+<section id="author" class="section">
+  <div class="container author-section">
+    <img src="author.jpg" class="author-photo" alt="Author photo">
 
-    // Close mobile nav when clicking a link
-    mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        toggle.setAttribute('aria-expanded', 'false');
-        mobileNav.hidden = true;
-      });
-    });
+    <div class="cloud-box">
+      <h2>About the Author</h2>
+      <p>
+        S.C. Mansour is the author and illustrator of Mansour Press.
+        Her work blends imagination, faith, and artistry —
+        creating stories that feel warm, safe, and filled with light.
+      </p>
+    </div>
+  </div>
+</section>
 
-    // Smooth-ish anchor focus for accessibility
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const id = link.getAttribute('href');
-        const el = document.querySelector(id);
-        if (!el) return;
-        // let browser handle scroll; just set focus later
-        setTimeout(() => el.setAttribute('tabindex', '-1'), 0);
-      });
-    });
+<section id="contact" class="section">
+  <div class="container">
+    <div class="cloud-box">
+      <h2>Contact</h2>
+      <p>Winter Garden, Florida</p>
+      <p><a href="tel:+14078078212">(407) 807-8212</a></p>
+    </div>
+  </div>
+</section>
 
-    // “Fake send” interaction (so button does something now)
-    document.getElementById('fakeSend').addEventListener('click', () => {
-      const note = document.getElementById('formNote');
-      note.textContent = "Thanks! (This form is not connected yet—hook it to Formspree/Netlify Forms to deliver.)";
-    });
-  </script>
+</main>
+
+<footer>
+  © <span id="year"></span> Mansour Press
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
