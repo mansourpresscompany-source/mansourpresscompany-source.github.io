@@ -1,94 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact — Mansour Press</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky" aria-hidden="true">
-<div class="nebula nebula-a"></div>
-<div class="nebula nebula-b"></div>
-<div class="nebula nebula-c"></div>
-<div class="starfield starfield-1"></div>
-<div class="starfield starfield-2"></div>
-<div class="starfield starfield-3"></div>
-<div class="twinkle"></div>
-</div>
+<div class="sky-fog"></div>
 
-<header class="topbar">
-<div class="wrap topbar-inner">
-<a class="brand-mini" href="index.html" aria-label="Mansour Press Home">
-<span class="brand-dot" aria-hidden="true"></span>
-<span class="brand-mini-text">Mansour Press</span>
-</a>
-
-<nav class="nav-clouds" aria-label="Site navigation">
-<a class="nav-cloud" href="books.html">Books</a>
-<a class="nav-cloud" href="discover.html">Discover</a>
-<a class="nav-cloud" href="author.html">Author</a>
-<a class="nav-cloud active" href="contact.html">Contact</a>
-<a class="nav-cloud" href="mansour-press.html">Mansour Press</a>
+<header class="container">
+<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
+<nav class="nav" aria-label="Primary">
+<a class="cloud-link" href="index.html">Home</a>
+<a class="cloud-link" href="books.html">Books</a>
+<a class="cloud-link" href="discover.html">Discover</a>
+<a class="cloud-link" href="author.html">Author</a>
+<a class="cloud-link" href="contact.html">Contact</a>
+<a class="cloud-link" href="mansour-press.html">Mansour Press</a>
 </nav>
-</div>
 </header>
 
-<main class="wrap page">
-<section class="panel">
+<main class="page container">
 <h1 class="page-title">Contact</h1>
 
-<div class="cloud-card">
-<p class="centered">
-Questions, collaborations, bookstores, or events—reach out here.
+<section class="card-cloud">
+<h2>Reach Out</h2>
+<p>Questions, collaborations, bookstores, or events—reach out here.</p>
+
+<p>
+<strong>Mansour Press</strong><br/>
+Winter Garden, FL, USA<br/>
+<a href="tel:+14078078212">+1 (407) 807-8212</a><br/>
+Hours: Mon–Thu 9:00am–5:00pm • Fri–Sun Closed
 </p>
-</div>
 
-<div class="contact-grid">
-<form class="cloud-form" onsubmit="return false;">
-<label>
-<span>Name</span>
+<form>
 <input type="text" name="name" placeholder="Your name" />
-</label>
-
-<label>
-<span>Email</span>
-<input type="email" name="email" placeholder="you@email.com" />
-</label>
-
-<label>
-<span>Message</span>
-<textarea name="message" rows="6" placeholder="Write your message..."></textarea>
-</label>
-
-<button class="btn-cloud" type="submit">Send</button>
-<p class="fineprint">Next step: connect this to a form inbox so it actually delivers.</p>
+<input type="email" name="email" placeholder="Your email" />
+<textarea name="message" placeholder="Write your message..."></textarea>
+<button type="button">Send</button>
 </form>
 
-<div class="cloud-card contact-card">
-<h3>Mansour Press</h3>
-<p>Winter Garden, FL, USA</p>
-<p><a class="link" href="tel:+14078078212">+1 (407) 807-8212</a></p>
-<div class="divider"></div>
-<h4>Hours</h4>
-<p>Mon–Thu: 9:00am – 5:00pm</p>
-<p>Fri–Sun: Closed</p>
-</div>
-</div>
-
-<div class="footer-logo-area">
-<img class="footer-logo" src="logo.jpg" alt="Mansour Press Logo" />
-</div>
+<p style="margin-top:12px; font-size: 14px; opacity:0.85;">
+Note: This form is a placeholder until you connect it to a form service.
+</p>
 </section>
 </main>
 
-<footer class="footer">
-<div class="wrap footer-inner">
-<span>© <span id="year"></span> Mansour Press — Made with wonder.</span>
-</div>
+<footer class="container">
+© 2026 Mansour Press — Made with wonder.
 </footer>
 
 <script src="script.js"></script>
