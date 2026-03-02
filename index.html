@@ -4,93 +4,257 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mansour Press</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
 
+<style>
+
+/* ===== RESET ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: 'Georgia', serif;
+background: radial-gradient(ellipse at bottom, #0d1b3d 0%, #050816 100%);
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== ANIMATED STARS ===== */
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:transparent;
+z-index:-1;
+}
+
+.stars::after{
+content:"";
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+box-shadow:
+100px 200px white,
+400px 100px white,
+800px 300px white,
+1200px 150px white,
+600px 600px white,
+300px 500px white,
+900px 700px white,
+200px 800px white,
+1000px 400px white;
+animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.3}
+to{opacity:1}
+}
+
+/* ===== NAV ===== */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 10%;
+}
+
+nav img{
+height:60px;
+width:auto;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+opacity:.8;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+/* ===== HERO ===== */
+.hero{
+text-align:center;
+padding:120px 20px 200px;
+position:relative;
+}
+
+.hero h1{
+font-size:48px;
+max-width:800px;
+margin:auto;
+line-height:1.2;
+}
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+opacity:.85;
+}
+
+.buttons{
+margin-top:30px;
+}
+
+.buttons a{
+display:inline-block;
+padding:12px 25px;
+border-radius:30px;
+margin:10px;
+text-decoration:none;
+font-size:15px;
+}
+
+.primary{
+background:linear-gradient(45deg,#6aa8ff,#9d7bff);
+color:white;
+}
+
+.secondary{
+border:1px solid white;
+color:white;
+}
+
+/* ===== FLOATING ISLAND ===== */
+.island{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:300px;
+height:120px;
+background:linear-gradient(#3aa657,#1c6e3c);
+border-radius:60% 60% 50% 50%;
+box-shadow:0 20px 40px rgba(0,0,0,.5);
+animation: float 6s ease-in-out infinite;
+}
+
+.island::before{
+content:"";
+position:absolute;
+bottom:-40px;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:80px;
+background:#5a3d2b;
+border-radius:50%;
+}
+
+/* Lamb silhouette */
+.lamb{
+position:absolute;
+bottom:90px;
+left:50%;
+transform:translateX(-50%);
+width:40px;
+height:30px;
+background:white;
+border-radius:50%;
+}
+
+.lamb::before{
+content:"";
+position:absolute;
+top:-10px;
+left:5px;
+width:20px;
+height:20px;
+background:white;
+border-radius:50%;
+}
+
+@keyframes float{
+0%{transform:translate(-50%,0px)}
+50%{transform:translate(-50%,-15px)}
+100%{transform:translate(-50%,0px)}
+}
+
+/* ===== BOOKS SECTION (EMPTY READY FOR 6) ===== */
+.books{
+padding:120px 10%;
+text-align:center;
+}
+
+.books h2{
+font-size:32px;
+margin-bottom:40px;
+}
+
+.book-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.book-placeholder{
+height:180px;
+border:1px dashed rgba(255,255,255,.3);
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:.5;
+}
+
+/* ===== FOOTER ===== */
+footer{
+padding:40px;
+text-align:center;
+opacity:.6;
+font-size:14px;
+}
+
+</style>
+</head>
 <body>
 
-<header>
-<div class="logo">
-<img src="logo.jpg" alt="Mansour Press Logo">
-</div>
+<div class="stars"></div>
+
 <nav>
-<a href="#books">Books</a>
-<a href="#discover">Discover</a>
-<a href="#author">Author</a>
-<a href="#contact">Contact</a>
+<img src="logo.jpg" alt="Mansour Press Logo">
+<ul>
+<li><a href="#">Books</a></li>
+<li><a href="#">Discover</a></li>
+<li><a href="#">Author</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 </nav>
-</header>
 
 <section class="hero">
-<div class="stars"></div>
-<div class="twinkle"></div>
-
-<div class="hero-content">
-<p class="kicker">Majestic Wonder • Gentle Truth • Storybook Faith</p>
 <h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
-<p class="sub">
-Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—
-where God’s creation points back to the One who made it.
-</p>
+<p>Watercolor Christian storybooks filled with wonder, warmth, and truth.</p>
+<div class="buttons">
+<a href="#" class="primary">Explore Books</a>
+<a href="#" class="secondary">Contact</a>
 </div>
 
-<div class="floating-island">
-<div class="grass"></div>
-<div class="dirt"></div>
-<div class="lamb">
-<div class="lamb-body"></div>
-<div class="lamb-head"></div>
-<div class="lamb-ear"></div>
-<div class="lamb-eye"></div>
-</div>
-</div>
-
+<div class="island"></div>
+<div class="lamb"></div>
 </section>
 
-<section id="books" class="section">
-<h2>Books</h2>
-<p class="coming">Six Hard Page Books Coming Soon</p>
+<section class="books">
+<h2>Coming Soon — A Set of Six Hard Page Books</h2>
 <div class="book-grid">
-<!-- ADD YOUR BOOKS HERE LATER -->
-<!-- Duplicate this block 6 times when ready -->
-
-<!--
-<div class="book-card">
-<h3>Book Title</h3>
-<p>Short description here.</p>
+<div class="book-placeholder">Book 1</div>
+<div class="book-placeholder">Book 2</div>
+<div class="book-placeholder">Book 3</div>
+<div class="book-placeholder">Book 4</div>
+<div class="book-placeholder">Book 5</div>
+<div class="book-placeholder">Book 6</div>
 </div>
--->
-
-</div>
-</section>
-
-<section id="discover" class="section alt">
-<h2>Discover the Story</h2>
-<p>
-Gentle Christian themes (warm, not heavy).
-Majestic creation wonder (heavenly, astral feel).
-The Little Lamb as a comforting guide.
-</p>
-</section>
-
-<section id="author" class="section">
-<h2>About the Author</h2>
-<img src="author.jpg" class="author-img">
-<p>
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language
-and deep Christian faith into every story she writes.
-</p>
-</section>
-
-<section id="contact" class="section alt">
-<h2>Contact</h2>
-<form>
-<input placeholder="Your name">
-<input placeholder="Your email">
-<textarea placeholder="Write your message"></textarea>
-<button type="button">Send</button>
-</form>
 </section>
 
 <footer>
