@@ -1,10 +1,3 @@
-/* =========================
-Mansour Press — style.css
-Space + nebula + twinkling stars + occasional shooting star
-Cloud-shaped UI (nav + content cards)
-========================= */
-
-/* ---------- Base / Reset ---------- */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -410,14 +403,3 @@ font-size: 13px;
 /* ---------- Utility ---------- */
 .center { text-align:center; }
 .hidden { display:none !important; }
-
-/* ---------- Optional: if your HTML includes a fixed “bg wrapper”, keep it harmless ---------- */
-.bg, .cosmos, .stars, .nebula { display:none; }
-
-/* NOTE:
-- For the shooting star to appear, add this ONE line anywhere in your HTML body:
-<div class="shooting-star"></div>
-- Everything else in this CSS will work without changing your HTML,
-but you’ll get the best look if your text areas have class="cloud-card"
-and your nav links are inside a container with class="nav".
-*/
