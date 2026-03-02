@@ -1,265 +1,782 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Mansour Press</title>
 
 <style>
+:root{
+--bg0:#040614;
+--bg1:#07102b;
+--bg2:#081a3a;
 
-/* ===== RESET ===== */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+--card:rgba(255,255,255,.07);
+--card2:rgba(255,255,255,.10);
+--stroke:rgba(255,255,255,.14);
+
+--text:rgba(255,255,255,.92);
+--muted:rgba(255,255,255,.70);
+
+--btnA:#6aa8ff;
+--btnB:#9d7bff;
+
+--shadow: 0 18px 60px rgba(0,0,0,.45);
+--radius: 18px;
+--max: 1120px;
 }
 
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-font-family: 'Georgia', serif;
-background: radial-gradient(ellipse at bottom, #0d1b3d 0%, #050816 100%);
-color:white;
+margin:0;
+font-family: ui-serif, Georgia, "Times New Roman", serif;
+color:var(--text);
+background: radial-gradient(1200px 700px at 70% 20%, rgba(140,110,255,.22), transparent 60%),
+radial-gradient(900px 600px at 25% 30%, rgba(95,190,255,.18), transparent 60%),
+linear-gradient(180deg, var(--bg0), var(--bg1) 40%, var(--bg2));
 overflow-x:hidden;
 }
 
-/* ===== ANIMATED STARS ===== */
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-background:transparent;
-z-index:-1;
+a{color:inherit}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+/* ---------- Background: stars + nebula + twinkle ---------- */
+.space{
+position:fixed; inset:0; z-index:-2; pointer-events:none;
+overflow:hidden;
+background:
+radial-gradient(1000px 700px at 20% 15%, rgba(130,90,255,.20), transparent 65%),
+radial-gradient(1000px 700px at 80% 30%, rgba(90,200,255,.16), transparent 60%),
+radial-gradient(1200px 800px at 55% 80%, rgba(60,120,255,.12), transparent 65%);
 }
 
-.stars::after{
-content:"";
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-box-shadow:
-100px 200px white,
-400px 100px white,
-800px 300px white,
-1200px 150px white,
-600px 600px white,
-300px 500px white,
-900px 700px white,
-200px 800px white,
-1000px 400px white;
-animation: twinkle 3s infinite alternate;
+.nebula{
+position:absolute; inset:-20%;
+background:
+radial-gradient(700px 500px at 20% 30%, rgba(160,110,255,.20), transparent 60%),
+radial-gradient(850px 550px at 80% 35%, rgba(100,210,255,.16), transparent 60%),
+radial-gradient(900px 650px at 50% 80%, rgba(90,120,255,.12), transparent 62%);
+filter: blur(12px);
+opacity:.85;
+transform: translate3d(0,0,0);
+animation: drift 18s ease-in-out infinite alternate;
 }
 
-@keyframes twinkle{
-from{opacity:.3}
-to{opacity:1}
+@keyframes drift{
+from{ transform: translate(-2.5%, -1.5%) scale(1.02) }
+to{ transform: translate(2.5%, 1.5%) scale(1.06) }
 }
 
-/* ===== NAV ===== */
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 10%;
-}
-
-nav img{
-height:60px;
-width:auto;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:30px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-font-size:16px;
+.stars, .stars2, .stars3{
+position:absolute; inset:-200px;
+background-repeat:repeat;
 opacity:.8;
+transform: translate3d(0,0,0);
+animation: pan 60s linear infinite;
+filter: drop-shadow(0 0 1px rgba(255,255,255,.25));
+}
+.stars{
+background-image:
+radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.9), transparent 40%),
+radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,.7), transparent 40%),
+radial-gradient(1px 1px at 140px 60px, rgba(255,255,255,.8), transparent 40%),
+radial-gradient(1px 1px at 220px 160px, rgba(255,255,255,.6), transparent 40%),
+radial-gradient(1px 1px at 320px 40px, rgba(255,255,255,.85), transparent 40%);
+background-size: 360px 220px;
+}
+.stars2{
+opacity:.55;
+background-image:
+radial-gradient(1px 1px at 30px 80px, rgba(255,255,255,.7), transparent 40%),
+radial-gradient(1px 1px at 110px 30px, rgba(255,255,255,.55), transparent 40%),
+radial-gradient(1px 1px at 190px 140px, rgba(255,255,255,.6), transparent 40%),
+radial-gradient(1px 1px at 260px 70px, rgba(255,255,255,.5), transparent 40%);
+background-size: 300px 200px;
+animation-duration: 90s;
+}
+.stars3{
+opacity:.45;
+background-image:
+radial-gradient(2px 2px at 60px 90px, rgba(255,255,255,.35), transparent 55%),
+radial-gradient(2px 2px at 200px 40px, rgba(255,255,255,.25), transparent 55%),
+radial-gradient(2px 2px at 280px 150px, rgba(255,255,255,.22), transparent 55%);
+background-size: 340px 220px;
+animation-duration: 120s;
 }
 
-nav a:hover{
-opacity:1;
+@keyframes pan{
+from{ transform: translate3d(0,0,0) }
+to{ transform: translate3d(-240px, 180px, 0) }
 }
 
-/* ===== HERO ===== */
-.hero{
-text-align:center;
-padding:120px 20px 200px;
+.twinkle{
+position:absolute; inset:0;
+background:
+radial-gradient(2px 2px at 12% 24%, rgba(255,255,255,.35), transparent 55%),
+radial-gradient(2px 2px at 38% 62%, rgba(255,255,255,.22), transparent 55%),
+radial-gradient(2px 2px at 68% 18%, rgba(255,255,255,.28), transparent 55%),
+radial-gradient(2px 2px at 84% 72%, rgba(255,255,255,.18), transparent 55%);
+opacity:.25;
+animation: tw 4.5s ease-in-out infinite alternate;
+}
+@keyframes tw{
+from{ opacity:.10 }
+to{ opacity:.30 }
+}
+
+/* ---------- Header / Nav ---------- */
+header{
+position:sticky; top:0; z-index:20;
+backdrop-filter: blur(10px);
+background: linear-gradient(180deg, rgba(3,6,18,.82), rgba(3,6,18,.35));
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+.head{
+display:flex; align-items:center; justify-content:space-between;
+padding:14px 0;
+gap:14px;
+}
+
+/* centered, bigger logo */
+.brand{
+display:flex; align-items:center; justify-content:center;
+flex: 1;
+text-decoration:none;
+gap:10px;
+min-width: 200px;
+}
+.brand img{
+height:64px; /* bigger */
+width:auto;
+object-fit:contain;
+filter: drop-shadow(0 10px 24px rgba(0,0,0,.35));
+}
+
+nav{
+display:flex; gap:18px; align-items:center;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+font-size:14px;
+justify-content:flex-end;
+min-width: 240px;
+}
+nav a{
+text-decoration:none;
+color:rgba(255,255,255,.78);
+padding:8px 10px;
+border-radius:999px;
+transition: .2s ease;
+}
+nav a:hover{ background:rgba(255,255,255,.08); color:rgba(255,255,255,.95) }
+
+/* ---------- Sections ---------- */
+section{ padding:72px 0 }
+.hero{ padding:74px 0 40px }
+
+.panel{
+border:1px solid var(--stroke);
+background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+border-radius: var(--radius);
+box-shadow: var(--shadow);
+padding:28px 22px;
+position:relative;
+overflow:hidden;
+}
+.panel:before{
+content:"";
+position:absolute; inset:-2px;
+background: radial-gradient(700px 250px at 20% 0%, rgba(160,120,255,.18), transparent 60%),
+radial-gradient(700px 250px at 90% 20%, rgba(90,200,255,.14), transparent 60%);
+opacity:.9;
+pointer-events:none;
+}
+
+.kicker{
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+letter-spacing:.18em;
+text-transform:uppercase;
+font-size:11px;
+color:rgba(255,255,255,.65);
+margin:0 0 12px;
+position:relative;
+}
+h1{
+font-size: clamp(34px, 4.2vw, 54px);
+margin:0 0 14px;
+line-height:1.05;
+position:relative;
+}
+.tagline{
+font-size:16px;
+color:var(--muted);
+margin:0 0 22px;
 position:relative;
 }
 
-.hero h1{
-font-size:48px;
-max-width:800px;
-margin:auto;
-line-height:1.2;
+/* ORIGINAL tagline restored */
+.gentle{
+font-style: italic;
+font-size: 16px;
+color: rgba(255,255,255,.78);
+margin: 0 0 18px;
+position:relative;
 }
 
-.hero p{
-margin-top:20px;
-font-size:18px;
-opacity:.85;
+.cta{
+display:flex; gap:12px; flex-wrap:wrap;
+position:relative;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
 }
-
-.buttons{
-margin-top:30px;
-}
-
-.buttons a{
-display:inline-block;
-padding:12px 25px;
-border-radius:30px;
-margin:10px;
+.btn{
+display:inline-flex; align-items:center; justify-content:center;
+padding:10px 16px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.18);
 text-decoration:none;
-font-size:15px;
+color:rgba(255,255,255,.92);
+background: rgba(255,255,255,.06);
+transition:.18s ease;
+box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+.btn.primary{
+border:none;
+background: linear-gradient(90deg, var(--btnA), var(--btnB));
+color:#0b0e1f;
+font-weight:700;
+}
+.btn:hover{ transform: translateY(-1px); }
+
+/* ---------- Storybook floating island scene ---------- */
+.scene{
+margin-top:28px;
+height:220px;
+position:relative;
+pointer-events:none;
 }
 
-.primary{
-background:linear-gradient(45deg,#6aa8ff,#9d7bff);
-color:white;
+/* soft “light beam” from heaven */
+.heaven-beam{
+position:absolute;
+left:50%; top:-10px;
+width:10px; height:120px;
+transform: translateX(-50%);
+background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,0));
+border-radius:999px;
+filter: blur(.3px);
+opacity:.75;
+animation: beam 3.8s ease-in-out infinite alternate;
+}
+.heaven-beam::before{
+content:"";
+position:absolute;
+left:50%; top:18px;
+width:18px; height:18px;
+transform: translateX(-50%);
+border-radius:50%;
+background: rgba(255,255,255,.55);
+box-shadow: 0 0 22px rgba(200,220,255,.55);
+opacity:.8;
+}
+.heaven-beam::after{
+content:"";
+position:absolute;
+left:50%; top:40px;
+width:120px; height:80px;
+transform: translateX(-50%);
+background: radial-gradient(60px 40px at 50% 20%, rgba(255,255,255,.22), rgba(255,255,255,0) 70%);
+filter: blur(1px);
+opacity:.9;
+}
+@keyframes beam{
+from{ opacity:.55; transform: translateX(-50%) scaleY(.96) }
+to{ opacity:.85; transform: translateX(-50%) scaleY(1.03) }
 }
 
-.secondary{
-border:1px solid white;
-color:white;
-}
-
-/* ===== FLOATING ISLAND ===== */
 .island{
 position:absolute;
-bottom:0;
 left:50%;
-transform:translateX(-50%);
-width:300px;
-height:120px;
-background:linear-gradient(#3aa657,#1c6e3c);
-border-radius:60% 60% 50% 50%;
-box-shadow:0 20px 40px rgba(0,0,0,.5);
-animation: float 6s ease-in-out infinite;
+bottom:10px;
+transform: translateX(-50%);
+width:min(560px, 90%);
+height:110px;
+border-radius: 999px;
+background: linear-gradient(180deg, rgba(30,190,120,.22), rgba(0,0,0,.22));
+border:1px solid rgba(255,255,255,.12);
+box-shadow: 0 25px 60px rgba(0,0,0,.38);
+overflow:hidden;
+animation: floaty 4.8s ease-in-out infinite alternate;
+}
+@keyframes floaty{
+from{ transform: translateX(-50%) translateY(0px) }
+to{ transform: translateX(-50%) translateY(-7px) }
 }
 
-.island::before{
-content:"";
-position:absolute;
-bottom:-40px;
-left:50%;
-transform:translateX(-50%);
-width:120px;
-height:80px;
-background:#5a3d2b;
-border-radius:50%;
+.island .grass{
+position:absolute; inset:0;
+background:
+radial-gradient(70px 30px at 25% 35%, rgba(255,255,255,.12), transparent 70%),
+radial-gradient(80px 36px at 65% 40%, rgba(255,255,255,.10), transparent 70%),
+linear-gradient(180deg, rgba(60,220,150,.35), rgba(20,110,80,.12));
+opacity:.95;
+}
+.island .rim{
+position:absolute; left:10px; right:10px; top:16px;
+height:3px;
+border-radius:999px;
+background: rgba(255,255,255,.14);
+opacity:.8;
+}
+.island .shadow-under{
+position:absolute; left:10%; right:10%; bottom:-45px; height:70px;
+background: radial-gradient(closest-side, rgba(0,0,0,.35), transparent 70%);
+filter: blur(2px);
+opacity:.7;
 }
 
-/* Lamb silhouette */
+/* Lamb (storybook simple) */
 .lamb{
 position:absolute;
-bottom:90px;
 left:50%;
-transform:translateX(-50%);
-width:40px;
-height:30px;
-background:white;
+bottom:70px;
+transform: translateX(-50%);
+width:86px;
+height:70px;
+animation: lambBob 3.2s ease-in-out infinite alternate;
+filter: drop-shadow(0 14px 22px rgba(0,0,0,.35));
+}
+@keyframes lambBob{
+from{ transform: translateX(-50%) translateY(0px) }
+to{ transform: translateX(-50%) translateY(-5px) }
+}
+.lamb .body{
+position:absolute; left:8px; top:18px;
+width:70px; height:44px;
+border-radius: 30px;
+background:
+radial-gradient(10px 10px at 20% 40%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%),
+radial-gradient(12px 12px at 45% 55%, rgba(255,255,255,.85), rgba(255,255,255,0) 62%),
+radial-gradient(12px 12px at 70% 45%, rgba(255,255,255,.82), rgba(255,255,255,0) 62%),
+linear-gradient(180deg, rgba(255,255,255,.92), rgba(235,245,255,.72));
+border:1px solid rgba(255,255,255,.28);
+}
+.lamb .head{
+position:absolute; left:0; top:28px;
+width:30px; height:24px;
+border-radius: 14px 14px 12px 12px;
+background: linear-gradient(180deg, rgba(245,250,255,.92), rgba(225,235,250,.75));
+border:1px solid rgba(255,255,255,.26);
+}
+.lamb .ear{
+position:absolute; left:6px; top:24px;
+width:10px; height:12px;
+border-radius: 10px;
+background: rgba(230,235,250,.75);
+border:1px solid rgba(255,255,255,.22);
+transform: rotate(-18deg);
+}
+.lamb .eye{
+position:absolute; left:10px; top:36px;
+width:4px; height:4px;
 border-radius:50%;
+background: rgba(15,20,40,.75);
+opacity:.9;
 }
 
-.lamb::before{
-content:"";
-position:absolute;
-top:-10px;
-left:5px;
-width:20px;
-height:20px;
-background:white;
-border-radius:50%;
+/* ---------- Books section (empty/editable placeholders) ---------- */
+h2{
+margin:0 0 12px;
+font-size: clamp(26px, 2.4vw, 34px);
+}
+.sub{
+margin:0 0 22px;
+color:var(--muted);
+font-size:15px;
+line-height:1.5;
 }
 
-@keyframes float{
-0%{transform:translate(-50%,0px)}
-50%{transform:translate(-50%,-15px)}
-100%{transform:translate(-50%,0px)}
-}
-
-/* ===== BOOKS SECTION (EMPTY READY FOR 6) ===== */
-.books{
-padding:120px 10%;
-text-align:center;
-}
-
-.books h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
-.book-grid{
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap:14px;
+}
+@media (max-width: 900px){
+.cards{ grid-template-columns: 1fr; }
+nav{ gap:10px; min-width:auto }
+.brand img{ height:54px }
 }
 
-.book-placeholder{
-height:180px;
-border:1px dashed rgba(255,255,255,.3);
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:.5;
+.card{
+border:1px solid var(--stroke);
+background: rgba(255,255,255,.06);
+border-radius: 16px;
+padding:16px 14px;
+min-height: 96px;
+box-shadow: 0 14px 38px rgba(0,0,0,.22);
+}
+.card .label{
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+letter-spacing:.12em;
+text-transform:uppercase;
+font-size:11px;
+color:rgba(255,255,255,.58);
+margin-bottom:8px;
+}
+.card .title{
+font-weight:700;
+margin:0 0 6px;
+}
+.card .desc{
+margin:0;
+color:rgba(255,255,255,.70);
+font-size:14px;
+line-height:1.35;
 }
 
-/* ===== FOOTER ===== */
-footer{
-padding:40px;
-text-align:center;
-opacity:.6;
+/* ---------- Two column blocks ---------- */
+.two-col{
+display:grid;
+grid-template-columns: 1.2fr .8fr;
+gap:18px;
+align-items:start;
+}
+@media (max-width: 900px){
+.two-col{ grid-template-columns: 1fr; }
+}
+
+/* Discover bullets + quote */
+ul.bullets{
+margin:12px 0 0;
+padding-left: 18px;
+color: rgba(255,255,255,.76);
+line-height:1.55;
 font-size:14px;
 }
+.quote{
+margin-top:18px;
+padding:14px 16px;
+border-radius: 16px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.06);
+color: rgba(255,255,255,.78);
+font-style: italic;
+}
 
+/* Author */
+.authorBox{
+display:flex;
+gap:16px;
+align-items:center;
+padding:14px;
+border-radius: 18px;
+border:1px solid rgba(255,255,255,.14);
+background: rgba(255,255,255,.06);
+}
+.authorBox img{
+width:110px;
+height:110px;
+border-radius: 18px;
+object-fit: cover;
+border:1px solid rgba(255,255,255,.18);
+box-shadow: 0 18px 45px rgba(0,0,0,.30);
+}
+.authorBox h3{
+margin:0 0 6px;
+font-size:18px;
+}
+.authorBox p{
+margin:0;
+color: rgba(255,255,255,.72);
+font-size:14px;
+line-height:1.4;
+}
+
+/* Contact form */
+form{
+display:grid;
+gap:10px;
+margin-top: 12px;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+input, textarea{
+width:100%;
+padding:12px 12px;
+border-radius: 14px;
+border:1px solid rgba(255,255,255,.16);
+background: rgba(0,0,0,.20);
+color: rgba(255,255,255,.88);
+outline:none;
+}
+textarea{ min-height: 110px; resize: vertical; }
+.sendRow{
+display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+}
+.fine{
+color: rgba(255,255,255,.62);
+font-size:12px;
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+footer{
+border-top: 1px solid rgba(255,255,255,.08);
+padding:18px 0;
+color: rgba(255,255,255,.60);
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+font-size: 12px;
+text-align:center;
+}
 </style>
 </head>
+
 <body>
-
+<div class="space" aria-hidden="true">
+<div class="nebula"></div>
 <div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+<div class="twinkle"></div>
+</div>
 
-<nav>
-<img src="logo.jpg" alt="Mansour Press Logo">
-<ul>
-<li><a href="#">Books</a></li>
-<li><a href="#">Discover</a></li>
-<li><a href="#">Author</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
+<header>
+<div class="wrap head">
+<!-- Centered logo -->
+<a class="brand" href="#top" aria-label="Mansour Press">
+<!-- Keep your file as logo.jpg OR rename it to logo.png and change here -->
+<img src="logo.jpg" alt="Mansour Press Logo" />
+</a>
+
+<nav aria-label="Primary">
+<a href="#books">Books</a>
+<a href="#story">Discover</a>
+<a href="#author">Author</a>
+<a href="#contact">Contact</a>
 </nav>
+</div>
+</header>
 
+<main id="top">
+<!-- HERO -->
 <section class="hero">
+<div class="wrap">
+<div class="panel">
+<p class="kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
+
+<!-- ORIGINAL tagline restored -->
+<p class="gentle">Gentle, faith-rooted stories for little hearts.</p>
+
 <h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
-<p>Watercolor Christian storybooks filled with wonder, warmth, and truth.</p>
-<div class="buttons">
-<a href="#" class="primary">Explore Books</a>
-<a href="#" class="secondary">Contact</a>
+
+<!-- ORIGINAL mission/goal wording restored -->
+<p class="tagline">
+Mansour Press creates watercolor Christian children’s books centered around a gentle Little Lamb
+who reminds children they are safe, loved, and known—where God’s creation points back to the One who made it,
+and the Word is a light for the path.
+</p>
+
+<div class="cta">
+<a class="btn primary" href="#books">Explore Books</a>
+<a class="btn" href="#contact">Contact</a>
 </div>
 
-<div class="island"></div>
-<div class="lamb"></div>
-</section>
+<!-- Storybook scene: light beam + floating grassy island + lamb -->
+<div class="scene" aria-hidden="true">
+<div class="heaven-beam"></div>
 
-<section class="books">
-<h2>Coming Soon — A Set of Six Hard Page Books</h2>
-<div class="book-grid">
-<div class="book-placeholder">Book 1</div>
-<div class="book-placeholder">Book 2</div>
-<div class="book-placeholder">Book 3</div>
-<div class="book-placeholder">Book 4</div>
-<div class="book-placeholder">Book 5</div>
-<div class="book-placeholder">Book 6</div>
+<div class="lamb" title="Little Lamb">
+<div class="ear"></div>
+<div class="head"></div>
+<div class="eye"></div>
+<div class="body"></div>
+</div>
+
+<div class="island" title="Floating Island">
+<div class="grass"></div>
+<div class="rim"></div>
+<div class="shadow-under"></div>
+</div>
+</div>
+</div>
 </div>
 </section>
+
+<!-- BOOKS (editable placeholders) -->
+<section id="books">
+<div class="wrap">
+<h2>Books</h2>
+<p class="sub">
+<!-- Editable -->
+Six-book hard-page set coming first. This space stays ready for you to add titles + covers when they’re finalized.
+</p>
+
+<div class="cards">
+<div class="card">
+<div class="label">Placeholder</div>
+<p class="title">Book Title</p>
+<p class="desc">Add your one-sentence hook here when ready.</p>
+</div>
+
+<div class="card">
+<div class="label">Placeholder</div>
+<p class="title">Book Title</p>
+<p class="desc">Add your one-sentence hook here when ready.</p>
+</div>
+
+<div class="card">
+<div class="label">Placeholder</div>
+<p class="title">Book Title</p>
+<p class="desc">Add your one-sentence hook here when ready.</p>
+</div>
+</div>
+
+<p class="fine" style="margin-top:10px;">
+Tip: when you’re ready, duplicate cards to make 6, and swap in cover images + titles.
+</p>
+</div>
+</section>
+
+<!-- DISCOVER (restored original goals) -->
+<section id="story">
+<div class="wrap">
+<div class="two-col">
+<div>
+<h2>Discover the Story</h2>
+
+<!-- ORIGINAL “built on love…” restored -->
+<p class="sub">
+Mansour Press is built on love for the Word and love for writing—stories that are tender enough for bedtime,
+and strong enough to plant truth in a child’s heart.
+</p>
+
+<!-- ORIGINAL bullets restored -->
+<ul class="bullets">
+<li>Gentle Christian themes (warm, not heavy)</li>
+<li>Majestic creation wonder (heavenly, astral feel)</li>
+<li>The Little Lamb as a comforting guide</li>
+</ul>
+
+<!-- ORIGINAL quote restored -->
+<div class="quote">
+“Light, love, and truth—woven into stories children want to hear again.”
+<div style="margin-top:8px; font-style:normal; color:rgba(255,255,255,.62);">— Mansour Press</div>
+</div>
+</div>
+
+<div>
+<div class="panel" style="padding:18px; border-radius:18px;">
+<p class="kicker" style="margin-bottom:10px;">Next steps</p>
+<p class="sub" style="margin:0;">
+When you’re ready, we’ll add your six book titles + covers here (no rush).
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AUTHOR (restored original author line) -->
+<section id="author">
+<div class="wrap">
+<h2>About the Author</h2>
+
+<div class="authorBox">
+<!-- Your file in repo: author.jpg -->
+<img src="author.jpg" alt="Author photo" />
+
+<div>
+<h3>S.C. Mansour</h3>
+
+<!-- ORIGINAL author bio line restored -->
+<p>
+S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language and deep Christian faith
+into every story she writes.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT (restored clickables) -->
+<section id="contact">
+<div class="wrap">
+<div class="two-col">
+<div>
+<h2>Contact</h2>
+
+<!-- ORIGINAL contact line restored -->
+<p class="sub">
+Questions, collaborations, bookstores, or events—reach out here.
+</p>
+
+<form id="contactForm">
+<input name="name" placeholder="Your name" required />
+<input type="email" name="email" placeholder="you@email.com" required />
+<textarea name="message" placeholder="Write your message..." required></textarea>
+
+<div class="sendRow">
+<!-- NOTE: this is a simple mailto (works immediately). If you want a real inbox later, we can connect Formspree/etc. -->
+<button class="btn primary" type="submit">Send</button>
+<p class="fine">This currently opens your email app to send. (We can connect it to a form inbox later.)</p>
+</div>
+</form>
+</div>
+
+<div class="panel" style="padding:18px; border-radius:18px;">
+<p class="kicker" style="margin-bottom:10px;">Mansour Press</p>
+
+<!-- ORIGINAL contact details restored + clickable -->
+<p style="margin:0 0 8px; color:rgba(255,255,255,.78);">
+Winter Garden, FL, USA
+</p>
+
+<p style="margin:0 0 8px;">
+<a href="tel:+14078078212" style="text-decoration:none; color:rgba(255,255,255,.90); font-family:ui-sans-serif,system-ui;">
++1 (407) 807-8212
+</a>
+</p>
+
+<div style="height:1px; background:rgba(255,255,255,.10); margin:12px 0;"></div>
+
+<p style="margin:0; color:rgba(255,255,255,.70); font-family:ui-sans-serif,system-ui; font-size:13px;">
+Hours
+</p>
+<p style="margin:6px 0 0; color:rgba(255,255,255,.78); font-family:ui-sans-serif,system-ui; font-size:13px;">
+Mon–Thu: 9:00am – 5:00pm<br/>
+Fri–Sun: Closed
+</p>
+</div>
+</div>
+</div>
+</section>
+</main>
 
 <footer>
-© 2026 Mansour Press — Made with wonder.
+<div class="wrap">
+© <span id="year"></span> Mansour Press — Made with wonder.
+</div>
 </footer>
 
+<script>
+// Footer year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Simple mailto submit (so "Send" works right now without extra services)
+document.getElementById("contactForm").addEventListener("submit", function(e){
+e.preventDefault();
+const data = new FormData(e.target);
+const name = (data.get("name")||"").toString().trim();
+const email = (data.get("email")||"").toString().trim();
+const msg = (data.get("message")||"").toString().trim();
+
+const subject = encodeURIComponent("Mansour Press Website Contact");
+const body = encodeURIComponent(
+`Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`
+);
+
+// CHANGE THIS to your preferred receiving email:
+const to = "mansourpresscompany@gmail.com";
+window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+e.target.reset();
+});
+</script>
 </body>
 </html>
