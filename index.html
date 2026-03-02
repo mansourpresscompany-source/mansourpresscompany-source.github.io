@@ -1,122 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mansour Press</title>
-<meta name="description" content="Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path." />
 <link rel="stylesheet" href="style.css" />
 </head>
+<body>
+<div class="sky-fog"></div>
 
-<body class="landing">
-<!-- Animated background layers (CSS uses these hooks) -->
-<div class="stars" aria-hidden="true"></div>
-<div class="shooting-star" aria-hidden="true"></div>
+<header class="container">
+<div class="brand">
+<span class="spark">✦</span>
+<span>Mansour Press</span>
+</div>
 
-<!-- Header -->
-<header class="site-header">
-<div class="container">
-<a class="brand" href="mansour-press.html" aria-label="Go to Mansour Press page">
-<span class="sparkle" aria-hidden="true">✦</span>
-Mansour Press
-</a>
-
-<nav class="cloud-nav" aria-label="Primary">
+<nav class="nav" aria-label="Primary">
 <a class="cloud-link" href="books.html">Books</a>
 <a class="cloud-link" href="discover.html">Discover</a>
 <a class="cloud-link" href="author.html">Author</a>
 <a class="cloud-link" href="contact.html">Contact</a>
+<a class="cloud-link" href="mansour-press.html">Mansour Press</a>
 </nav>
-</div>
 </header>
 
-<!-- Hero (Landing page content only, like your image) -->
-<main class="hero">
-<div class="container">
-<section class="hero-cloud" aria-label="Mansour Press introduction">
+<main class="hero container">
+<section class="hero-cloud" aria-label="Hero">
 <div class="kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</div>
 
-<h1 class="headline">
-Under Heaven’s sky,<br />
-little hearts learn they are loved.
-</h1>
+<h1>Under Heaven’s sky,<br/>little hearts learn they are loved.</h1>
 
-<p class="subcopy">
-Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.
+<p>
+Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—
+where God’s creation points back to the One who made it, and the Word is a light for the path.
 </p>
 </section>
-</div>
+
+<section class="bottom-links" aria-label="Landing quick links">
+<div class="bottom-link">Books</div>
+<div class="bottom-link">Discover</div>
+<div class="bottom-link">Author</div>
+</section>
 </main>
 
-<!-- Bottom cloud links (like the sample image) -->
-<section class="footer-cloud-links" aria-label="Explore">
-<div class="container">
-<div class="footer-cloud-row">
-<a class="footer-cloud" href="books.html">Books</a>
-<a class="footer-cloud" href="discover.html">Discover</a>
-<a class="footer-cloud" href="author.html">Author</a>
-</div>
-</div>
-</section>
+<footer class="container">
+© 2026 Mansour Press — Made with wonder.
+</footer>
 
-<!-- Big readable logo at the bottom -->
-<div class="landing-logo">
-<!-- Keep your JPG name exactly as it is in your repo -->
-<img src="logo.jpg" alt="Mansour Press logo" />
-</div>
-
-<!-- Optional: mouse “star trail” (works without editing other files) -->
-<script>
-(function () {
-const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (prefersReduced) return;
-
-const trailCount = 14;
-const dots = [];
-const root = document.documentElement;
-
-// Create dots
-for (let i = 0; i < trailCount; i++) {
-const d = document.createElement('div');
-d.style.position = 'fixed';
-d.style.left = '0px';
-d.style.top = '0px';
-d.style.width = (10 - i * 0.4) + 'px';
-d.style.height = (10 - i * 0.4) + 'px';
-d.style.borderRadius = '999px';
-d.style.pointerEvents = 'none';
-d.style.zIndex = '3';
-d.style.opacity = String(0.55 - i * 0.03);
-d.style.transform = 'translate(-50%, -50%)';
-d.style.background = 'radial-gradient(circle at 35% 35%, rgba(255,255,255,1) 0%, rgba(255,235,180,0.95) 35%, rgba(255,205,90,0) 70%)';
-d.style.filter = 'drop-shadow(0 0 10px rgba(255, 220, 150, 0.7))';
-document.body.appendChild(d);
-dots.push({ el: d, x: 0, y: 0 });
-}
-
-let mx = window.innerWidth / 2;
-let my = window.innerHeight / 2;
-
-window.addEventListener('mousemove', (e) => {
-mx = e.clientX;
-my = e.clientY;
-}, { passive: true });
-
-function animate() {
-let x = mx, y = my;
-for (let i = 0; i < dots.length; i++) {
-const p = dots[i];
-p.x += (x - p.x) * 0.22;
-p.y += (y - p.y) * 0.22;
-p.el.style.left = p.x + 'px';
-p.el.style.top = p.y + 'px';
-x = p.x;
-y = p.y;
-}
-requestAnimationFrame(animate);
-}
-animate();
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
