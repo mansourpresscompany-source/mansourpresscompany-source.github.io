@@ -1,595 +1,175 @@
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  color: rgba(255,255,255,0.92);
-  background: #050814;
-  font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  overflow-x: hidden;
+/* Base */
+body{
+  margin:0;
+  font-family:'Nunito', sans-serif;
+  color:white;
+  overflow-x:hidden;
+  background:#050814;
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-a:hover { opacity: 0.95; }
-
-.container {
-  width: min(1100px, calc(100% - 40px));
-  margin: 0 auto;
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
 }
 
-h1, h2, h3, h4 {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  letter-spacing: 0.2px;
-  margin: 0 0 10px 0;
-}
-h1 { font-size: clamp(2.1rem, 3.2vw, 3.25rem); line-height: 1.05; }
-h2 { font-size: clamp(1.8rem, 2.2vw, 2.35rem); }
-h3 { font-size: 1.25rem; }
-p { margin: 0 0 14px 0; line-height: 1.6; }
-strong { font-weight: 800; }
-
-.section {
-  padding: 70px 0;
-  position: relative;
-  z-index: 1;
-}
-.section.panel {
-  padding: 75px 0;
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
 
-.sub {
-  opacity: 0.9;
-  margin-top: 6px;
-  max-width: 70ch;
+/* SKY */
+.sky{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+  background:linear-gradient(to bottom,#050814,#0a1330);
 }
 
-.muted { opacity: 0.7; }
+.sky div{position:absolute; inset:-20%;}
 
-/* ---------- Animated Sky Background ---------- */
-.sky {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(1200px 800px at 30% 20%, rgba(78,114,255,0.22), transparent 60%),
-    radial-gradient(900px 650px at 70% 30%, rgba(171,82,255,0.18), transparent 60%),
-    radial-gradient(1100px 700px at 50% 80%, rgba(0,255,214,0.08), transparent 55%),
-    linear-gradient(180deg, #040617 0%, #050a1a 40%, #02040d 100%);
-}
-
-/* Stars: three layers moving at different speeds */
-.stars {
-  position: absolute;
-  inset: -40% -40%;
-  background-repeat: repeat;
-  opacity: 0.75;
-  filter: drop-shadow(0 0 1px rgba(255,255,255,0.35));
-  animation: starDrift 80s linear infinite;
-  transform: translateZ(0);
-}
-
-/* Tiny star pattern via gradients */
-.stars-1 {
+/* Stars */
+.stars{
   background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.7) 50%, transparent 51%),
-    radial-gradient(1px 1px at 35% 70%, rgba(255,255,255,0.6) 50%, transparent 51%),
-    radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,0.55) 50%, transparent 51%),
-    radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,0.7) 50%, transparent 51%),
-    radial-gradient(1px 1px at 90% 85%, rgba(255,255,255,0.5) 50%, transparent 51%);
-  background-size: 240px 240px;
-  opacity: 0.55;
-}
-.stars-2 {
-  background-image:
-    radial-gradient(1.5px 1.5px at 12% 55%, rgba(255,255,255,0.65) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 48% 18%, rgba(255,255,255,0.55) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 77% 63%, rgba(255,255,255,0.55) 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 92% 28%, rgba(255,255,255,0.6) 50%, transparent 51%);
-  background-size: 320px 320px;
-  animation-duration: 120s;
-  opacity: 0.45;
-}
-.stars-3 {
-  background-image:
-    radial-gradient(2px 2px at 25% 35%, rgba(255,255,255,0.4) 50%, transparent 51%),
-    radial-gradient(2px 2px at 55% 75%, rgba(255,255,255,0.35) 50%, transparent 51%),
-    radial-gradient(2px 2px at 85% 45%, rgba(255,255,255,0.35) 50%, transparent 51%);
-  background-size: 420px 420px;
-  animation-duration: 180s;
-  opacity: 0.25;
+    radial-gradient(2px 2px at 20% 30%,white,transparent),
+    radial-gradient(1px 1px at 60% 70%,white,transparent),
+    radial-gradient(2px 2px at 80% 20%,white,transparent);
+  background-size:300px 300px;
+  animation:drift 90s linear infinite;
+  opacity:.5;
 }
 
-/* Nebula blobs drifting slowly */
-.nebula {
-  position: absolute;
-  inset: -25%;
-  mix-blend-mode: screen;
-  opacity: 0.6;
-  filter: blur(14px) saturate(1.15);
-  transform: translateZ(0);
+.stars-2{animation-duration:120s;opacity:.3;}
+.stars-3{animation-duration:150s;opacity:.2;}
+
+@keyframes drift{
+  from{transform:translate(0,0);}
+  to{transform:translate(200px,100px);}
 }
 
-.nebula-a {
+/* Nebula */
+.nebula{
+  mix-blend-mode:normal;
+  filter:blur(20px);
+  opacity:.8;
+  animation:nebulaMove 60s ease-in-out infinite alternate;
+}
+
+.nebula-a{
+  background:radial-gradient(circle at 30% 40%,rgba(120,170,255,.4),transparent 60%);
+}
+.nebula-b{
+  background:radial-gradient(circle at 70% 60%,rgba(200,120,255,.3),transparent 60%);
+}
+.nebula-c{
+  background:radial-gradient(circle at 50% 20%,rgba(120,255,220,.25),transparent 60%);
+}
+
+@keyframes nebulaMove{
+  from{transform:translate(-50px,-20px);}
+  to{transform:translate(50px,20px);}
+}
+
+/* Twinkle */
+.twinkles{
   background:
-    radial-gradient(600px 420px at 20% 30%, rgba(120,160,255,0.24), transparent 60%),
-    radial-gradient(520px 380px at 45% 55%, rgba(180,90,255,0.18), transparent 65%),
-    radial-gradient(540px 400px at 75% 25%, rgba(0,255,214,0.10), transparent 60%);
-  animation: nebulaFloatA 38s ease-in-out infinite;
+  radial-gradient(2px 2px at 40% 50%,white,transparent),
+  radial-gradient(2px 2px at 70% 30%,white,transparent);
+  animation:twinkle 6s infinite alternate;
 }
 
-.nebula-b {
-  background:
-    radial-gradient(640px 460px at 70% 70%, rgba(78,114,255,0.18), transparent 60%),
-    radial-gradient(520px 420px at 35% 80%, rgba(255,170,80,0.10), transparent 70%),
-    radial-gradient(600px 420px at 30% 35%, rgba(171,82,255,0.14), transparent 70%);
-  animation: nebulaFloatB 52s ease-in-out infinite;
-  opacity: 0.52;
+@keyframes twinkle{
+  from{opacity:.3;}
+  to{opacity:.8;}
 }
 
-.nebula-c {
-  background:
-    radial-gradient(720px 520px at 55% 20%, rgba(120,160,255,0.14), transparent 65%),
-    radial-gradient(520px 420px at 85% 40%, rgba(0,255,214,0.08), transparent 70%),
-    radial-gradient(560px 420px at 15% 65%, rgba(171,82,255,0.12), transparent 70%);
-  animation: nebulaFloatC 64s ease-in-out infinite;
-  opacity: 0.45;
+/* Shooting Star */
+.shooting-star{
+  width:200px;
+  height:4px;
+  background:linear-gradient(to right,transparent, yellow, white);
+  top:20%;
+  left:-20%;
+  transform:rotate(-20deg);
+  opacity:0;
+  animation:shoot 25s infinite;
 }
 
-/* Soft twinkle overlay */
-.twinkles {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.14) 50%, transparent 55%),
-    radial-gradient(2px 2px at 70% 50%, rgba(255,255,255,0.12) 50%, transparent 55%),
-    radial-gradient(2px 2px at 40% 80%, rgba(255,255,255,0.10) 50%, transparent 55%);
-  background-size: 500px 500px;
-  animation: twinkle 6s ease-in-out infinite alternate;
-  opacity: 0.5;
+.shooting-2{top:40%;animation-delay:12s;}
+
+@keyframes shoot{
+  0%{opacity:0;}
+  85%{opacity:0;}
+  88%{opacity:1;transform:translate(120vw,60vh) rotate(-20deg);}
+  90%{opacity:0;}
+  100%{opacity:0;}
 }
 
-.vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(1000px 700px at 50% 30%, transparent 30%, rgba(0,0,0,0.35) 100%);
+/* Header */
+.header{
+  padding:20px 0;
 }
 
-/* ---------- Header / Navigation ---------- */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(6,10,28,0.78), rgba(6,10,28,0.35));
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 14px 0;
+.logo{
+  height:70px;
 }
 
-/* Logo bigger + centered inside header area */
-.brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 220px;
-}
-.brand-logo {
-  height: clamp(54px, 5.2vw, 82px); /* prominent */
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
 }
 
-.nav {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-}
-.nav a {
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  font-size: 0.96rem;
-  opacity: 0.9;
-  padding: 10px 10px;
-  border-radius: 999px;
-}
-.nav a:hover {
-  background: rgba(255,255,255,0.08);
-  opacity: 1;
+/* Sections */
+.section{
+  padding:80px 0;
 }
 
-.nav-toggle {
-  display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-}
-.nav-toggle span {
-  display: block;
-  height: 2px;
-  width: 18px;
-  margin: 5px auto;
-  background: rgba(255,255,255,0.8);
-  border-radius: 999px;
+/* Cloud Box */
+.cloud-box{
+  background:rgba(255,255,255,.07);
+  padding:30px;
+  border-radius:50% 50% 45% 45% / 60% 60% 40% 40%;
+  border:2px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(6px);
+  box-shadow:0 0 30px rgba(255,255,255,.1);
+  text-align:center;
 }
 
-.mobile-nav {
-  padding: 10px 0 16px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-.mobile-nav a {
-  display: block;
-  padding: 12px 0;
-  opacity: 0.92;
-  font-weight: 800;
+/* Books */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  padding: 78px 0 40px;
-  position: relative;
-  z-index: 1;
+.book h3{
+  font-size:1.4rem;
 }
 
-.hero-inner {
-  display: grid;
-  place-items: center;
+/* Author */
+.author-section{
+  display:flex;
+  gap:40px;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
-.hero-card {
-  width: min(860px, 100%);
-  border-radius: 28px;
-  padding: clamp(22px, 3vw, 34px);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 20px 70px rgba(0,0,0,0.45);
-  position: relative;
-  overflow: hidden;
+.author-photo{
+  width:280px;
+  border-radius:20px;
 }
 
-/* subtle “storybook page glow” */
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background:
-    radial-gradient(600px 240px at 50% 0%, rgba(255,255,255,0.10), transparent 60%),
-    radial-gradient(600px 240px at 50% 110%, rgba(255,255,255,0.06), transparent 65%);
-  pointer-events: none;
-}
-
-.kicker {
-  font-size: 0.78rem;
-  letter-spacing: 1.2px;
-  opacity: 0.85;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.lead {
-  font-size: 1.03rem;
-  opacity: 0.92;
-  max-width: 78ch;
-}
-
-/* ---------- Buttons / Pills ---------- */
-.cta-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 12px 18px;
-  font-weight: 900;
-  border: 1px solid rgba(255,255,255,0.16);
-  background: rgba(255,255,255,0.08);
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.btn.primary {
-  background: linear-gradient(135deg, rgba(120,160,255,0.55), rgba(171,82,255,0.45));
-  border-color: rgba(255,255,255,0.22);
-}
-
-.btn.ghost {
-  background: rgba(255,255,255,0.06);
-}
-
-.btn.small {
-  padding: 10px 14px;
-  font-weight: 900;
-}
-
-.quick-info {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.10);
-  opacity: 0.92;
-}
-
-/* ---------- Cards / Layout ---------- */
-.cards {
-  display: grid;
-  gap: 14px;
-}
-
-.books-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 18px;
-}
-
-.card {
-  border-radius: 22px;
-  padding: 18px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-}
-
-.book-card h3 {
-  margin-top: 12px;
-  margin-bottom: 6px;
-}
-.book-card p { opacity: 0.88; }
-
-.cover {
-  border-radius: 16px;
-  height: 150px;
-  background: rgba(255,255,255,0.05);
-  border: 1px dashed rgba(255,255,255,0.18);
-  position: relative;
-  overflow: hidden;
-}
-
-/* subtle watercolor paper feel */
-.cover.empty::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(180px 120px at 25% 35%, rgba(255,255,255,0.06), transparent 60%),
-    radial-gradient(180px 120px at 75% 55%, rgba(255,255,255,0.05), transparent 65%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  opacity: 0.9;
-}
-
-[contenteditable="true"] {
-  outline: none;
-  border-radius: 10px;
-}
-[contenteditable="true"]:focus {
-  box-shadow: 0 0 0 2px rgba(120,160,255,0.35);
-  background: rgba(255,255,255,0.04);
-  padding: 2px 6px;
-  margin-left: -6px;
-  margin-right: -6px;
-}
-
-/* Note card */
-.note-card {
-  margin-top: 18px;
-  border-radius: 22px;
-  padding: 18px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.12);
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.note-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin: 0;
-}
-.note-text { margin: 0; opacity: 0.88; }
-
-/* Panel section styling */
-.panel {
-  background: rgba(0,0,0,0.18);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.two-col {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.bullets {
-  margin: 14px 0 0 0;
-  padding-left: 18px;
-  opacity: 0.92;
-}
-.bullets li { margin: 8px 0; }
-
-.quote-card {
-  border-radius: 24px;
-  padding: 22px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.30);
-}
-.quote {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.35rem;
-  line-height: 1.25;
-  margin: 0 0 10px 0;
-}
-.quote-by { margin: 0; opacity: 0.82; }
-
-/* ---------- Author ---------- */
-.author-wrap {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 22px;
-  align-items: center;
-}
-
-.author-photo-wrap {
-  border-radius: 28px;
-  padding: 10px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.40);
-}
-.author-photo {
-  border-radius: 22px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.author-copy p { opacity: 0.92; }
-
-/* ---------- Contact ---------- */
-.form {
-  margin-top: 10px;
-  display: grid;
-  gap: 12px;
-}
-
-label span {
-  display: block;
-  font-weight: 900;
-  opacity: 0.9;
-  margin-bottom: 6px;
-}
-
-input, textarea {
-  width: 100%;
-  border-radius: 14px;
-  padding: 12px 14px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.92);
-  font-family: inherit;
-  outline: none;
-}
-
-input:focus, textarea:focus {
-  border-color: rgba(120,160,255,0.35);
-  box-shadow: 0 0 0 3px rgba(120,160,255,0.18);
-}
-
-.fine {
-  font-size: 0.9rem;
-  opacity: 0.75;
-  margin: 6px 0 0 0;
-}
-
-.contact-card {
-  border-radius: 24px;
-  padding: 22px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.30);
-}
-
-.link {
-  font-weight: 900;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.mini-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.10);
-  margin: 14px 0;
-}
-
-.hours { opacity: 0.88; }
-
-/* ---------- Footer ---------- */
-.footer {
-  padding: 22px 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: rgba(0,0,0,0.18);
-  position: relative;
-  z-index: 1;
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* ---------- Animations ---------- */
-@keyframes starDrift {
-  0%   { transform: translate3d(0,0,0); }
-  100% { transform: translate3d(18%, 12%, 0); }
-}
-
-@keyframes nebulaFloatA {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50%      { transform: translate3d(2%, -3%, 0) scale(1.03); }
-}
-@keyframes nebulaFloatB {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50%      { transform: translate3d(-3%, 2%, 0) scale(1.04); }
-}
-@keyframes nebulaFloatC {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50%      { transform: translate3d(2%, 2%, 0) scale(1.02); }
-}
-@keyframes twinkle {
-  from { opacity: 0.35; filter: blur(0px); }
-  to   { opacity: 0.7; filter: blur(0.2px); }
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 980px) {
-  .two-col { grid-template-columns: 1fr; }
-  .author-wrap { grid-template-columns: 1fr; }
-  .author-photo-wrap { width: min(360px, 100%); }
-  .books-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .brand { min-width: 180px; }
-}
-
-@media (max-width: 720px) {
-  .nav { display: none; }
-  .nav-toggle { display: inline-block; }
-
-  .brand-logo { height: 64px; }
-
-  .books-grid { grid-template-columns: 1fr; }
-  .hero { padding-top: 64px; }
-  .section { padding: 60px 0; }
+/* Footer */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
 }
