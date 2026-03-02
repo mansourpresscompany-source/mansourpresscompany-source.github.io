@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Author — Mansour Press</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Author • Mansour Press</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="sky-fog"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="skyFx" aria-hidden="true"></canvas>
 
-<header class="container">
-<div class="brand"><span class="spark">✦</span><span>Mansour Press</span></div>
+<header class="topbar">
+<a class="brand" href="index.html"><span class="sparkle">✦</span><span class="title">Mansour Press</span></a>
 <nav class="nav" aria-label="Primary">
-<a class="cloud-link" href="index.html">Home</a>
 <a class="cloud-link" href="books.html">Books</a>
 <a class="cloud-link" href="discover.html">Discover</a>
 <a class="cloud-link" href="author.html">Author</a>
@@ -21,32 +21,31 @@
 </nav>
 </header>
 
-<main class="page container">
-<h1 class="page-title">Author</h1>
+<main class="page">
+<div class="page-inner">
+<h1 class="page-title">About the Author</h1>
 
-<section class="card-cloud">
+<section class="card cloud">
 <div class="author-wrap">
+<!-- You have author.jpg in your repo -->
 <img class="author-photo" src="author.jpg" alt="Author portrait" />
 
 <div>
-<h2>About the Author</h2>
-<p>
-S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language
-and deep Christian faith into every story she writes.
+<h2 class="h2">S.C. Mansour</h2>
+<p class="p">
+S.C. Mansour holds a Bachelor’s degree in English Literature and brings her love of language and deep Christian faith into every story she writes.
 </p>
-<p>
-Through Mansour Press, she hopes to offer timeless stories that families can read together
-and treasure for years to come.
+
+<p class="p" style="margin-top:12px;">
+She is also the illustrator behind Mansour Press—creating warm, storybook worlds that invite children to wonder, rest, and remember God’s love.
 </p>
 </div>
 </div>
 </section>
+</div>
 </main>
 
-<footer class="container">
-© 2026 Mansour Press — Made with wonder.
-</footer>
-
+<footer class="footer">© 2026 Mansour Press — Made with wonder.</footer>
 <script src="script.js"></script>
 </body>
 </html>
