@@ -1,58 +1,76 @@
-// year
-const y = document.getElementById("year");
-if (y) y.textContent = new Date().getFullYear();
+// Mansour Press — Shooting star + mouse star trail
 
-// Shooting star every ~30 seconds (with slight randomness)
-function spawnShootingStar() {
+// ----- Mouse star trail -----
+let lastTrailTime = 0;
+
+function spawnTrailStar(x, y) {
 const s = document.createElement("div");
-s.className = "shooting-star";
+s.className = "trail-star";
+s.style.left = x + "px";
+s.style.top = y + "px";
 
-// Start position near top-left but varied
-const startTop = Math.random() * 25 - 20; // -20vh to 5vh
-const startLeft = Math.random() * 30 - 35; // -35vw to -5vw
-s.style.top = `${startTop}vh`;
-s.style.left = `${startLeft}vw`;
-
-// Duration slightly varied
-const dur = 2.4 + Math.random() * 1.2; // 2.4s to 3.6s
-s.style.animation = `shootAcross ${dur}s ease-in-out 0s 1`;
+// Random tiny variation
+const size = 10 + Math.random() * 10;
+s.style.transform = `translate(-50%, -50%) scale(${size / 14}) rotate(${Math.random() * 40 - 20}deg)`;
 
 document.body.appendChild(s);
 
-// Cleanup
-setTimeout(() => s.remove(), (dur + 0.4) * 1000);
+// Fade + drift
+const driftX = (Math.random() * 10 - 5);
+const driftY = (Math.random() * 10 - 5);
+let opacity = 0.95;
+let t = 0;
+
+const tick = () => {
+t += 1;
+opacity -= 0.06;
+s.style.opacity = Math.max(opacity, 0).toString();
+s.style.left = (x + driftX * t) + "px";
+s.style.top = (y + driftY * t) + "px";
+if (opacity <= 0) s.remove();
+else requestAnimationFrame(tick);
+};
+requestAnimationFrame(tick);
 }
 
-// Initial delay so it doesn’t fire immediately on load
-setTimeout(() => {
-spawnShootingStar();
-setInterval(() => {
-spawnShootingStar();
-}, 28000 + Math.floor(Math.random() * 6000)); // ~28–34s
-}, 3500);
-
-// Mouse star trail
-let lastTrailTime = 0;
-document.addEventListener("mousemove", (e) => {
-const now = performance.now();
-// throttle
-if (now - lastTrailTime < 22) return;
+window.addEventListener("mousemove", (e) => {
+const now = Date.now();
+// throttle so it feels magical, not messy
+if (now - lastTrailTime > 18) {
+spawnTrailStar(e.clientX, e.clientY);
 lastTrailTime = now;
+}
+});
 
-const t = document.createElement("span");
-t.className = "trail-star";
-t.style.left = `${e.clientX}px`;
-t.style.top = `${e.clientY}px`;
+// ----- Shooting star every ~30 seconds (visible + pretty) -----
+function createShootingStar() {
+const star = document.createElement("div");
+star.className = "shooting-star";
 
-// random size/opacity for a magical feel
-const size = 8 + Math.random() * 10;
-t.style.width = `${size}px`;
-t.style.height = `${size}px`;
-t.style.opacity = `${0.65 + Math.random() * 0.35}`;
+// Randomize starting height a bit (top area like your image)
+const top = 8 + Math.random() * 22; // vh
+star.style.top = `${top}vh`;
 
-const fadeDur = 520 + Math.random() * 450;
-t.style.animation = `trailFade ${fadeDur}ms ease-out forwards`;
+// Slight random rotation, still mostly diagonal
+const rot = -10 - Math.random() * 18;
+star.style.transform = `rotate(${rot}deg)`;
 
-document.body.appendChild(t);
-setTimeout(() => t.remove(), fadeDur + 60);
+document.body.appendChild(star);
+
+// Trigger animation
+requestAnimationFrame(() => {
+star.classList.add("run");
+});
+
+// Cleanup
+star.addEventListener("animationend", () => star.remove());
+}
+
+// Start with one after load, then every 30s
+window.addEventListener("load", () => {
+// First one quickly so you see it
+setTimeout(createShootingStar, 2500);
+
+// Then consistent timing
+setInterval(createShootingStar, 30000);
 });
