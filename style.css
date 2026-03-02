@@ -1,82 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mansour Press</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-</head>
+body {
+margin:0;
+font-family:'Cormorant Garamond', serif;
+color:white;
+background:black;
+overflow-x:hidden;
+}
 
-<body>
+/* Star Background */
+.stars, .twinkle, .nebula {
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-3;
+}
 
-<div class="stars"></div>
-<div class="twinkle"></div>
-<div class="nebula"></div>
-<div class="meteor"></div>
+.stars {
+background:transparent url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 200s linear infinite;
+}
 
-<header>
-<nav class="cloud-nav">
-<a href="#books">Books</a>
-<a href="#discover">Discover</a>
-<a href="#author">Author</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+.twinkle {
+background:radial-gradient(white 1px, transparent 1px);
+background-size:3px 3px;
+opacity:0.4;
+animation:twinkle 6s ease-in-out infinite alternate;
+}
 
-<section class="hero">
-<h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
-<p>Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.</p>
-</section>
+.nebula {
+background:radial-gradient(circle at 30% 40%, rgba(120,70,255,.6), transparent 60%),
+radial-gradient(circle at 70% 60%, rgba(0,150,255,.5), transparent 60%),
+radial-gradient(circle at 50% 80%, rgba(255,100,200,.3), transparent 70%);
+animation:nebulaMove 60s ease-in-out infinite alternate;
+filter:blur(80px);
+z-index:-2;
+}
 
-<section id="books" class="cloud-box">
-<h2>Books</h2>
-<div class="book-grid">
-<div class="book">Book One<br><span>Coming Soon</span></div>
-<div class="book">Book Two<br><span>Coming Soon</span></div>
-<div class="book">Book Three<br><span>Coming Soon</span></div>
-<div class="book">Book Four<br><span>Coming Soon</span></div>
-<div class="book">Book Five<br><span>Coming Soon</span></div>
-<div class="book">Book Six<br><span>Coming Soon</span></div>
-</div>
-</section>
+@keyframes moveStars {
+from {background-position:0 0;}
+to {background-position:-10000px 5000px;}
+}
 
-<section id="discover" class="cloud-box">
-<h2>Discover the Story</h2>
-<ul>
-<li>Gentle Christian themes (warm, not heavy)</li>
-<li>Majestic creation wonder (heavenly, astral feel)</li>
-<li>The Little Lamb as a comforting guide</li>
-</ul>
-<p><em>“Light, love, and truth—woven into stories children want to hear again.”</em></p>
-</section>
+@keyframes twinkle {
+from {opacity:0.2;}
+to {opacity:0.6;}
+}
 
-<section id="author" class="cloud-box">
-<h2>About the Author</h2>
-<img src="yourphoto.jpg" class="author-photo">
-<p>S.C. Mansour holds a Bachelor’s degree in English Literature and brings both her love of language and her deep Christian faith into every story she writes.</p>
+@keyframes nebulaMove {
+from {transform:scale(1);}
+to {transform:scale(1.2);}
+}
 
-<p>As a devoted wife and mother of four beautiful children, she understands the sacred, everyday moments that shape a child’s heart—bedtime prayers, whispered reassurances, and the simple rhythms of family life.</p>
+/* NASA Meteor */
+.meteor {
+position:fixed;
+top:-100px;
+left:-200px;
+width:300px;
+height:3px;
+background:linear-gradient(90deg, white, rgba(255,255,200,.9), transparent);
+box-shadow:0 0 20px white, 0 0 40px #ffd700;
+transform:rotate(35deg);
+animation:meteorMove 30s linear infinite;
+z-index:-1;
+}
 
-<p>Her passion is to create gentle, faith-rooted books that help little ones know they are loved by God and safe in His care.</p>
+@keyframes meteorMove {
+0% {transform:translate(-500px,-200px) rotate(35deg);}
+5% {transform:translate(120vw,100vh) rotate(35deg);}
+100% {transform:translate(120vw,100vh) rotate(35deg);}
+}
 
-<p>Through Mansour Press, she offers timeless stories families can read together and treasure for years to come.</p>
-</section>
+/* Navigation Clouds */
+.cloud-nav {
+display:flex;
+justify-content:center;
+gap:20px;
+padding:30px;
+}
 
-<section id="contact" class="cloud-box">
-<h2>Contact</h2>
-<form>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Write your message..."></textarea>
-<button type="submit">Send</button>
-</form>
-</section>
+.cloud-nav a {
+text-decoration:none;
+background:white;
+color:#003366;
+padding:15px 30px;
+border-radius:50px;
+box-shadow:0 0 20px rgba(255,255,255,.5);
+font-weight:600;
+}
 
-<footer>
-<img src="logo.png" class="footer-logo">
-<p>© 2026 Mansour Press — Made with wonder.</p>
-</footer>
+/* Hero */
+.hero {
+text-align:center;
+padding:100px 20px;
+max-width:900px;
+margin:auto;
+}
 
-</body>
-</html>
+/* Cloud Boxes */
+.cloud-box {
+background:white;
+color:#003366;
+margin:80px auto;
+padding:50px;
+max-width:900px;
+border-radius:100px;
+box-shadow:0 0 40px rgba(255,255,255,.6);
+}
+
+/* Books */
+.book-grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.book {
+background:#e6f4ff;
+padding:20px;
+border-radius:40px;
+text-align:center;
+font-weight:600;
+}
+
+/* Author */
+.author-photo {
+width:200px;
+border-radius:50%;
+display:block;
+margin:20px auto;
+}
+
+/* Contact */
+form {
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input, textarea {
+padding:15px;
+border:none;
+border-radius:30px;
+}
+
+button {
+padding:15px;
+border:none;
+border-radius:30px;
+background:#003366;
+color:white;
+cursor:pointer;
+}
+
+/* Footer */
+footer {
+text-align:center;
+padding:80px 20px;
+}
+
+.footer-logo {
+width:300px;
+margin-bottom:20px;
+}
