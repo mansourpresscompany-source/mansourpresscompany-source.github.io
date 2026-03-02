@@ -1,87 +1,423 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mansour Press</title>
-<meta name="description" content="Mansour Press — Christian children's stories inspired by God's creation." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
-</head>
-<body class="landing-mode">
-<!-- Animated Background -->
-<div class="sky" aria-hidden="true">
-<div class="nebula nebula-a"></div>
-<div class="nebula nebula-b"></div>
-<div class="nebula nebula-c"></div>
+/* =========================
+Mansour Press — style.css
+Space + nebula + twinkling stars + occasional shooting star
+Cloud-shaped UI (nav + content cards)
+========================= */
 
-<div class="starfield starfield-1"></div>
-<div class="starfield starfield-2"></div>
-<div class="starfield starfield-3"></div>
-<div class="twinkle"></div>
-</div>
+/* ---------- Base / Reset ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+margin: 0;
+font-family: "Cormorant Garamond", "Garamond", serif;
+color: #f7fbff;
+background: #070b1a;
+overflow-x: hidden;
+}
 
-<!-- HERO LANDING (storybook-style) -->
-<main class="hero">
-<header class="hero-top">
-<div class="hero-brand">
-<span class="hero-spark" aria-hidden="true">✦</span>
-<span class="hero-brand-text">Mansour Press</span>
-</div>
+/* Make anchors readable */
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-<nav class="hero-nav" aria-label="Site navigation">
-<a class="hero-cloud" href="books.html">Books</a>
-<a class="hero-cloud" href="discover.html">Discover</a>
-<a class="hero-cloud" href="author.html">Author</a>
-<a class="hero-cloud" href="contact.html">Contact</a>
-<a class="hero-cloud" href="mansour-press.html">Mansour Press</a>
-</nav>
-</header>
+/* ---------- Background Layers (Nebula + Stars + Shooting star) ---------- */
+/* Nebula layer */
+body::before{
+content:"";
+position: fixed;
+inset: -20%;
+z-index: -3;
+pointer-events: none;
 
-<section class="hero-center">
-<div class="hero-cloud-mass" aria-hidden="true"></div>
+/* Visible nebula blobs (NASA-ish) */
+background:
+radial-gradient(closest-side at 18% 25%, rgba(72, 170, 255, 0.45), rgba(72,170,255,0) 62%),
+radial-gradient(closest-side at 78% 32%, rgba(164, 92, 255, 0.38), rgba(164,92,255,0) 60%),
+radial-gradient(closest-side at 55% 70%, rgba(255, 168, 92, 0.18), rgba(255,168,92,0) 58%),
+radial-gradient(closest-side at 30% 75%, rgba(40, 255, 214, 0.18), rgba(40,255,214,0) 60%),
+radial-gradient(closest-side at 92% 78%, rgba(96, 118, 255, 0.22), rgba(96,118,255,0) 60%),
+radial-gradient(closest-side at 50% 50%, rgba(255,255,255,0.03), rgba(255,255,255,0) 70%),
+linear-gradient(180deg, #060916 0%, #070b1a 40%, #050815 100%);
 
-<p class="hero-kicker">MAJESTIC WONDER • GENTLE TRUTH • STORYBOOK FAITH</p>
+filter: saturate(120%) contrast(110%) blur(0px);
+opacity: 1;
 
-<h1 class="hero-title">
-Under Heaven’s sky,<br />
-little hearts learn they are loved.
-</h1>
+/* slow drift */
+animation: nebulaDrift 40s ease-in-out infinite alternate;
+transform: translate3d(0,0,0);
+}
 
-<div class="hero-cloud-card">
-<p>
-Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where
-God’s creation points back to the One who made it, and the Word is a light for the path.
-</p>
-</div>
+@keyframes nebulaDrift{
+0% { transform: translate(-2%, -1%) scale(1.02); filter: saturate(120%) contrast(110%) blur(0px); }
+50% { transform: translate(1.5%, 1%) scale(1.04); filter: saturate(130%) contrast(115%) blur(0.5px); }
+100% { transform: translate(3%, -2%) scale(1.06); filter: saturate(125%) contrast(112%) blur(0.25px); }
+}
 
-<div class="hero-actions">
-<a class="btn-cloud" href="books.html">Explore Books</a>
-<a class="btn-cloud ghost" href="contact.html">Contact</a>
-</div>
-</section>
+/* Stars layer (two passes for depth + twinkle) */
+body::after{
+content:"";
+position: fixed;
+inset: 0;
+z-index: -2;
+pointer-events: none;
 
-<!-- Optional bottom “cloud links” like your image -->
-<section class="hero-bottom-links" aria-label="Quick links">
-<a class="hero-bottom-cloud" href="books.html">Books</a>
-<a class="hero-bottom-cloud" href="discover.html">Discover</a>
-<a class="hero-bottom-cloud" href="author.html">Author</a>
-</section>
+/* “Random-ish” stars using many radial dots */
+background:
+radial-gradient(2px 2px at 12% 18%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 24% 62%, rgba(255,255,255,.75), rgba(255,255,255,0) 60%),
+radial-gradient(1.5px 1.5px at 38% 28%, rgba(255,255,255,.8), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 49% 82%, rgba(255,255,255,.7), rgba(255,255,255,0) 60%),
+radial-gradient(2px 2px at 63% 16%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 71% 52%, rgba(255,255,255,.7), rgba(255,255,255,0) 60%),
+radial-gradient(1.5px 1.5px at 86% 30%, rgba(255,255,255,.8), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 8% 78%, rgba(255,255,255,.6), rgba(255,255,255,0) 60%),
+radial-gradient(2px 2px at 32% 92%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 58% 40%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+radial-gradient(1.5px 1.5px at 74% 90%, rgba(255,255,255,.8), rgba(255,255,255,0) 60%),
+radial-gradient(1px 1px at 44% 8%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%);
 
-<!-- Big readable logo at the bottom -->
-<section class="hero-logo">
-<img src="logo.jpg" alt="Mansour Press Logo" />
-</section>
-</main>
+opacity: .95;
+animation: starDrift 90s linear infinite, starTwinkle 5s ease-in-out infinite;
+}
 
-<footer class="footer hero-footer">
-<div class="wrap footer-inner">
-<span>© <span id="year"></span> Mansour Press — Made with wonder.</span>
-</div>
-</footer>
+@keyframes starDrift{
+from { transform: translateY(0); }
+to { transform: translateY(-60px); }
+}
+@keyframes starTwinkle{
+0%, 100% { opacity: .85; filter: brightness(1); }
+50% { opacity: 1; filter: brightness(1.15); }
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+/* Shooting star (pure CSS): shows every ~30s and crosses the page */
+.shooting-star{
+position: fixed;
+top: -30vh;
+left: -30vw;
+width: 220px;
+height: 3px;
+z-index: -1;
+pointer-events: none;
+opacity: 0;
+
+/* bright yellow star head + tail */
+background: linear-gradient(90deg,
+rgba(255, 232, 148, 0) 0%,
+rgba(255, 232, 148, .55) 35%,
+rgba(255, 232, 148, 1) 70%,
+rgba(255,255,255,1) 100%);
+border-radius: 999px;
+filter: drop-shadow(0 0 8px rgba(255, 232, 148, .85))
+drop-shadow(0 0 18px rgba(255, 232, 148, .55));
+
+animation: shootAcross 30s linear infinite;
+}
+
+/* star “head” sparkle */
+.shooting-star::before{
+content:"";
+position:absolute;
+right: -6px;
+top: 50%;
+transform: translateY(-50%);
+width: 18px;
+height: 18px;
+background:
+radial-gradient(circle at 50% 50%, rgba(255,255,255,1) 0 25%, rgba(255,255,255,0) 60%),
+radial-gradient(circle at 50% 50%, rgba(255,232,148,1) 0 38%, rgba(255,232,148,0) 70%);
+border-radius: 50%;
+}
+
+/* crosses diagonally, visible for ~2–3 seconds */
+@keyframes shootAcross{
+0% { opacity: 0; transform: translate(-20vw, -10vh) rotate(12deg) scaleX(1); }
+6% { opacity: 0; }
+8% { opacity: 1; }
+16% { opacity: 1; transform: translate(140vw, 90vh) rotate(12deg) scaleX(1.15); }
+18% { opacity: 0; }
+100% { opacity: 0; transform: translate(140vw, 90vh) rotate(12deg) scaleX(1.15); }
+}
+
+/* ---------- Layout Helpers ---------- */
+.container{
+width: min(1100px, 92vw);
+margin: 0 auto;
+padding: 28px 0;
+}
+
+/* ---------- Header / Brand ---------- */
+.site-header{
+position: relative;
+padding: 22px 0 10px;
+text-align: center;
+}
+
+.brand-title{
+font-family: "Cormorant Garamond", serif;
+font-weight: 600;
+letter-spacing: .06em;
+font-size: clamp(30px, 4.2vw, 52px);
+margin: 10px 0 16px;
+color: #ffe9b7;
+text-shadow: 0 2px 18px rgba(255, 226, 156, .25);
+}
+
+/* If your landing page uses an img logo (logo.jpg), make it readable */
+.brand-logo{
+display: block;
+margin: 10px auto 6px;
+width: min(520px, 78vw);
+height: auto;
+filter: drop-shadow(0 10px 30px rgba(0,0,0,.35));
+}
+
+/* ---------- Cloud Navigation ---------- */
+.nav{
+display: flex;
+gap: 14px;
+justify-content: center;
+flex-wrap: wrap;
+margin: 10px 0 18px;
+}
+
+/* Cloud-pill links */
+.nav a{
+position: relative;
+display: inline-block;
+padding: 14px 22px;
+font-size: 20px;
+letter-spacing: .02em;
+color: #14213a;
+text-decoration: none;
+z-index: 1;
+transition: transform .15s ease, filter .15s ease;
+}
+
+/* cloud shape using background + pseudo “puffs” */
+.nav a::before{
+content:"";
+position:absolute;
+inset: 0;
+background: rgba(230, 245, 255, 0.92);
+border: 1.5px solid rgba(255,255,255,.85);
+border-radius: 999px;
+box-shadow:
+0 10px 30px rgba(0,0,0,.20),
+inset 0 0 0 1px rgba(255,255,255,.55);
+z-index: -1;
+}
+
+/* extra puffs */
+.nav a::after{
+content:"";
+position:absolute;
+left: -10px;
+right: -10px;
+top: -10px;
+bottom: -10px;
+z-index: -2;
+background:
+radial-gradient(circle at 18% 55%, rgba(230,245,255,.92) 0 45%, rgba(230,245,255,0) 55%),
+radial-gradient(circle at 40% 20%, rgba(230,245,255,.92) 0 46%, rgba(230,245,255,0) 56%),
+radial-gradient(circle at 62% 18%, rgba(230,245,255,.92) 0 48%, rgba(230,245,255,0) 58%),
+radial-gradient(circle at 82% 55%, rgba(230,245,255,.92) 0 45%, rgba(230,245,255,0) 55%),
+radial-gradient(circle at 50% 78%, rgba(230,245,255,.92) 0 44%, rgba(230,245,255,0) 54%);
+filter: blur(.2px);
+opacity: .95;
+pointer-events: none;
+}
+
+.nav a:hover{
+transform: translateY(-1px) scale(1.02);
+filter: drop-shadow(0 10px 18px rgba(255,255,255,.12));
+}
+
+.nav a.active{
+text-decoration: none;
+}
+.nav a.active::before{
+background: rgba(255, 255, 255, 0.96);
+border-color: rgba(255, 240, 190, 0.9);
+}
+
+/* ---------- Cloud Cards (content boxes behind text) ---------- */
+.cloud-card{
+position: relative;
+padding: 28px 26px;
+color: #0c1730;
+margin: 22px auto;
+width: min(900px, 92vw);
+z-index: 1;
+}
+
+.cloud-card::before{
+content:"";
+position:absolute;
+inset: 0;
+background: rgba(230, 245, 255, 0.92);
+border: 2px solid rgba(255,255,255,.9);
+border-radius: 40px;
+box-shadow:
+0 18px 60px rgba(0,0,0,.22),
+inset 0 0 0 1px rgba(255,255,255,.55);
+z-index:-1;
+}
+
+/* big puffy cloud edges */
+.cloud-card::after{
+content:"";
+position:absolute;
+inset: -18px;
+z-index:-2;
+background:
+radial-gradient(circle at 10% 62%, rgba(230,245,255,.92) 0 46%, rgba(230,245,255,0) 58%),
+radial-gradient(circle at 26% 25%, rgba(230,245,255,.92) 0 50%, rgba(230,245,255,0) 62%),
+radial-gradient(circle at 46% 14%, rgba(230,245,255,.92) 0 52%, rgba(230,245,255,0) 64%),
+radial-gradient(circle at 66% 18%, rgba(230,245,255,.92) 0 52%, rgba(230,245,255,0) 64%),
+radial-gradient(circle at 86% 48%, rgba(230,245,255,.92) 0 48%, rgba(230,245,255,0) 60%),
+radial-gradient(circle at 78% 78%, rgba(230,245,255,.92) 0 46%, rgba(230,245,255,0) 58%),
+radial-gradient(circle at 42% 86%, rgba(230,245,255,.92) 0 48%, rgba(230,245,255,0) 60%);
+opacity: .95;
+pointer-events: none;
+}
+
+/* Headings inside clouds */
+.cloud-card h1,
+.cloud-card h2{
+margin: 0 0 10px;
+font-family: "Cormorant Garamond", serif;
+font-weight: 700;
+letter-spacing: .01em;
+}
+.cloud-card h1{ font-size: clamp(34px, 4.2vw, 56px); }
+.cloud-card h2{ font-size: clamp(26px, 3.2vw, 40px); }
+
+.cloud-card p{
+margin: 10px auto 0;
+max-width: 64ch;
+line-height: 1.55;
+font-size: 18px;
+opacity: .95;
+}
+
+/* Sub-kicker text line (Majestic wonder • Gentle truth • Storybook faith) */
+.kicker{
+font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+font-weight: 600;
+letter-spacing: .12em;
+text-transform: uppercase;
+font-size: 12px;
+color: rgba(10, 18, 40, .75);
+margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-row{
+display:flex;
+gap: 12px;
+justify-content:center;
+flex-wrap: wrap;
+margin-top: 16px;
+}
+.btn{
+display:inline-block;
+padding: 12px 18px;
+border-radius: 999px;
+border: 1.5px solid rgba(255,255,255,.9);
+background: rgba(25, 86, 255, .10);
+color: #0c1730;
+font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+font-weight: 700;
+text-decoration:none;
+box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+.btn:hover{ transform: translateY(-1px); }
+
+/* ---------- Books grid (for books page / section) ---------- */
+.cards{
+display:grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 14px;
+margin-top: 16px;
+}
+@media (max-width: 880px){
+.cards{ grid-template-columns: 1fr; }
+}
+
+.card{
+position: relative;
+padding: 18px 18px;
+color: #0c1730;
+}
+.card::before{
+content:"";
+position:absolute;
+inset: 0;
+background: rgba(230,245,255,.92);
+border: 2px solid rgba(255,255,255,.9);
+border-radius: 32px;
+box-shadow: 0 14px 40px rgba(0,0,0,.18);
+z-index:-1;
+}
+.card::after{
+content:"";
+position:absolute;
+inset:-14px;
+z-index:-2;
+background:
+radial-gradient(circle at 18% 55%, rgba(230,245,255,.92) 0 46%, rgba(230,245,255,0) 58%),
+radial-gradient(circle at 46% 22%, rgba(230,245,255,.92) 0 52%, rgba(230,245,255,0) 64%),
+radial-gradient(circle at 80% 55%, rgba(230,245,255,.92) 0 46%, rgba(230,245,255,0) 58%),
+radial-gradient(circle at 55% 80%, rgba(230,245,255,.92) 0 44%, rgba(230,245,255,0) 56%);
+opacity: .95;
+pointer-events:none;
+}
+
+.card h3{
+margin: 0 0 6px;
+font-family: "Cormorant Garamond", serif;
+font-weight: 700;
+font-size: 24px;
+}
+.card p{
+margin: 0;
+font-size: 16px;
+line-height: 1.45;
+opacity: .9;
+}
+
+/* ---------- Author photo styling ---------- */
+.author-photo{
+width: 180px;
+height: 180px;
+border-radius: 999px;
+object-fit: cover;
+border: 4px solid rgba(255,255,255,.85);
+box-shadow: 0 18px 50px rgba(0,0,0,.25);
+display:block;
+margin: 0 auto 14px;
+}
+
+/* ---------- Footer ---------- */
+.footer{
+text-align:center;
+padding: 22px 0 30px;
+color: rgba(255,255,255,.75);
+font-family: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+font-size: 13px;
+}
+
+/* ---------- Utility ---------- */
+.center { text-align:center; }
+.hidden { display:none !important; }
+
+/* ---------- Optional: if your HTML includes a fixed “bg wrapper”, keep it harmless ---------- */
+.bg, .cosmos, .stars, .nebula { display:none; }
+
+/* NOTE:
+- For the shooting star to appear, add this ONE line anywhere in your HTML body:
+<div class="shooting-star"></div>
+- Everything else in this CSS will work without changing your HTML,
+but you’ll get the best look if your text areas have class="cloud-card"
+and your nav links are inside a container with class="nav".
+*/
