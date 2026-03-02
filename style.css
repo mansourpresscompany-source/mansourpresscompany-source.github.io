@@ -1,602 +1,82 @@
-/* ---------- Base ---------- */
-:root{
---ink: rgba(255,255,255,0.92);
---muted: rgba(255,255,255,0.72);
---card: rgba(255,255,255,0.11);
---card2: rgba(255,255,255,0.08);
---stroke: rgba(255,255,255,0.85);
---shadow: 0 18px 55px rgba(0,0,0,0.35);
---shadow2: 0 10px 28px rgba(0,0,0,0.28);
---radius: 26px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mansour Press</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+</head>
 
---serif: "Cormorant Garamond", serif;
---sans: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
+<body>
 
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-body{
-margin:0;
-color:var(--ink);
-font-family:var(--sans);
-background:#050b1d;
-overflow-x:hidden;
-}
+<div class="stars"></div>
+<div class="twinkle"></div>
+<div class="nebula"></div>
+<div class="meteor"></div>
 
-/* keep anchors from hiding behind header */
-section{ scroll-margin-top: 92px; }
+<header>
+<nav class="cloud-nav">
+<a href="#books">Books</a>
+<a href="#discover">Discover</a>
+<a href="#author">Author</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-a{ color:inherit; text-decoration:none; }
-a.link{ text-decoration: underline; text-underline-offset: 4px; }
-a.link:hover{ opacity:0.9; }
+<section class="hero">
+<h1>Under Heaven’s sky, little hearts learn they are loved.</h1>
+<p>Mansour Press creates Christian children’s stories that feel warm, safe, and full of awe—where God’s creation points back to the One who made it, and the Word is a light for the path.</p>
+</section>
 
-.container{
-width:min(1080px, calc(100% - 40px));
-margin-inline:auto;
-}
+<section id="books" class="cloud-box">
+<h2>Books</h2>
+<div class="book-grid">
+<div class="book">Book One<br><span>Coming Soon</span></div>
+<div class="book">Book Two<br><span>Coming Soon</span></div>
+<div class="book">Book Three<br><span>Coming Soon</span></div>
+<div class="book">Book Four<br><span>Coming Soon</span></div>
+<div class="book">Book Five<br><span>Coming Soon</span></div>
+<div class="book">Book Six<br><span>Coming Soon</span></div>
+</div>
+</section>
 
-.section{ padding: 72px 0; }
-.section-title{
-font-family: var(--serif);
-font-size: clamp(28px, 3.2vw, 42px);
-letter-spacing: 0.2px;
-margin: 0 0 10px;
-}
-.section-sub{
-color: var(--muted);
-margin: 0 0 22px;
-line-height: 1.5;
-}
+<section id="discover" class="cloud-box">
+<h2>Discover the Story</h2>
+<ul>
+<li>Gentle Christian themes (warm, not heavy)</li>
+<li>Majestic creation wonder (heavenly, astral feel)</li>
+<li>The Little Lamb as a comforting guide</li>
+</ul>
+<p><em>“Light, love, and truth—woven into stories children want to hear again.”</em></p>
+</section>
 
-/* ---------- Background: nebula + stars + twinkle (visible) ---------- */
-.bg{
-position:fixed;
-inset:0;
-z-index:-3;
-overflow:hidden;
-}
+<section id="author" class="cloud-box">
+<h2>About the Author</h2>
+<img src="yourphoto.jpg" class="author-photo">
+<p>S.C. Mansour holds a Bachelor’s degree in English Literature and brings both her love of language and her deep Christian faith into every story she writes.</p>
 
-.nebula{
-position:absolute;
-inset:-20%;
-/* Stronger nebula presence (layered gradients) */
-background:
-radial-gradient(900px 700px at 20% 25%, rgba(126, 87, 255, 0.35), transparent 65%),
-radial-gradient(950px 720px at 78% 35%, rgba(0, 205, 255, 0.22), transparent 60%),
-radial-gradient(820px 620px at 55% 78%, rgba(255, 141, 214, 0.18), transparent 62%),
-radial-gradient(980px 760px at 35% 70%, rgba(80, 255, 210, 0.10), transparent 62%),
-radial-gradient(1200px 900px at 70% 85%, rgba(120, 140, 255, 0.16), transparent 70%),
-linear-gradient(180deg, #050b1d, #06102c 55%, #040818);
-filter: blur(10px) saturate(125%);
-transform: scale(1.02);
-animation: nebulaFloat 26s ease-in-out infinite alternate;
-}
+<p>As a devoted wife and mother of four beautiful children, she understands the sacred, everyday moments that shape a child’s heart—bedtime prayers, whispered reassurances, and the simple rhythms of family life.</p>
 
-@keyframes nebulaFloat{
-0%{ transform: translate3d(-1.5%, -1%, 0) scale(1.02); }
-50%{ transform: translate3d(1.2%, 0.8%, 0) scale(1.04); }
-100%{ transform: translate3d(-0.6%, 1.1%, 0) scale(1.03); }
-}
+<p>Her passion is to create gentle, faith-rooted books that help little ones know they are loved by God and safe in His care.</p>
 
-/* Stars: multiple drifting layers */
-.stars{
-position:absolute;
-inset:0;
-background-repeat: repeat;
-opacity: 0.9;
-transform: translateZ(0);
-}
+<p>Through Mansour Press, she offers timeless stories families can read together and treasure for years to come.</p>
+</section>
 
-/* Use radial dots pattern */
-.stars-1{
-background-image:
-radial-gradient(circle, rgba(255,255,255,0.95) 1px, transparent 1.4px),
-radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1.7px);
-background-size: 140px 140px, 220px 220px;
-background-position: 0 0, 40px 70px;
-animation: starDrift1 55s linear infinite;
-opacity: 0.45;
-}
-.stars-2{
-background-image:
-radial-gradient(circle, rgba(255,255,255,0.95) 1.2px, transparent 1.9px),
-radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 1.7px);
-background-size: 110px 110px, 180px 180px;
-background-position: 0 0, 25px 40px;
-animation: starDrift2 85s linear infinite;
-opacity: 0.55;
-}
-.stars-3{
-background-image:
-radial-gradient(circle, rgba(255,255,255,0.95) 1px, transparent 1.6px);
-background-size: 80px 80px;
-background-position: 10px 10px;
-animation: starDrift3 120s linear infinite;
-opacity: 0.35;
-}
+<section id="contact" class="cloud-box">
+<h2>Contact</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Write your message..."></textarea>
+<button type="submit">Send</button>
+</form>
+</section>
 
-@keyframes starDrift1{
-from{ background-position: 0 0, 40px 70px; }
-to{ background-position: -900px 420px, -600px 260px; }
-}
-@keyframes starDrift2{
-from{ background-position: 0 0, 25px 40px; }
-to{ background-position: -700px 300px, -500px 240px; }
-}
-@keyframes starDrift3{
-from{ background-position: 10px 10px; }
-to{ background-position: -500px 260px; }
-}
+<footer>
+<img src="logo.png" class="footer-logo">
+<p>© 2026 Mansour Press — Made with wonder.</p>
+</footer>
 
-/* Twinkle overlay */
-.twinkle{
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at 18% 35%, rgba(255,255,255,0.18), transparent 30%),
-radial-gradient(circle at 62% 22%, rgba(255,255,255,0.12), transparent 28%),
-radial-gradient(circle at 78% 68%, rgba(255,255,255,0.16), transparent 32%),
-radial-gradient(circle at 40% 80%, rgba(255,255,255,0.10), transparent 30%);
-animation: twinkle 4.8s ease-in-out infinite alternate;
-mix-blend-mode: screen;
-opacity: 0.7;
-}
-@keyframes twinkle{
-0%{ opacity:0.35; filter: blur(0px); }
-100%{ opacity:0.85; filter: blur(0.6px); }
-}
-
-/* Vignette */
-.vignette{
-position:fixed;
-inset:0;
-z-index:-2;
-background: radial-gradient(1200px 700px at 50% 20%, transparent 35%, rgba(0,0,0,0.35) 100%);
-pointer-events:none;
-}
-
-/* ---------- Header / Nav ---------- */
-.site-header{
-position:sticky;
-top:0;
-z-index:10;
-backdrop-filter: blur(14px);
-background: rgba(4, 10, 26, 0.55);
-border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-
-.header-inner{
-width:min(1080px, calc(100% - 40px));
-margin-inline:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding: 14px 0;
-gap: 14px;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
-}
-.brand-mark{
-font-size: 18px;
-color: rgba(255, 232, 160, 0.95);
-text-shadow: 0 0 18px rgba(255, 232, 160, 0.55);
-}
-.brand-text{
-font-family: var(--serif);
-font-weight: 700;
-letter-spacing: 0.2px;
-font-size: 20px;
-}
-
-.nav{
-display:flex;
-gap: 18px;
-align-items:center;
-font-weight: 600;
-color: rgba(255,255,255,0.85);
-}
-.nav a{
-padding: 10px 10px;
-border-radius: 999px;
-}
-.nav a:hover{
-background: rgba(255,255,255,0.08);
-}
-
-.nav-toggle{
-display:none;
-width: 44px;
-height: 44px;
-border-radius: 12px;
-border: 1px solid rgba(255,255,255,0.14);
-background: rgba(255,255,255,0.06);
-cursor:pointer;
-}
-.nav-toggle span{
-display:block;
-width: 18px;
-height: 2px;
-margin: 4px auto;
-background: rgba(255,255,255,0.85);
-border-radius: 2px;
-}
-
-.mobile-nav{
-width:min(1080px, calc(100% - 40px));
-margin: 0 auto 12px;
-display:grid;
-gap: 8px;
-}
-.mobile-nav a{
-padding: 12px 14px;
-border-radius: 16px;
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.10);
-}
-
-/* ---------- Cloud card (cloud-outline border, not a rectangle) ---------- */
-.cloud-card{
-position:relative;
-background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.08));
-border-radius: var(--radius);
-box-shadow: var(--shadow2);
-padding: 26px;
-border: 1px solid rgba(255,255,255,0.12);
-overflow:hidden;
-}
-
-/* Cloud outline effect using scalloped “cloud puffs” around the edge */
-.cloud-card::before{
-content:"";
-position:absolute;
-inset:-10px;
-pointer-events:none;
-
-/* puffy outline (top/bottom/left/right) */
-background:
-radial-gradient(circle at 20px 20px, rgba(255,255,255,0.78) 0 10px, transparent 11px) top left / 42px 22px repeat-x,
-radial-gradient(circle at 20px 2px, rgba(255,255,255,0.78) 0 10px, transparent 11px) bottom left / 42px 22px repeat-x,
-radial-gradient(circle at 20px 20px, rgba(255,255,255,0.78) 0 10px, transparent 11px) top left / 22px 42px repeat-y,
-radial-gradient(circle at 2px 20px, rgba(255,255,255,0.78) 0 10px, transparent 11px) top right / 22px 42px repeat-y;
-opacity: 0.55;
-filter: blur(0.2px);
-mix-blend-mode: screen;
-}
-
-/* keep text content above ::before */
-.cloud-card > *{ position:relative; z-index:1; }
-
-/* ---------- Hero ---------- */
-.hero{ padding-top: 56px; }
-.hero-inner{
-display:flex;
-align-items:center;
-justify-content:center;
-}
-.hero-card{
-padding: 34px;
-max-width: 860px;
-}
-.kicker{
-margin:0 0 12px;
-font-size: 12px;
-letter-spacing: 0.18em;
-color: rgba(255,255,255,0.75);
-}
-.hero h1{
-font-family: var(--serif);
-font-size: clamp(34px, 4.2vw, 54px);
-line-height: 1.05;
-margin: 0 0 12px;
-text-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-.lead{
-margin: 0 0 18px;
-color: rgba(255,255,255,0.86);
-line-height: 1.55;
-font-size: 16.5px;
-}
-
-.cta-row{
-display:flex;
-gap: 12px;
-flex-wrap: wrap;
-margin: 12px 0 14px;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap: 8px;
-padding: 12px 16px;
-border-radius: 999px;
-border: 1px solid rgba(255,255,255,0.18);
-cursor:pointer;
-font-weight: 700;
-user-select:none;
-}
-
-.btn.primary{
-background: linear-gradient(90deg, rgba(255,214,104,0.95), rgba(125,198,255,0.95));
-color: rgba(6,10,22,0.95);
-box-shadow: 0 14px 34px rgba(0,0,0,0.25);
-}
-.btn.primary:hover{ filter: brightness(1.03); }
-
-.btn.ghost{
-background: rgba(255,255,255,0.06);
-color: rgba(255,255,255,0.92);
-}
-.btn.ghost:hover{ background: rgba(255,255,255,0.10); }
-
-.quick-info{
-display:flex;
-gap: 10px;
-flex-wrap: wrap;
-margin-top: 14px;
-}
-.pill{
-padding: 9px 12px;
-border-radius: 999px;
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.12);
-color: rgba(255,255,255,0.85);
-font-weight: 700;
-font-size: 13px;
-}
-
-/* ---------- Books ---------- */
-.cards{
-display:grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 14px;
-}
-
-.book-card{
-min-height: 110px;
-padding: 22px;
-}
-.book-card h3{
-margin: 0 0 6px;
-font-family: var(--serif);
-font-size: 22px;
-font-weight: 700;
-}
-.muted{ color: var(--muted); margin: 0; }
-
-.note-card{ margin-top: 14px; }
-.note{ margin:0; color: rgba(255,255,255,0.86); line-height: 1.6; }
-
-/* ---------- Discover / layout ---------- */
-.two-col{
-display:grid;
-grid-template-columns: 1.35fr 0.85fr;
-gap: 18px;
-align-items:start;
-}
-.bullets{
-margin: 12px 0 0;
-padding-left: 18px;
-color: rgba(255,255,255,0.86);
-line-height: 1.6;
-}
-.quote{
-margin-top: 16px;
-padding: 18px;
-}
-.inner-quote::before{ opacity:0.38; } /* calmer puffs inside */
-.quote-text{
-margin:0 0 8px;
-font-family: var(--serif);
-font-size: 18px;
-}
-.quote-by{ margin:0; color: var(--muted); }
-
-.soft-panel{
-background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
-}
-.panel-title{
-font-family: var(--serif);
-font-size: 28px;
-margin: 0 0 10px;
-}
-
-/* ---------- Author ---------- */
-.author-wrap{ display:flex; justify-content:center; }
-.author-card{
-display:grid;
-grid-template-columns: 220px 1fr;
-gap: 18px;
-align-items:center;
-width: min(980px, 100%);
-}
-.author-photo-wrap{
-display:flex;
-align-items:center;
-justify-content:center;
-}
-.author-photo{
-width: 190px;
-height: 190px;
-object-fit: cover;
-border-radius: 999px;
-border: 3px solid rgba(255,255,255,0.65);
-box-shadow: 0 18px 55px rgba(0,0,0,0.35);
-}
-.author-text p{ margin: 0; color: rgba(255,255,255,0.86); line-height:1.6; }
-
-/* ---------- Contact ---------- */
-.form{
-display:grid;
-gap: 12px;
-margin-top: 12px;
-}
-label span{
-display:block;
-font-weight: 800;
-margin-bottom: 6px;
-color: rgba(255,255,255,0.88);
-}
-input, textarea{
-width:100%;
-padding: 12px 14px;
-border-radius: 16px;
-border: 1px solid rgba(255,255,255,0.16);
-background: rgba(0,0,0,0.18);
-color: rgba(255,255,255,0.92);
-outline: none;
-}
-input:focus, textarea:focus{
-border-color: rgba(255, 232, 160, 0.55);
-box-shadow: 0 0 0 4px rgba(255, 232, 160, 0.10);
-}
-.fine{
-font-size: 12.5px;
-color: rgba(255,255,255,0.65);
-margin: 6px 0 0;
-}
-
-.contact-card h3{
-font-family: var(--serif);
-margin: 0 0 6px;
-font-size: 26px;
-}
-.contact-line{ margin: 10px 0 0; }
-.divider{
-height:1px;
-background: rgba(255,255,255,0.12);
-margin: 16px 0;
-}
-.hours{ margin: 8px 0 0; color: rgba(255,255,255,0.82); line-height: 1.6; }
-
-/* ---------- Footer with BIG readable logo ---------- */
-.footer{
-padding: 34px 0 60px;
-border-top: 1px solid rgba(255,255,255,0.10);
-background: rgba(0,0,0,0.12);
-}
-.footer-inner{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap: 14px;
-}
-.footer-logo{
-width: min(520px, 92vw);
-height: auto;
-filter: drop-shadow(0 16px 40px rgba(0,0,0,0.35));
-}
-.footer-small{
-margin:0;
-color: rgba(255,255,255,0.70);
-font-size: 12.5px;
-}
-
-/* ---------- Shooting star (bright, realistic, crosses whole page) ---------- */
-.shooting-star{
-position: fixed;
-width: 12px;
-height: 12px;
-z-index: 3;
-pointer-events: none;
-
-/* star head */
-background: radial-gradient(circle, rgba(255,255,255,1) 0 35%, rgba(255,244,185,0.95) 36% 55%, rgba(255,210,90,0.0) 72%);
-border-radius: 999px;
-
-/* glow */
-box-shadow:
-0 0 18px rgba(255,244,185,0.9),
-0 0 42px rgba(255,210,90,0.55),
-0 0 70px rgba(255,210,90,0.35);
-
-animation: shoot 1.35s ease-out forwards;
-}
-
-.shooting-star::after{
-content:"";
-position:absolute;
-left: -260px;
-top: 50%;
-transform: translateY(-50%);
-width: 280px;
-height: 3px;
-border-radius: 999px;
-background: linear-gradient(90deg,
-rgba(255, 232, 160, 0.0),
-rgba(255, 232, 160, 0.35),
-rgba(255, 255, 255, 0.85),
-rgba(255, 232, 160, 0.25),
-rgba(255, 232, 160, 0.0)
-);
-filter: blur(0.2px);
-opacity: 0.95;
-}
-
-@keyframes shoot{
-0%{
-transform: translate3d(0,0,0) scale(0.95);
-opacity: 0;
-}
-10%{ opacity: 1; }
-100%{
-left: var(--end-x);
-top: var(--end-y);
-opacity: 0;
-transform: translate3d(0,0,0) scale(1.1);
-}
-}
-
-/* ---------- Cursor sparkle trail ---------- */
-#trailLayer{
-position: fixed;
-inset: 0;
-pointer-events: none;
-z-index: 5;
-}
-.trail-spark{
-position:absolute;
-width: 8px;
-height: 8px;
-border-radius: 999px;
-transform: translate(-50%, -50%);
-background: radial-gradient(circle, rgba(255,255,255,1) 0 35%, rgba(255,232,160,0.95) 36% 65%, rgba(255,232,160,0) 80%);
-box-shadow: 0 0 14px rgba(255,232,160,0.7);
-animation: spark 520ms ease-out forwards;
-}
-@keyframes spark{
-0%{
-opacity: 0.95;
-transform: translate(-50%, -50%) rotate(var(--r)) translate(0,0) scale(1);
-}
-100%{
-opacity: 0;
-transform: translate(-50%, -50%) rotate(var(--r)) translate(var(--dx), var(--dy)) scale(0.2);
-}
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 920px){
-.cards{ grid-template-columns: repeat(2, 1fr); }
-.two-col{ grid-template-columns: 1fr; }
-.author-card{ grid-template-columns: 1fr; text-align:center; }
-.author-photo{ margin-inline:auto; }
-}
-@media (max-width: 680px){
-.nav{ display:none; }
-.nav-toggle{ display:block; }
-.hero-card{ padding: 24px; }
-.cards{ grid-template-columns: 1fr; }
-}
-
-/* Reduce motion preference */
-@media (prefers-reduced-motion: reduce){
-.nebula, .stars-1, .stars-2, .stars-3, .twinkle{ animation: none !important; }
-.shooting-star{ display:none !important; }
-#trailLayer{ display:none !important; }
-}
+</body>
+</html>
