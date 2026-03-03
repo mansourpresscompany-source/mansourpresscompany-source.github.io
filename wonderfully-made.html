@@ -1,156 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wonderfully Made: Special Stories — Mansour Press</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonderfully Made | Mansour Press</title>
 
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css">
 
 <style>
-.wm-page { max-width: 950px; margin: 0 auto; padding: 30px 18px 70px; }
-.wm-title { font-size: clamp(34px, 4vw, 52px); margin-bottom: 8px; }
-.wm-subtitle { font-size: clamp(16px, 2vw, 20px); opacity: 0.9; line-height: 1.6; }
+.wm-container {
+max-width: 1000px;
+margin: auto;
+padding: 40px 20px;
+}
 
-.wm-card { padding: 24px; margin: 22px 0; }
-.wm-card h2 { margin-bottom: 12px; }
+.wm-section {
+margin-bottom: 60px;
+}
+
+.wm-title {
+font-size: 42px;
+margin-bottom: 10px;
+}
+
+.wm-subtitle {
+font-size: 18px;
+margin-bottom: 20px;
+opacity: 0.9;
+}
 
 .wm-price {
-display: inline-block;
-margin-top: 16px;
-padding: 10px 18px;
-border-radius: 999px;
+font-size: 20px;
 font-weight: bold;
-background: rgba(255,255,255,0.9);
-color: #111;
+margin-bottom: 30px;
 }
 
-.wm-formgrid { display: grid; gap: 14px; }
-.wm-field label { font-weight: bold; display:block; margin-bottom:6px; }
-.wm-field input,
-.wm-field textarea {
+.wm-image {
+width: 100%;
+max-width: 450px;
+border-radius: 16px;
+margin-bottom: 20px;
+}
+
+.wm-card {
+background: rgba(255,255,255,0.08);
+padding: 25px;
+border-radius: 20px;
+backdrop-filter: blur(8px);
+}
+
+.wm-card h2 {
+margin-top: 0;
+}
+
+.wm-list {
+padding-left: 20px;
+line-height: 1.8;
+}
+
+.wm-dedication, .wm-prayer {
+white-space: pre-line;
+line-height: 1.8;
+}
+
+.wm-form input,
+.wm-form textarea {
 width: 100%;
 padding: 12px;
-border-radius: 14px;
-border: 1px solid rgba(0,0,0,0.1);
-background: rgba(255,255,255,0.95);
-font-size: 16px;
+margin-bottom: 15px;
+border-radius: 12px;
+border: none;
 }
 
-.wm-field textarea {
-min-height: 140px;
-resize: vertical;
+.wm-form textarea {
+min-height: 120px;
 }
 
-.wm-submit {
-margin-top: 12px;
+.wm-button {
 padding: 12px 20px;
 border-radius: 999px;
 border: none;
 font-weight: bold;
-background: rgba(255,255,255,0.9);
 cursor: pointer;
 }
 
-.wm-note {
-font-size: 14px;
-opacity: 0.8;
-margin-top: 10px;
+.wm-logo {
+max-width: 180px;
+margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-<div class="brand-title">✦ Mansour Press</div>
-<nav class="nav">
-<a href="index.html">Home</a>
-<a href="books.html">Books</a>
-<a href="discover.html">Discover</a>
-<a href="author.html">Author</a>
-<a href="contact.html">Contact</a>
-<a href="mansour-press.html">Mansour Press</a>
-<a href="wonderfully-made.html">Wonderfully Made</a>
-</nav>
-</header>
+<div class="wm-container">
 
-<main class="wm-page">
-
+<div class="wm-section">
 <h1 class="wm-title">Wonderfully Made: Special Stories</h1>
 <p class="wm-subtitle">
-Custom faith-based children's books created for brave kids with medical journeys,
-rare diagnoses, and unique challenges.
+Custom faith-based children’s books for brave kids walking medical journeys.
 </p>
-
-<div class="wm-price">
-Each Custom Book: $20
+<div class="wm-price">Custom Book — $30</div>
 </div>
 
-<section class="wm-card cloud-card">
-<h2>Why This Exists</h2>
-<p>
-Some children begin life in hospitals. Some grow up with scars, feeding tubes,
-or bodies that work differently. Their stories deserve to be told gently,
-truthfully, and with hope.
-</p>
-<p>
-Inspired by my daughter Cheyenne, a survivor of Short Gut Syndrome,
-this collection honors courage, resilience, and the truth that every child
-is fearfully and wonderfully made.
-</p>
-</section>
-
-<section class="wm-card cloud-card">
-<h2>Request a Custom Story</h2>
-<p>
-Tell me about your child. I would love to write a book that reflects
-their bravery, faith, and journey.
-</p>
-
-<form action="mailto:mansourpresscompany@gmail.com" method="post" enctype="text/plain">
-<div class="wm-formgrid">
-
-<div class="wm-field">
-<label>Parent/Guardian Name</label>
-<input type="text" name="Parent Name" required>
+<div class="wm-section wm-card">
+<h2>Example Book Cover</h2>
+<img src="cheyennes-brave-belly-cover.jpg" class="wm-image" alt="Cheyenne's Brave Belly Cover">
+<p><strong>Cheyenne’s Brave Belly</strong></p>
+<p>S.C. MANSOUR</p>
 </div>
 
-<div class="wm-field">
-<label>Email Address</label>
-<input type="email" name="Email" required>
+<div class="wm-section wm-card">
+<h2>How Custom Books Work</h2>
+<ul class="wm-list">
+<li>Child’s name</li>
+<li>Special need or diagnosis</li>
+<li>Important medical details (tubes, scars, surgeries, devices)</li>
+<li>Personality & milestones</li>
+<li>Optional dedication page</li>
+<li>Optional prayer page</li>
+</ul>
 </div>
 
-<div class="wm-field">
-<label>Child's Name</label>
-<input type="text" name="Child Name" required>
+<div class="wm-section wm-card">
+<h2>Dedication Example</h2>
+
+<div class="wm-dedication">
+For Cheyenne Suzette Grimes,
+
+My brave girl.
+
+It was the greatest honor of my life to stand beside you while you fought your way into strength.
+
+I watched you endure more before six months old than most do in a lifetime.
+I watched you learn to walk with a pole beside you.
+I watched you smile through scars.
+
+And I would do it all again in a heartbeat.
+
+Every surgery.
+Every long night.
+Every prayer whispered over your hospital bed.
+
+Because you are worth everything.
+
+God has been so good to us.
+
+Love,
+Mom
 </div>
 
-<div class="wm-field">
-<label>Special Need / Diagnosis</label>
-<input type="text" name="Special Need" required>
+<img src="cheyenne-dedication.jpg" class="wm-image" alt="Dedication Example">
 </div>
 
-<div class="wm-field">
-<label>Description of Your Child</label>
-<textarea name="Description" placeholder="Personality, strengths, favorite things, what makes them brave..."></textarea>
+<div class="wm-section wm-card">
+<h2>Prayer Page Example</h2>
+
+<div class="wm-prayer">
+Lord,
+
+Thank You for children who fight with quiet courage.
+Thank You for doctors, nurses, and miracles we cannot see.
+
+For every parent reading this who is walking hospital halls,
+give them strength.
+
+For every child with tubes, scars, or a body that works differently,
+cover them in peace.
+
+Help them trust You.
+Help them be still and know that You are God.
+
+Remind them they are fearfully and wonderfully made.
+
+Give them courage for today
+and hope for tomorrow.
+
+Amen.
+</div>
 </div>
 
-<div class="wm-field">
-<label>Your Child's Story</label>
-<textarea name="Story" placeholder="Tell me about their journey..."></textarea>
-</div>
+<div class="wm-section wm-card">
+<h2>Order Your Custom Book</h2>
 
-<button type="submit" class="wm-submit">
-Submit Story Request
-</button>
+<form class="wm-form" action="https://formsubmit.co/mansourpresscompany@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="New Wonderfully Made Book Order">
+<input type="hidden" name="_captcha" value="false">
 
-</div>
+<input type="text" name="Parent Name" placeholder="Your Name" required>
+<input type="email" name="Email" placeholder="Your Email" required>
+<input type="text" name="Child Name" placeholder="Child’s Name" required>
+<input type="text" name="Special Need" placeholder="Diagnosis / Special Need" required>
+
+<textarea name="Child Story" placeholder="Tell me your child’s story..."></textarea>
+
+<button type="submit" class="wm-button">Begin My Custom Book</button>
 </form>
-</section>
 
-</main>
+<p style="margin-top:10px;font-size:14px;">
+You will receive a response within 48 hours to begin your child’s custom story.
+</p>
 
-<script src="script.js"></script>
+<img src="logo.jpg" class="wm-logo" alt="Mansour Press Logo">
+</div>
+
+</div>
+
 </body>
 </html>
