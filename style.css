@@ -84,53 +84,56 @@ letter-spacing: 0.6px;
 font-weight: 600;
 text-shadow: 0 6px 30px rgba(0,0,0,0.45);
 }
-<section class="wm-card">
-<h2>Our Story</h2>
+/* Mansour Press celestial hover */
+.brand {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+text-decoration: none;
+cursor: pointer;
+padding: 6px 10px;
+}
 
-<p>
-Cheyenne was born with <strong>Short Gut Syndrome</strong>.
-</p>
+/* Star */
+.brand .sparkle {
+transition: all 0.3s ease;
+}
 
-<p>
-Short Gut Syndrome (also called Short Bowel Syndrome) is a rare condition
-where a child’s body does not have enough small intestine to absorb the nutrients it needs.
-For many families, that means feeding tubes, IV nutrition, surgeries,
-and long stretches inside hospital walls.
-</p>
+/* Title */
+.brand .title {
+transition: all 0.4s ease;
+}
 
-<p>
-That was our story.
-</p>
+/* Hover effect */
+.brand:hover .sparkle {
+animation: sparkleGlow 0.9s ease-in-out infinite alternate;
+}
 
-<p>
-Before she was six months old, we had already faced more than most families
-do in a lifetime. We learned medical terms we never wanted to know.
-We counted ounces. We watched monitors.
-We prayed through the night.
-</p>
+.brand:hover .title {
+animation: shimmerText 1.2s ease-in-out infinite alternate;
+}
 
-<p>
-And we watched God carry us.
-</p>
+/* Star glow */
+@keyframes sparkleGlow {
+0% {
+text-shadow: 0 0 4px #fff;
+transform: scale(1);
+}
+100% {
+text-shadow: 0 0 14px #ffffff, 0 0 26px #ffd87a;
+transform: scale(1.25);
+}
+}
 
-<p>
-This book is not a marketing example.
-It is written in honor of my daughter’s strength
-and in testimony to God’s goodness in our hardest season.
-</p>
-
-<p>
-Wonderfully Made was born from that journey —
-so that other parents walking hospital halls
-can place a story in their child’s hands
-that speaks courage, identity, and truth.
-</p>
-
-<p>
-No diagnosis defines a child.
-And every child is fearfully and wonderfully made.
-</p>
-</section>
+/* Text shimmer */
+@keyframes shimmerText {
+0% {
+text-shadow: 0 0 0px rgba(255,255,255,0);
+}
+100% {
+text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+}
 
 /* Cloud nav */
 .nav{
