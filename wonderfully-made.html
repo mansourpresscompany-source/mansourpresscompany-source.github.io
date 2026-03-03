@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wonderfully Made: Special Stories — Mansour Press</title>
+
+<link rel="stylesheet" href="style.css" />
+
+<style>
+.wm-page { max-width: 950px; margin: 0 auto; padding: 30px 18px 70px; }
+.wm-title { font-size: clamp(34px, 4vw, 52px); margin-bottom: 8px; }
+.wm-subtitle { font-size: clamp(16px, 2vw, 20px); opacity: 0.9; line-height: 1.6; }
+
+.wm-card { padding: 24px; margin: 22px 0; }
+.wm-card h2 { margin-bottom: 12px; }
+
+.wm-price {
+display: inline-block;
+margin-top: 16px;
+padding: 10px 18px;
+border-radius: 999px;
+font-weight: bold;
+background: rgba(255,255,255,0.9);
+color: #111;
+}
+
+.wm-formgrid { display: grid; gap: 14px; }
+.wm-field label { font-weight: bold; display:block; margin-bottom:6px; }
+.wm-field input,
+.wm-field textarea {
+width: 100%;
+padding: 12px;
+border-radius: 14px;
+border: 1px solid rgba(0,0,0,0.1);
+background: rgba(255,255,255,0.95);
+font-size: 16px;
+}
+
+.wm-field textarea {
+min-height: 140px;
+resize: vertical;
+}
+
+.wm-submit {
+margin-top: 12px;
+padding: 12px 20px;
+border-radius: 999px;
+border: none;
+font-weight: bold;
+background: rgba(255,255,255,0.9);
+cursor: pointer;
+}
+
+.wm-note {
+font-size: 14px;
+opacity: 0.8;
+margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+<div class="brand-title">✦ Mansour Press</div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="books.html">Books</a>
+<a href="discover.html">Discover</a>
+<a href="author.html">Author</a>
+<a href="contact.html">Contact</a>
+<a href="mansour-press.html">Mansour Press</a>
+<a href="wonderfully-made.html">Wonderfully Made</a>
+</nav>
+</header>
+
+<main class="wm-page">
+
+<h1 class="wm-title">Wonderfully Made: Special Stories</h1>
+<p class="wm-subtitle">
+Custom faith-based children's books created for brave kids with medical journeys,
+rare diagnoses, and unique challenges.
+</p>
+
+<div class="wm-price">
+Each Custom Book: $20
+</div>
+
+<section class="wm-card cloud-card">
+<h2>Why This Exists</h2>
+<p>
+Some children begin life in hospitals. Some grow up with scars, feeding tubes,
+or bodies that work differently. Their stories deserve to be told gently,
+truthfully, and with hope.
+</p>
+<p>
+Inspired by my daughter Cheyenne, a survivor of Short Gut Syndrome,
+this collection honors courage, resilience, and the truth that every child
+is fearfully and wonderfully made.
+</p>
+</section>
+
+<section class="wm-card cloud-card">
+<h2>Request a Custom Story</h2>
+<p>
+Tell me about your child. I would love to write a book that reflects
+their bravery, faith, and journey.
+</p>
+
+<form action="mailto:mansourpresscompany@gmail.com" method="post" enctype="text/plain">
+<div class="wm-formgrid">
+
+<div class="wm-field">
+<label>Parent/Guardian Name</label>
+<input type="text" name="Parent Name" required>
+</div>
+
+<div class="wm-field">
+<label>Email Address</label>
+<input type="email" name="Email" required>
+</div>
+
+<div class="wm-field">
+<label>Child's Name</label>
+<input type="text" name="Child Name" required>
+</div>
+
+<div class="wm-field">
+<label>Special Need / Diagnosis</label>
+<input type="text" name="Special Need" required>
+</div>
+
+<div class="wm-field">
+<label>Description of Your Child</label>
+<textarea name="Description" placeholder="Personality, strengths, favorite things, what makes them brave..."></textarea>
+</div>
+
+<div class="wm-field">
+<label>Your Child's Story</label>
+<textarea name="Story" placeholder="Tell me about their journey..."></textarea>
+</div>
+
+<button type="submit" class="wm-submit">
+Submit Story Request
+</button>
+
+</div>
+</form>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
