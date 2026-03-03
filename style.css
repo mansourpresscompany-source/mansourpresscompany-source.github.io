@@ -367,3 +367,54 @@ border-radius: 18px;
 box-shadow: 0 26px 70px rgba(0,0,0,0.35);
 background: rgba(255,255,255,0.88);
 padding: 10px;
+/* WONDERFULLY MADE PAGE — ZERO COLLISION */
+
+.wm-wrapper {
+max-width: 900px;
+margin: auto;
+padding: 40px 20px;
+}
+
+.wm-image {
+width: 100%;
+max-width: 650px;
+display: block;
+margin: 50px auto;
+border-radius: 18px;
+box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.wm-text-block {
+margin-bottom: 60px;
+line-height: 1.8;
+}
+
+.wm-order-block {
+background: #ffffff;
+padding: 40px;
+border-radius: 20px;
+box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.wm-order-block input,
+.wm-order-block textarea {
+width: 100%;
+padding: 12px;
+margin-bottom: 20px;
+border-radius: 10px;
+border: 1px solid #ddd;
+}
+
+.wm-order-block button {
+padding: 12px 24px;
+border: none;
+border-radius: 12px;
+background-color: #111;
+color: white;
+cursor: pointer;
+font-size: 16px;
+}
+
+.wm-order-block button:hover {
+opacity: 0.9;
+}
