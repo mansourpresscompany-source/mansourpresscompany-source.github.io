@@ -484,9 +484,42 @@ opacity: 0.9;
 }
   
 .book-card .book-cover {
-  width: 140px !important;
-  max-width: 140px !important;
+  width: 120px !important;
+  max-width: 120px !important;
   height: auto !important;
-  display: block;
-  margin: 0 auto 12px;
+  display: block !important;
+  margin: 0 auto 12px !important;
+}
+
+.featured-book {
+  text-align: center;
+}
+
+.book-description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: rgba(20, 35, 60, 0.75);
+}
+
+.featured-book {
+  text-align: center;
+}
+
+.book-description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: rgba(20, 35, 60, 0.75);
+}
+
+.featured-book {
+  text-align: center;
+}
+
+.book-description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: rgba(20, 35, 60, 0.75);
 }
