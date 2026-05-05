@@ -472,8 +472,8 @@ opacity: 0.9;
 
 
 .book-card .book-cover {
-  width: 100px !important;
-  max-width: 100px !important;
+  width: 220px !important;
+  max-width: 220px !important;
   height: auto !important;
   display: block !important;
   margin: 0 auto 12px !important;
@@ -484,8 +484,8 @@ opacity: 0.9;
 }
   
 .book-card .book-cover {
-  width: 120px !important;
-  max-width: 120px !important;
+  width: 220px !important;
+  max-width: 220px !important;
   height: auto !important;
   display: block !important;
   margin: 0 auto 12px !important;
