@@ -649,3 +649,54 @@ opacity: 0.9;
   text-align: center;
   font-style: italic;
 }
+
+
+
+
+
+
+/* Hero Star */
+
+.hero-star {
+    display: block;
+    width: fit-content;
+    margin: 36px auto 0;
+    font-size: 34px;
+    line-height: 1;
+    color: #f4d37a;
+    text-decoration: none;
+    text-shadow:
+        0 0 8px rgba(244, 211, 122, 0.55),
+        0 0 18px rgba(244, 211, 122, 0.35);
+    animation: starTwinkle 5s ease-in-out infinite;
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.hero-star:hover,
+.hero-star:focus-visible {
+    color: #ffe8a8;
+    transform: scale(1.2);
+    text-shadow:
+        0 0 12px rgba(255, 232, 168, 0.85),
+        0 0 28px rgba(244, 211, 122, 0.55);
+}
+
+@keyframes starTwinkle {
+    0%,
+    100% {
+        opacity: 0.65;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-star {
+        animation: none;
+    }
+}
