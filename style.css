@@ -591,3 +591,61 @@ opacity: 0.9;
   line-height: 1.8;
   opacity: 0.92;
 }
+
+
+
+
+
+
+
+
+
+/* BOOKS PAGE */
+
+.series-banner {
+  display: block;
+  width: 320px;
+  max-width: 82%;
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.16);
+}
+
+.featured-book-section {
+  display: flex;
+  justify-content: center;
+  padding: 28px 0;
+}
+
+.featured-book-section .featured-book {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.book-cover {
+  width: 230px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 18px;
+}
+
+.journey-grid {
+  max-width: 980px;
+  margin: auto;
+}
+
+.story-prayer {
+  margin-top: 18px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.collection-closing {
+  max-width: 680px;
+  margin: auto;
+  text-align: center;
+  font-style: italic;
+}
