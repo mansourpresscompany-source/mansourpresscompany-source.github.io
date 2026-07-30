@@ -41,17 +41,17 @@
 <section class="card cloud">
 <h2 class="h2">Send a message</h2>
 
-<!-- Static site note: this does NOT send anywhere until you connect a form service. -->
-<form class="form" onsubmit="event.preventDefault(); alert('Form is not connected yet. Add a form service (like Formspree) when ready.');">
+<form
+    class="form"
+    action="https://formspree.io/f/xwvgjpwd"
+    method="POST">
 <input type="text" name="name" placeholder="Your name" required />
 <input type="email" name="email" placeholder="Your email" required />
 <textarea name="message" placeholder="Write your message…" required></textarea>
 <button class="btn" type="submit">Send</button>
 </form>
 
-<p class="p" style="margin-top:10px; font-size:15px; color: rgba(20,35,60,0.65);">
-When you’re ready, I can wire this form to Formspree with one small edit.
-</p>
+
 </section>
 </div>
 </main>
