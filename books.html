@@ -33,19 +33,17 @@
       box-sizing: border-box;
     }
 
-    /* BOOK TWO PDF COVER */
+    /* BOOK TWO COVER */
 
     .upcoming-book-cover {
       display: block;
       width: 100%;
       max-width: 360px;
-      height: 360px;
+      height: auto;
       margin: 0 auto 18px;
-      border: none;
       border-radius: 14px;
+      object-fit: contain;
       box-sizing: border-box;
-      overflow: hidden;
-      background: #fff;
     }
 
     /* AMAZON BUTTON */
@@ -94,7 +92,6 @@
 
       .upcoming-book-cover {
         max-width: 300px;
-        height: 300px;
       }
 
       .amazon-buy-button {
@@ -182,14 +179,12 @@
               class="release-photo"
               src="good-night-little-lamb-available-hardcover-paperback.png.PNG"
               alt="Good Night, Little Lamb available in hardcover and paperback"
-              loading="lazy"
             >
 
             <img
               class="release-photo"
               src="good-night-little-lamb-available-now.png.PNG"
               alt="Good Night, Little Lamb available now"
-              loading="lazy"
             >
 
           </div>
@@ -228,16 +223,11 @@
 
           <div class="book-card">
 
-            <object
-              data="ood-morning-little-lamb-cover.png.pdf"
-              type="application/pdf"
+            <img
               class="upcoming-book-cover"
-              aria-label="Good Morning, Little Lamb book cover"
+              src="good-morning-little-lamb-cover.png"
+              alt="Good Morning, Little Lamb book cover"
             >
-              <a href="ood-morning-little-lamb-cover.png.pdf">
-                View Good Morning, Little Lamb cover
-              </a>
-            </object>
 
             <div class="book-title">
               Good Morning, Little Lamb
@@ -395,11 +385,6 @@
     © 2026 Mansour Press — Made with wonder.
   </footer>
 
-  <script src="script.js"></script>
-
-</body>
-
-</html>
   <script src="script.js"></script>
 
 </body>
