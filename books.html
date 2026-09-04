@@ -10,6 +10,31 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+
+    /* RELEASE PHOTO GALLERY */
+
+    .release-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+      margin: 22px auto;
+      align-items: start;
+    }
+
+    .release-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 650px;
+      object-fit: contain;
+      border-radius: 18px;
+      box-sizing: border-box;
+    }
+
+    /* AMAZON BUTTON */
+
     .amazon-buy-button {
       display: inline-block;
       width: auto;
@@ -38,15 +63,31 @@
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .release-gallery {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        gap: 16px;
+      }
+
+      .release-photo {
+        max-height: none;
+      }
+
       .amazon-buy-button {
         width: auto;
         max-width: 100%;
         padding: 9px 16px;
         font-size: 0.95rem;
       }
+
     }
+
   </style>
+
 </head>
 
 <body>
@@ -82,12 +123,6 @@
 
       <section class="card cloud">
 
-        <img
-          class="series-banner"
-          src="Little Light Little Lamb Date aannouncement.jpg"
-          alt="The Little Light, Little Lamb Collection announcement"
-        >
-
         <h2 class="h2">
           The Little Light, Little Lamb Collection
         </h2>
@@ -107,12 +142,6 @@
 
         <div class="book-card featured-book">
 
-          <img
-            class="book-cover"
-            src="goodnight-little-lamb-cover.jpg"
-            alt="Good Night, Little Lamb book cover"
-          >
-
           <div class="book-title">
             Good Night, Little Lamb
           </div>
@@ -124,6 +153,28 @@
           <p class="book-description">
             Ending each day with peace, prayer, and the comfort of God's loving care.
           </p>
+
+          <!-- NEW RELEASE PHOTOS -->
+
+          <div class="release-gallery">
+
+            <img
+              class="release-photo"
+              src="good-night-little-lamb-available-hardcover-paperback.png.PNG"
+              alt="Good Night, Little Lamb available in hardcover and paperback"
+              loading="lazy"
+            >
+
+            <img
+              class="release-photo"
+              src="good-night-little-lamb-available-now.png.PNG"
+              alt="Good Night, Little Lamb available now"
+              loading="lazy"
+            >
+
+          </div>
+
+          <!-- AMAZON PURCHASE BUTTON -->
 
           <a
             class="amazon-buy-button"
