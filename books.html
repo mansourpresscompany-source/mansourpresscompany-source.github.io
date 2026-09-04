@@ -33,6 +33,19 @@
       box-sizing: border-box;
     }
 
+    /* BOOK TWO COVER */
+
+    .upcoming-book-cover {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      margin: 0 auto 18px;
+      border-radius: 14px;
+      object-fit: contain;
+      box-sizing: border-box;
+    }
+
     /* AMAZON BUTTON */
 
     .amazon-buy-button {
@@ -75,6 +88,10 @@
 
       .release-photo {
         max-height: none;
+      }
+
+      .upcoming-book-cover {
+        max-width: 300px;
       }
 
       .amazon-buy-button {
@@ -154,7 +171,7 @@
             Ending each day with peace, prayer, and the comfort of God's loving care.
           </p>
 
-          <!-- NEW RELEASE PHOTOS -->
+          <!-- RELEASE PHOTOS -->
 
           <div class="release-gallery">
 
@@ -207,6 +224,13 @@
           <!-- BOOK TWO -->
 
           <div class="book-card">
+
+            <img
+              class="upcoming-book-cover"
+              src="Good Morning (8.5 x 8.5 in).png"
+              alt="Good Morning, Little Lamb book cover"
+              loading="lazy"
+            >
 
             <div class="book-title">
               Good Morning, Little Lamb
@@ -364,6 +388,11 @@
     © 2026 Mansour Press — Made with wonder.
   </footer>
 
+  <script src="script.js"></script>
+
+</body>
+
+</html>
   <script src="script.js"></script>
 
 </body>
