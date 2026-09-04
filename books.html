@@ -33,17 +33,19 @@
       box-sizing: border-box;
     }
 
-    /* BOOK TWO COVER */
+    /* BOOK TWO PDF COVER */
 
     .upcoming-book-cover {
       display: block;
       width: 100%;
       max-width: 360px;
-      height: auto;
+      height: 360px;
       margin: 0 auto 18px;
+      border: none;
       border-radius: 14px;
-      object-fit: contain;
       box-sizing: border-box;
+      overflow: hidden;
+      background: #fff;
     }
 
     /* AMAZON BUTTON */
@@ -92,6 +94,7 @@
 
       .upcoming-book-cover {
         max-width: 300px;
+        height: 300px;
       }
 
       .amazon-buy-button {
@@ -225,12 +228,16 @@
 
           <div class="book-card">
 
-            <img
+            <object
+              data="Good Morning (8.5 x 8.5 in).pdf"
+              type="application/pdf"
               class="upcoming-book-cover"
-              src="Good Morning (8.5 x 8.5 in).png"
-              alt="Good Morning, Little Lamb book cover"
-              loading="lazy"
+              aria-label="Good Morning, Little Lamb book cover"
             >
+              <a href="Good Morning (8.5 x 8.5 in).pdf">
+                View Good Morning, Little Lamb cover
+              </a>
+            </object>
 
             <div class="book-title">
               Good Morning, Little Lamb
@@ -388,11 +395,6 @@
     © 2026 Mansour Press — Made with wonder.
   </footer>
 
-  <script src="script.js"></script>
-
-</body>
-
-</html>
   <script src="script.js"></script>
 
 </body>
