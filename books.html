@@ -11,6 +11,8 @@
 
   <style>
 
+    /* RELEASE PHOTO GALLERY */
+
     .release-gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -31,18 +33,20 @@
       box-sizing: border-box;
     }
 
+    /* BOOK TWO COVER */
+
     .upcoming-book-cover {
       display: block;
       width: 100%;
       max-width: 360px;
-      height: 360px;
+      height: auto;
       margin: 0 auto 18px;
-      border: none;
       border-radius: 14px;
+      object-fit: contain;
       box-sizing: border-box;
-      overflow: hidden;
-      background: #fff;
     }
+
+    /* PURCHASE BUTTONS */
 
     .purchase-buttons {
       display: flex;
@@ -88,6 +92,8 @@
       text-decoration: none;
     }
 
+    /* MOBILE */
+
     @media (max-width: 700px) {
 
       .release-gallery {
@@ -102,7 +108,6 @@
 
       .upcoming-book-cover {
         max-width: 300px;
-        height: 300px;
       }
 
       .purchase-buttons {
@@ -151,6 +156,8 @@
 
       <h1 class="page-title">Books</h1>
 
+      <!-- SERIES INTRO -->
+
       <section class="card cloud">
 
         <h2 class="h2">
@@ -165,6 +172,8 @@
         </p>
 
       </section>
+
+      <!-- FEATURED BOOK -->
 
       <section class="card cloud featured-book-section">
 
@@ -182,6 +191,8 @@
             Ending each day with peace, prayer, and the comfort of God's loving care.
           </p>
 
+          <!-- RELEASE PHOTOS -->
+
           <div class="release-gallery">
 
             <img
@@ -197,6 +208,8 @@
             >
 
           </div>
+
+          <!-- PURCHASE BUTTONS -->
 
           <div class="purchase-buttons">
 
@@ -224,6 +237,8 @@
 
       </section>
 
+      <!-- THE JOURNEY AHEAD -->
+
       <section class="card cloud">
 
         <h2 class="h2">
@@ -236,18 +251,15 @@
 
         <div class="grid journey-grid">
 
+          <!-- BOOK TWO -->
+
           <div class="book-card">
 
-            <object
-              data="good-morning-little-lamb-cover.png.pdf"
-              type="application/pdf"
+            <img
               class="upcoming-book-cover"
-              aria-label="Good Morning, Little Lamb book cover"
+              src="Good Morning.png"
+              alt="Good Morning, Little Lamb book cover"
             >
-              <a href="good-morning-little-lamb-cover.png.pdf">
-                View Good Morning, Little Lamb cover
-              </a>
-            </object>
 
             <div class="book-title">
               Good Morning, Little Lamb
@@ -266,6 +278,8 @@
             </p>
 
           </div>
+
+          <!-- BOOK THREE -->
 
           <div class="book-card">
 
@@ -287,6 +301,8 @@
 
           </div>
 
+          <!-- BOOK FOUR -->
+
           <div class="book-card">
 
             <div class="book-title">
@@ -307,6 +323,8 @@
 
           </div>
 
+          <!-- BOOK FIVE -->
+
           <div class="book-card">
 
             <div class="book-title">
@@ -326,6 +344,8 @@
             </p>
 
           </div>
+
+          <!-- BOOK SIX -->
 
           <div class="book-card">
 
@@ -352,6 +372,8 @@
 
       </section>
 
+      <!-- CLOSING NOTE -->
+
       <section class="card cloud">
 
         <p class="collection-closing">
@@ -360,6 +382,8 @@
         </p>
 
       </section>
+
+      <!-- LAUNCH UPDATES -->
 
       <section class="card cloud">
 
@@ -373,12 +397,14 @@
         </p>
 
         <p class="p launch-link">
+
           <a
             class="cloud-link"
             href="mailto:mansourpress@gmail.com"
           >
             Join the List
           </a>
+
         </p>
 
       </section>
